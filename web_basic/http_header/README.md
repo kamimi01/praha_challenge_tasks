@@ -51,8 +51,8 @@ HTTPの歴史を辿りながら仕様を解説する技術書です。少々説�
 https://developer.mozilla.org/ja/docs/Web/HTTP  
 個人的に、MDNはWEBの仕様に関して自信がない時に第一に当たるソースかもしれません。Firefoxを開発しているMozillaによってメンテナンスされているページで、WEB知識の基礎固めにうってつけです。こちらに記載されている内容に全て目を通せば、十分すぎるほどの知識が身につくと思います
 
-（余談ですがMozillaの業績悪化によりMDNのメンテナンスチームが人員削減されてしまったため、今後は最新情報へのキャッチアップが遅れてしまうかもしれません...）
+（余談ですがMozillaの業績悪化によりMDNのメンテナンスチームが人員削減されてしまったため、今後は最新情報へのキャッチアップが遅れてしまうかもしれません...）  
 https://www.fastcompany.com/90539632/mozilla-vows-mdn-isnt-going-anywhere-as-layoffs-cause-panic-among-developers
 
-（さらに余談ですがrefererは綴りとして誤っており、referrerが正しいのですが、RFC申請時のタイポがそのまま採用されてしまったようです）
+（さらに余談ですがrefererは綴りとして誤っており、referrerが正しいのですが、RFC申請時のタイポがそのまま採用されてしまったようです）  
 https://en.wikipedia.org/wiki/HTTP_referer
