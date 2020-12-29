@@ -48,6 +48,8 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
   - target：リンクの表示先を決定する属性名。`_blank`指定の場合は別タブで開く。（`_self`指定の場合は同じタブで開く）
 * JavaScript
   - window.opener：現在のウィンドウを開いたウィンドウへの参照
+* オリジン
+  - オリジン：ウェブコンテンツにアクセスするために使われる URL のスキーム(プロトコル)、ホスト(ドメイン)、ポート によって定義される
 
 # 参照元
 
@@ -58,3 +60,5 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
 * サイト：「[Window.opener](https://developer.mozilla.org/en-US/docs/Web/API/Window/opener)」(Mozilla)
 * サイト：「[フィッシング詐欺の新手口――「開いているタブが偽サイトに」](https://xtech.nikkei.com/it/article/NEWS/20100527/348511/)」(日経XTECH)
 * サイト：「[The performance benefits of rel=noopener](https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/)」(Jake Archibald)
+* サイト：「[CORS(Cross-Origin Resource Sharing)について整理してみた](https://dev.classmethod.jp/articles/about-cors/)」(Classmethod)
+* サイト：「[CORS(Cross-Origin Resource Sharing)によるクロスドメイン通信の傾向と対策](https://dev.classmethod.jp/articles/cors-cross-origin-resource-sharing-cross-domain/)」(Classmethod)
