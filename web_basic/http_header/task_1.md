@@ -30,7 +30,7 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
   - `origin-when-cross-origin`の意味：同一オリジン間でリクエストを行う場合はオリジン、パス、クエリ文字列を送信するが、その他の場合は文書のオリジンのみを送信する
   - 他にも、`no-referrer`など設定可能な値がいくつか存在する
     - 参照：「[Referrer-Policy](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Referrer-Policy)」(Mozilla)
-  - * メモ：`web_basic/http_header/cross_origin_test`フォルダに挙動確認のために使用したコードがあります。
+  - メモ：`web_basic/http_header/cross_origin_test`フォルダに挙動確認のために使用したコードがあります。
 
 # 疑問（調べていてわからなかったことを記載します）
 
