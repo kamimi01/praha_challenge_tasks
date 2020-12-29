@@ -20,8 +20,9 @@
 rel=noreferrerを設定しなかった場合に起きうる問題を調べて、説明して下さい
 * `rel="noreferrer"`を設定することで、以下2つの問題の発生を防ぐことができるため。
   1. セキュリティの問題
-    * 
-  1. パフォーマンスの問題
+    * 遷移先のページが、`window.opener`プロパティを使用して遷移元のページを操作することが可能になる。遷移先のページが悪意ある製作者によって作られたページの場合、遷移元のページを悪意あるページ(フィッシングサイトなど)にリダイレクトするなどが可能になる。（「タブナビング」と言われるフィッシング詐欺の手口）
+  2. パフォーマンスの問題
+    * 遷移元と遷移先のページは同じプロセス上で実行されるため、遷移先のページで高負荷のJavaScriptが実行されると遷移元のページのパフォーマンスが低下する可能性がある。
 
 > 先輩エンジニアに「同じオリジンの時はrefererの情報を全部送って、別オリジンの時は、オリジン情報だけをrefererとして送信するように、HTTPリクエストにヘッダを追加しておいてもらえる？」と頼まれました。HTTPリクエストのヘッダーには、どんな値を追加する必要があるでしょうか？
 
@@ -43,8 +44,10 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
     | キャッシュ | サーバから取得したリソースをローカルストレージに蓄積して再利用する。 | Pragma / Expires / Cache-Control |
     | 持続的接続 | HTTP1.0ではTCPコネクションをリクエストの度に切断していたが、そうではなくまとめて接続し続けることができる。それによりクライアントはサーバのレスポンスを待たずに同じサーバにリクエストを送信できる。 | Keep-Alive / Connection |
     | その他のHTTPヘッダ | HTTPの標準ではないがよく使われているヘッダ | Content-Diposition / Slug |
-* HTMLタグ
+* HTML
   - target：リンクの表示先を決定する属性名。`_blank`指定の場合は別タブで開く。（`_self`指定の場合は同じタブで開く）
+* JavaScript
+  - window.opener：現在のウィンドウを開いたウィンドウへの参照
 
 # 参照元
 
@@ -52,3 +55,6 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
 * 書籍：「Web API The Good Part」
 * サイト：「[MDN Web Docs](https://developer.mozilla.org/ja/)」(Mozilla)
 * サイト：「[Links to cross-origin destinations are unsafe](https://web.dev/external-anchors-use-rel-noopener/)」(Google)
+* サイト：「[Window.opener](https://developer.mozilla.org/en-US/docs/Web/API/Window/opener)」(Mozilla)
+* サイト：「[フィッシング詐欺の新手口――「開いているタブが偽サイトに」](https://xtech.nikkei.com/it/article/NEWS/20100527/348511/)」(日経XTECH)
+* サイト：「[The performance benefits of rel=noopener](https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/)」(Jake Archibald)
