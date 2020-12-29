@@ -25,6 +25,10 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
     * 遷移元と遷移先のページは同じプロセス上で実行されるため、遷移先のページで高負荷のJavaScriptが実行されると遷移元のページのパフォーマンスが低下する可能性がある。
 
 > 先輩エンジニアに「同じオリジンの時はrefererの情報を全部送って、別オリジンの時は、オリジン情報だけをrefererとして送信するように、HTTPリクエストにヘッダを追加しておいてもらえる？」と頼まれました。HTTPリクエストのヘッダーには、どんな値を追加する必要があるでしょうか？
+* `Referrer-Policy`ヘッダに、`origin-when-cross-origin`を追加する
+  - `origin-when-cross-origin`の意味：同一オリジン間でリクエストを行う場合はオリジン、パス、クエリ文字列を送信するが、その他の場合は文書のオリジンのみを送信する
+  - 他にも、`no-referrer`など設定可能な値がいくつか存在する
+    - 参照：「[Referrer-Policy](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Referrer-Policy)」(Mozilla)
 
 # 疑問（調べていてわからなかったことを記載します）
 
