@@ -21,6 +21,7 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
 * `rel="noreferrer"`を設定することで、以下2つの問題の発生を防ぐことができるため。
   1. セキュリティの問題
     * 遷移先のページが、`window.opener`プロパティを使用して遷移元のページを操作することが可能になる。遷移先のページが悪意ある製作者によって作られたページの場合、遷移元のページを悪意あるページ(フィッシングサイトなど)にリダイレクトするなどが可能になる。（「タブナビング」と言われるフィッシング詐欺の手口）
+    * メモ：`web_basic/http_header/noreferrer_test`フォルダに挙動確認のために使用したコードがあります。
   2. パフォーマンスの問題
     * 遷移元と遷移先のページは同じプロセス上で実行されるため、遷移先のページで高負荷のJavaScriptが実行されると遷移元のページのパフォーマンスが低下する可能性がある。
 
@@ -29,6 +30,7 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
   - `origin-when-cross-origin`の意味：同一オリジン間でリクエストを行う場合はオリジン、パス、クエリ文字列を送信するが、その他の場合は文書のオリジンのみを送信する
   - 他にも、`no-referrer`など設定可能な値がいくつか存在する
     - 参照：「[Referrer-Policy](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Referrer-Policy)」(Mozilla)
+  - * メモ：`web_basic/http_header/cross_origin_test`フォルダに挙動確認のために使用したコードがあります。
 
 # 疑問（調べていてわからなかったことを記載します）
 
@@ -66,3 +68,4 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
 * サイト：「[The performance benefits of rel=noopener](https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/)」(Jake Archibald)
 * サイト：「[CORS(Cross-Origin Resource Sharing)について整理してみた](https://dev.classmethod.jp/articles/about-cors/)」(Classmethod)
 * サイト：「[CORS(Cross-Origin Resource Sharing)によるクロスドメイン通信の傾向と対策](https://dev.classmethod.jp/articles/cors-cross-origin-resource-sharing-cross-domain/)」(Classmethod)
+* サイト：「[Referrer を制御する](https://qiita.com/wakaba@github/items/707d72f97f2862cd8000)」(Qiita)
