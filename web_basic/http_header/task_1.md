@@ -18,6 +18,10 @@
 ## 回答
 > aタグにtarget="_blank"を設定したところ、先輩エンジニアから「ちゃんとrel=noreferrerを設定した？」と聞かれました。なぜそのような設定が必要なのでしょうか？
 rel=noreferrerを設定しなかった場合に起きうる問題を調べて、説明して下さい
+* `rel="noreferrer"`を設定することで、以下2つの問題の発生を防ぐことができるため。
+  1. セキュリティの問題
+    * 
+  1. パフォーマンスの問題
 
 > 先輩エンジニアに「同じオリジンの時はrefererの情報を全部送って、別オリジンの時は、オリジン情報だけをrefererとして送信するように、HTTPリクエストにヘッダを追加しておいてもらえる？」と頼まれました。HTTPリクエストのヘッダーには、どんな値を追加する必要があるでしょうか？
 
@@ -39,9 +43,12 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
     | キャッシュ | サーバから取得したリソースをローカルストレージに蓄積して再利用する。 | Pragma / Expires / Cache-Control |
     | 持続的接続 | HTTP1.0ではTCPコネクションをリクエストの度に切断していたが、そうではなくまとめて接続し続けることができる。それによりクライアントはサーバのレスポンスを待たずに同じサーバにリクエストを送信できる。 | Keep-Alive / Connection |
     | その他のHTTPヘッダ | HTTPの標準ではないがよく使われているヘッダ | Content-Diposition / Slug |
+* HTMLタグ
+  - target：リンクの表示先を決定する属性名。`_blank`指定の場合は別タブで開く。（`_self`指定の場合は同じタブで開く）
 
 # 参照元
 
 * 書籍：「Webを支える技術」
 * 書籍：「Web API The Good Part」
-* サイト：「[MDN Web Docs](https://developer.mozilla.org/ja/)」
+* サイト：「[MDN Web Docs](https://developer.mozilla.org/ja/)」(Mozilla)
+* サイト：「[Links to cross-origin destinations are unsafe](https://web.dev/external-anchors-use-rel-noopener/)」(Google)
