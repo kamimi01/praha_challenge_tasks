@@ -16,4 +16,4 @@ jobs:
           TOC_TITLE: "**目次**"
           FOLDING: true
           COMMIT_MESSAGE: "#7 Add or Update: 目次作成"
-          TARGET_PATHS: "*.md,web_basic/*.md,web_basic/http_header/*.md"
+          TARGET_PATHS: "*.md"
