@@ -1,0 +1,7 @@
+name: toc-generate
+
+# developブランチにプッシュされた場合のみ起動
+on: 
+  push:
+    branches:
+      - develop
