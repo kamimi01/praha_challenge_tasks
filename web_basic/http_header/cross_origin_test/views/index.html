@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <button id="ng_cors">CORS無許可確認ボタン</button>
+    <button id="ok_cors">CORS許可確認ボタン</button>
+
+    <script type="text/javascript">
+      $(function () {
+        // CORS無許可確認ボタンクリック時
+        $("#ng_cors").on("click", function () {
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/api/v1/ng_cors",
+          })
+            // Ajaxリクエストが成功した時発動
+            .done((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが失敗した時発動
+            .fail((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが成功・失敗どちらでも発動
+            .always((data) => {});
+        });
+
+        // CORS許可確認ボタンクリック時
+        $("#ok_cors").on("click", function () {
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:3000/api/v1/ok_cors",
+          })
+            // Ajaxリクエストが成功した時発動
+            .done((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが失敗した時発動
+            .fail((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが成功・失敗どちらでも発動
+            .always((data) => {});
+        });
+      });
+    </script>
+  </body>
+</html>
