@@ -1,7 +1,18 @@
 # よく使うHTTPヘッダを理解する
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>目次</summary>
+
+- [学ばないと何が起きるのか](#%E5%AD%A6%E3%81%B0%E3%81%AA%E3%81%84%E3%81%A8%E4%BD%95%E3%81%8C%E8%B5%B7%E3%81%8D%E3%82%8B%E3%81%AE%E3%81%8B)
+- [課題説明](#%E8%AA%B2%E9%A1%8C%E8%AA%AC%E6%98%8E)
+  - [課題１（質問）](#%E8%AA%B2%E9%A1%8C%EF%BC%91%E8%B3%AA%E5%95%8F)
+  - [課題２（クイズ）](#%E8%AA%B2%E9%A1%8C%EF%BC%92%E3%82%AF%E3%82%A4%E3%82%BA)
+  - [（任意課題）](#%E4%BB%BB%E6%84%8F%E8%AA%B2%E9%A1%8C)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 学ばないと何が起きるのか
 

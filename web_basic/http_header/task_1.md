@@ -1,5 +1,18 @@
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>目次</summary>
+
+- [課題：以下のヘッダーの意味と役割を説明してください](#%E8%AA%B2%E9%A1%8C%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%98%E3%83%83%E3%83%80%E3%83%BC%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%A8%E5%BD%B9%E5%89%B2%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84)
+  - [回答](#%E5%9B%9E%E7%AD%94)
+- [課題：refererについて](#%E8%AA%B2%E9%A1%8Creferer%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+  - [回答](#%E5%9B%9E%E7%AD%94-1)
+- [疑問（調べていてわからなかったことを記載します）](#%E7%96%91%E5%95%8F%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%84%E3%81%A6%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E3%82%92%E8%A8%98%E8%BC%89%E3%81%97%E3%81%BE%E3%81%99)
+- [メモ（回答には直接関係ないですが、調べたことを記載します）](#%E3%83%A1%E3%83%A2%E5%9B%9E%E7%AD%94%E3%81%AB%E3%81%AF%E7%9B%B4%E6%8E%A5%E9%96%A2%E4%BF%82%E3%81%AA%E3%81%84%E3%81%A7%E3%81%99%E3%81%8C%E8%AA%BF%E3%81%B9%E3%81%9F%E3%81%93%E3%81%A8%E3%82%92%E8%A8%98%E8%BC%89%E3%81%97%E3%81%BE%E3%81%99)
+- [参照元](#%E5%8F%82%E7%85%A7%E5%85%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 課題：以下のヘッダーの意味と役割を説明してください
 
