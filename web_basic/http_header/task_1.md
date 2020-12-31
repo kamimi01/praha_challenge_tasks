@@ -1,7 +1,11 @@
+# 課題1
+
+## Table of Contents
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
-<summary>目次</summary>
+<summary>Details</summary>
 
 - [課題：以下のヘッダーの意味と役割を説明してください](#%E8%AA%B2%E9%A1%8C%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%98%E3%83%83%E3%83%80%E3%83%BC%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%A8%E5%BD%B9%E5%89%B2%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84)
   - [回答](#%E5%9B%9E%E7%AD%94)
@@ -14,9 +18,9 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# 課題：以下のヘッダーの意味と役割を説明してください
+## 課題：以下のヘッダーの意味と役割を説明してください
 
-## 回答
+### 回答
 
 | ヘッダー名 | 意味 | 役割 | 値の例 | 備考 |
 | ---- | ---- | ---- | ---- | ---- |
@@ -29,9 +33,9 @@
 | Authorization | クライアントがサーバに認証してもらうための証明書 | サーバがクライアントから受け取ることで証明を行い、リソースへのアクセスを許可するために使用される。 | Basic dXNlcjpwYXNzd29yZA== | `<認証の種類> / <crednentials>`で構成される。 | Base64エンコーディングは簡単にデコード可能なため、HTTPS通信を使用することが前提とされる。|
 | Location | 関連付けされたオブジェクトの場所を表すURI | リダイレクトや新規作成時などオブジェクトの場所を表すために使用される。 | http://example.jp/blog/1 | - |
 
-# 課題：refererについて
+## 課題：refererについて
 
-## 回答
+### 回答
 > aタグにtarget="_blank"を設定したところ、先輩エンジニアから「ちゃんとrel=noreferrerを設定した？」と聞かれました。なぜそのような設定が必要なのでしょうか？
 rel=noreferrerを設定しなかった場合に起きうる問題を調べて、説明して下さい
 * `rel="noreferrer"`を設定することで、以下2つの問題の発生を防ぐことができるため。
@@ -48,9 +52,9 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
     - 参照：「[Referrer-Policy](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Referrer-Policy)」(Mozilla)
   - メモ：`web_basic/http_header/cross_origin_test`フォルダに挙動確認のために使用したコードがあります。
 
-# 疑問（調べていてわからなかったことを記載します）
+## 疑問（調べていてわからなかったことを記載します）
 
-# メモ（回答には直接関係ないですが、調べたことを記載します）
+## メモ（回答には直接関係ないですが、調べたことを記載します）
 * HTTPヘッダ
   - メッセージのボディに対する付加的な情報（メタデータ）を表現する
   - HTTP0.9では存在しなかったが、後に電子メールのメッセージ仕様(RFC822)のヘッダ形式を借りる形で追加されたため、メールのヘッダ形式と共通している部分がある。ただし名前は同じでも意味はHTTPヘッダとして独自定義されている
@@ -73,7 +77,7 @@ rel=noreferrerを設定しなかった場合に起きうる問題を調べて、
 * オリジン
   - オリジン：ウェブコンテンツにアクセスするために使われる URL のスキーム(プロトコル)、ホスト(ドメイン)、ポート によって定義される
 
-# 参照元
+## 参照元
 
 * 書籍：「Webを支える技術」
 * 書籍：「Web API The Good Part」
