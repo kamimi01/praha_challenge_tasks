@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: technote-space/toc-generator@v3
         with:
-          TOC_TITLE: "**目次**"
+          TOC_TITLE: "**Details**"
           FOLDING: true
-          COMMIT_MESSAGE: "#7 Add or Update: 目次作成"
-          TARGET_PATHS: "*.md,web_basic/*.md,web_basic/http_header/*.md"
+          COMMIT_MESSAGE: "#7 Add or Update: toc-generatorによる目次自動作成"
+          TARGET_PATHS: "*.md,web_basic/*.md,web_basic/http_header/*.md,web_basic/http_header/cross_origin_test/*.md,web_basic/http_header/noreferrer_test/*.md"
