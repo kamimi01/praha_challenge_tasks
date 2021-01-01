@@ -16,4 +16,4 @@ jobs:
           TOC_TITLE: "**Details**"
           FOLDING: true
           COMMIT_MESSAGE: "#7 Add or Update: toc-generatorによる目次自動作成"
-          TARGET_PATHS: "*.md,web_basic/*.md,web_basic/http_header/*.md,web_basic/http_header/cross_origin_test/*.md,web_basic/http_header/noreferrer_test/*.md,.github/CONTRIBUTING.md,web_basic/curl_and_postman/*.md"
+          TARGET_PATHS: "*.md,web_basic/*.md,web_basic/http_header/*.md,web_basic/http_header/cross_origin_test/*.md,web_basic/http_header/noreferrer_test/*.md,.github/CONTRIBUTING.md"
