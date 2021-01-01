@@ -1,6 +1,8 @@
-# 概要
+# 本レポジトリ運用ガイドライン
 
 * あくまでkamimi01が作業する時のガイドラインですので、参考程度にしてください!
+
+## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -29,7 +31,8 @@
        * 目次生成場所を示すため、以下のコメントを挿入する（基本は「#」を記載した後に挿入する）
        * このmdファイル記載がそうなっているのので、それを参考にする
 
-        ```html
+        ```md
+        ## Table of Contents
         <!-- START doctoc -->
         <!-- END doctoc -->
         ```
