@@ -2,8 +2,15 @@
 
 * あくまでkamimi01が作業する時のガイドラインですので、参考程度にしてください!
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [本レポジトリの運用](#%E6%9C%AC%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E9%81%8B%E7%94%A8)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 本レポジトリの運用
 
