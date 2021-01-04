@@ -14,4 +14,124 @@
 
 ## curlの課題
 
+> 以下のリクエストをcurlコマンドでhttpbinに送信してください
+> curlコマンドをペアと比較して、なぜそのような書き方をしたのか、話し合ってみましょう
+
+### 問題1
+
+#### 回答
+
+以下のように書いた。
+
+```curl
+curl -Ss -H 'X-Test:hello' https://httpbin.org/headers | jq '.'
+```
+
+* 参考
+  * 上記の回答のようにリクエストを送ったところ、以下のようにヘッダが返ってきた。（※一部値をマスクしている）
+  
+  ```json
+  {
+    "headers": {
+      "Accept": "*/*", 
+      "Host": "httpbin.org", 
+      "User-Agent": "curl/7.64.1", 
+      "X-Amzn-Trace-Id": "***********", 
+      "X-Test": "hello"
+    }
+  }
+  ```
+
+  * `-H`のオプションで、リクエストヘッダを指定した（`--header`でも同様に指定可能）
+  * `-H`区切りでつなげることで、以下のように複数ヘッダを指定することも可能
+    * `curl -H 'X-Test:hello' -H 'X-Test-2:hello2' https://httpbin.org/headers`
+  * `-Ss`のオプションで、デフォルトで出力される転送情報を非表示にし、エラーが発生した場合のみ出力されるように制御することができる。例えば取得したレスポンスのみをファイルなどに出力したい場合に役立つのではと考えられる。
+  * 場合によってはjsonレスポンスが整形されないことがある。またレスポンスがハイライトされるため、`jq`コマンドを使用した。httpbinの場合は整形された状態のレスポンスが返るため、未使用でもそれほど見づらくはないと思われる。
+    * 例えば、以下のコマンドを投げた場合、整形されずにレスポンスされ、見づらい
+      * コマンド:`curl 'http://search.twitter.com/search.json?q=classmethod&rpp=2&include_entities=true'`
+      * レスポンス：
+
+      ```text
+      {"errors":[{"message":"The Twitter REST API v1 is no longer active. Please migrate to API v1.1. https://dev.twitter.com/docs/api/1.1/overview.","code":64}]}
+      ```
+
+    * `jq`を使用することで、jsonが整形され見やすくなる
+      * コマンド：`curl 'http://search.twitter.com/search.json?q=classmethod&rpp=2&include_entities=true' | jq '.'`
+      * レスポンス：
+
+      ```json
+      {
+        "errors": [
+          {
+            "message": "The Twitter REST API v1 is no longer active. Please migrate to API v1.1. https://dev.twitter.com/docs/api/1.1/overview.",
+            "code": 64
+          }
+        ]
+      }
+      ```
+
+    * 他にもレスポンスに日本語が含まれている場合、文字化けしてうまく表示されないため、`jq`をインストールして以下のようにリクエストを行うことで、文字化けが解消される。またレスポンスのjsonデータの整形や絞り込みも可能
+    * 参考：[jqで簡単JSON加工](https://dev.classmethod.jp/articles/jq/)
+  
+  * 参考：[curl コマンド 使い方メモ](https://qiita.com/yasuhiroki/items/a569d3371a66e365316f)
+
+### 問題2
+
+#### 回答
+
+以下のように書いた。
+
+```curl
+curl -Ss -X POST -H 'Content-Type: application/json' -d '{"name":"hoge"}' https://httpbin.org/post | jq '.'
+```
+
+* 参考
+  * `-X`でメソッドを指定する。ただし、GETリクエストの場合は省略可能。
+  * `-d`で送信するデータを指定する。（`--data`でも同様の指定が可能）
+
+### 問題3
+
+#### 回答
+
+以下のように書いた。
+
+```curl
+curl -Ss -X POST -H 'Content-Type: application/json' -d '{"userA":{"name":"hoge","age":29}}' https://httpbin.org/post | jq '.'
+```
+
+### 問題4
+
+#### 回答
+
+```curl
+curl -Ss -X POST -d 'name=taro' https://httpbin.org/post | jq '.'
+```
+
+* 参考
+  * `application/x-www-form-urlencoded`とは
+    * HTMLフォーム形式を表すメディアタイプ
+    * `-d`オプションを使用すると、デフォルトでは`Content-Type`は、`application/x-www-form-urlencoded`となる
+  * 日本語など、URLエンコードが必要な文字を送信する場合は、`--data-urlencode`オプションをつけてエンコードするか、エンコード済みの文字を送る必要がある
+
 ## postmanの課題
+
+## 疑問（調べていてわからなかったことを記載します）
+
+## メモ（回答には直接関係ないですが、調べたことを記載します）
+* dockerでhttpbinを起動する方法
+  * `docker run -p 80:80 kennethreitz/httpbin`で起動
+  * `docker container stop kennethreitz/httpbin`でストップ
+  * `docker container ls -a`でコンテナの状態を確認
+* curlとは
+  * プロトコルの1つを使って、サーバとのデータの送受信を行うためのツール
+  * 「client for URL」の略
+  * 参考：
+    * [curl.1 the man page](https://curl.se/docs/manpage.html)
+* curlコマンドをブラウザで作成することもできる
+  * 参考：[ChromeのデベロッパーモードからcURLのコマンド作成](https://masalib.hatenablog.com/entry/2018/06/05/213000)
+  ![curl_command_from_browser](../../assets/create_curl_command_from_browser.png)
+* `X-Amzn-Trace-Id`とは
+  * AWSのサービスの1つである「Application Load Balancer」がクライアントからのターゲットまたは他のサービスへのHTTPリクエストを追跡するために使用されるトレースID
+  * 参考：[Application Load Balancer のリクエストのトレース](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/load-balancer-request-tracing.html)
+
+## 参照元
