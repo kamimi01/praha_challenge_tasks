@@ -122,7 +122,6 @@ curl -Ss -X POST -d 'name=taro' https://httpbin.org/post | jq '.'
   * `application/x-www-form-urlencoded`とは
     * HTMLフォーム形式を表すメディアタイプ
     * `-d`オプションを使用すると、デフォルトでは`Content-Type`は、`application/x-www-form-urlencoded`となる
-  * 日本語など、URLエンコードが必要な文字を送信する場合は、`--data-urlencode`オプションをつけてエンコードするか、エンコード済みの文字を送る必要がある
 
 ## postmanの課題
 
@@ -131,6 +130,9 @@ curl -Ss -X POST -d 'name=taro' https://httpbin.org/post | jq '.'
 1. [postman_collections](./postman_collections/praha_challnege_curl_and_postman.postman_collection.json)にPOSTMANのリクエストやテストスクリプトを書いたコレクションを格納済みなので、それを自分のPOSTMANにコレクションをインポートする
 2. コレクションを「Run」する
 3. 結果が全てOKになっていることを確認する
+
+* 参考
+  * [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
 
 以下がテストの結果です。
 ![postman_request_result](../../assets/postman_run_result.png)
