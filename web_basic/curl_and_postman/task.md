@@ -133,7 +133,9 @@ curl -Ss -X POST -d 'name=taro' https://httpbin.org/post | jq '.'
 3. 結果が全てOKになっていることを確認する
 
 * 参考
-  * [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
+  * インポート方法：[Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
+  * 実行方法：[[ツール] PostmanでAPI疎通試験 [試験を実行]
+](https://dev.classmethod.jp/articles/api-test-with-postman-02/)
 
 以下がテストの結果です。
 ![postman_request_result](../../assets/postman_run_result.png)
