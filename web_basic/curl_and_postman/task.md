@@ -126,6 +126,15 @@ curl -Ss -X POST -d 'name=taro' https://httpbin.org/post | jq '.'
 
 ## postmanの課題
 
+#### 回答
+以下のように回答を確認できます。
+1. [postman_collections](./postman_collections/praha_challnege_curl_and_postman.postman_collection.json)にPOSTMANのリクエストやテストスクリプトを書いたコレクションを格納済みなので、それを自分のPOSTMANにコレクションをインポートする
+2. コレクションを「Run」する
+3. 結果が全てOKになっていることを確認する
+
+以下がテストの結果です。
+![postman_request_result](../../assets/postman_run_result.png)
+
 ## 疑問（調べていてわからなかったことを記載します）
 
 ## メモ（回答には直接関係ないですが、調べたことを記載します）
