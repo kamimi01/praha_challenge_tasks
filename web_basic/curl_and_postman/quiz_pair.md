@@ -76,7 +76,7 @@ curl -i -X GET -H "X-Forwarded-For: 192.168.100.101" http://0.0.0.0:80/headers\?
 ```
 
 * 参考
-  * また、`-I`オプションを指定するとボディのみ取得可能
+  * また、`-I`オプションを指定するとヘッダのみ取得可能
 
 ### クイズ3
 
@@ -106,7 +106,7 @@ Postmanで環境変数に以下の値を設定し、環境変数を参照する�
 
 |環境変数 |値|
 |----|----|
-|HOST_URL	|https://httpbin.org|
+|HOST_URL|https://httpbin.org|
 
 ### クイズ2
 
@@ -121,6 +121,9 @@ Postmanで環境変数としてUUID4_Tokenという変数名に、値を何も�
 https://httpbin.org/postへPOSTリクエストを送信します。その際にクイズ2で得られたuuidプロパティの値を、x-api-keyというカスタムHTTPヘッダに設定してリクエストを送信してみましょう。
 
 #### 回答
+
+以下のリンクでリクエストとレスポンスを確認可能です。（ただ、Pre-request ScriptsとTestのコードは確認できないみたい...）
+https://documenter.getpostman.com/view/7430399/TVzLp1EV#d422436f-5801-4e38-bf5d-05a1581e37b8
 
 POSTMANのコレクション・環境変数のjsonファイルとしてエクスポートして、浦川のレポジトリに格納いたしました。↓
 * コレクション：[コレクション](./postman_collections/praha_challnege_curl_and_postman.postman_collection.json)
