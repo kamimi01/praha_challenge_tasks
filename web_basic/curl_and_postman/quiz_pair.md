@@ -138,3 +138,10 @@ POSTMANのコレクション・環境変数のjsonファイルとしてエクス
 2. （Pre-request Script）レスポンスのuuidを環境変数`UUID4_Token`に格納する
 3. `https://httpbin.org/post`のリクエストヘッダにキー：`X-Api-Key`と値：`{{UUID4_Token}}`を設定してリクエストを送る
 4. （Tests）3のレスポンスの`headers`の`X-Api-Key`の値が、2で設定した環境変数`UUID4_Token`の値と同じであることを確認する
+
+* 参考
+  * POSTMANのリクエストとレスポンスのPublish方法（Publishすることでリンクでリクエストとレスポンスを共有できるようになる）
+    * Responseを保存する
+      * POSTMANの右下にある「Save Response」を押して、「Save as example」をおす
+    * コレクション右横の三点リーダーを押す
+    * 「Publish docs」をおす
