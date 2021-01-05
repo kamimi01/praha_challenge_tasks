@@ -282,6 +282,98 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "クイズ1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Test",
+						"value": "hello",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST_URL}}/headers",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "クイズ2・3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0cafaed5-e711-45c1-b56a-232bb1143ee8",
+						"exec": [
+							"// uuid生成のAPIをコールする（エラーハンドリングはしてません、、）",
+							"pm.sendRequest(\"https://httpbin.org/uuid\", function (err, response) {",
+							"    // 環境変数を初期化する",
+							"    pm.environment.unset('UUID4_Token')",
+							"",
+							"    // レスポンスのuuidの値を環境変数に格納する",
+							"    const uuid = response.json()[\"uuid\"]",
+							"    pm.globals.set(\"UUID4_Token\", uuid);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c4f39ab-e408-4e5e-8d59-d1042b621bbe",
+						"exec": [
+							"const expectedKey = \"X-Api-Key\"",
+							"const expectedValue = pm.globals.get(\"UUID4_Token\");",
+							"",
+							"// レスポンスのheadersに生成したuuidの値が含まれていることを確認する",
+							"pm.test(\"headers_check\", function () {",
+							"    const actualValue = pm.response.json()[\"headers\"][expectedKey]",
+							"    pm.expect(actualValue).to.eql(expectedValue);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{UUID4_Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/post",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -308,14 +400,24 @@
 	],
 	"variable": [
 		{
-			"id": "f565cfde-937e-4661-898c-b3f88c5b8774",
+			"id": "2600bd37-0ec6-4ad5-b336-0f9bfad4bb77",
 			"key": "protcol",
 			"value": "https"
 		},
 		{
-			"id": "2a1c7512-f808-4d41-b1cb-da462fe5780c",
+			"id": "c671a6ef-9b06-4eff-bece-31ef96a79110",
 			"key": "FQDN",
 			"value": "httpbin.org"
+		},
+		{
+			"id": "b7d29210-efc7-411c-afe6-115faae322a4",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"id": "34a80008-5380-4264-88eb-aa297d302300",
+			"value": "",
+			"disabled": true
 		}
 	],
 	"protocolProfileBehavior": {}
