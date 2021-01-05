@@ -2,8 +2,26 @@
 
 ## Table of Contents
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [curlのクイズ](#curl%E3%81%AE%E3%82%AF%E3%82%A4%E3%82%BA)
+  - [クイズ1](#%E3%82%AF%E3%82%A4%E3%82%BA1)
+    - [回答](#%E5%9B%9E%E7%AD%94)
+  - [クイズ2](#%E3%82%AF%E3%82%A4%E3%82%BA2)
+    - [回答](#%E5%9B%9E%E7%AD%94-1)
+  - [クイズ3](#%E3%82%AF%E3%82%A4%E3%82%BA3)
+    - [回答](#%E5%9B%9E%E7%AD%94-2)
+- [postmanのクイズ](#postman%E3%81%AE%E3%82%AF%E3%82%A4%E3%82%BA)
+  - [クイズ1](#%E3%82%AF%E3%82%A4%E3%82%BA1-1)
+  - [クイズ2](#%E3%82%AF%E3%82%A4%E3%82%BA2-1)
+  - [クイズ3](#%E3%82%AF%E3%82%A4%E3%82%BA3-1)
+    - [回答](#%E5%9B%9E%E7%AD%94-3)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## curlのクイズ
 ### クイズ1
