@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "14215f2b-adac-4786-8184-8274a74a725d",
+		"name": "praha_challnege_curl_and_postman",
+		"description": "PrAha Challenge課題2「curlとpostmanに慣れる」の課題回答用コレクション",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "問題1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c7f950f-a0ad-451c-baf3-98bd506a3d3e",
+						"exec": [
+							"// X-Testの値が\"\"hello\"であることを確認する",
+							"pm.test(\"x_test_check\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    const headers = jsonData.headers",
+							"",
+							"    const actualXTest = headers[\"X-Test\"]",
+							"    const expectedXTest = \"hello\"",
+							"",
+							"    pm.expect(actualXTest).to.eql(expectedXTest);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Test",
+						"value": "hello",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{protcol}}://{{FQDN}}/headers",
+					"protocol": "{{protcol}}",
+					"host": [
+						"{{FQDN}}"
+					],
+					"path": [
+						"headers"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "問題2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bc61c56-d909-4fa0-b9a3-720a11bc7af1",
+						"exec": [
+							"// dataとjsonの値に、正しいキーと値が入っていることを確認する",
+							"const jsonData = pm.response.json();",
+							"const expectedKeyName = \"name\"",
+							"const expectedValue = \"hoge\"",
+							"",
+							"// dataの文字列にnameとhogeが入っていることを確認",
+							"pm.test(\"data_check\", function () {",
+							"    const actualData = jsonData.data",
+							"    const haveCorrectKey = actualData.indexOf(expectedKeyName) != -1 ? true : false",
+							"    const haveConrrectValue = actualData.indexOf(expectedValue) != -1 ? true : false",
+							"",
+							"    const isCorrect = haveCorrectKey && haveConrrectValue ? true : false",
+							"",
+							"    pm.expect(isCorrect).to.eql(true)",
+							"});",
+							"",
+							"// jsonのキーnameにhogeが入っていることを確認",
+							"pm.test(\"json_check\", function () {",
+							"    const actualValue = jsonData.json[\"name\"]",
+							"",
+							"    pm.expect(actualValue).to.eql(expectedValue);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"hoge\"}"
+				},
+				"url": {
+					"raw": "{{protcol}}://{{FQDN}}/post",
+					"protocol": "{{protcol}}",
+					"host": [
+						"{{FQDN}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "問題3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "afff3bfd-c886-4518-848f-d3dc204b552d",
+						"exec": [
+							"// dataとjsonの値に、正しいキーと値が入っていることを確認する",
+							"const jsonData = pm.response.json();",
+							"const expectedKeyNameList = [\"userA\", \"name\", \"age\"]",
+							"const expectedAgeValue = 29",
+							"const expectedNameValue = \"hoge\"",
+							"",
+							"// dataの文字列に正しいキーと値が入っていることを確認",
+							"pm.test(\"data_check\", function () {",
+							"    const actualData = jsonData.data",
+							"    let haveCorrectKey = true",
+							"    let haveConrrectValue = true",
+							"",
+							"    for (const keyName of expectedKeyNameList) {",
+							"        if (actualData.indexOf(keyName) == -1) {",
+							"            haveCorrectKey = false",
+							"            break",
+							"        }",
+							"    }",
+							"",
+							"    const expectedValueList = [expectedAgeValue, expectedNameValue]",
+							"    for (const value of expectedValueList) {",
+							"        if (actualData.indexOf(value) == -1) {",
+							"            haveConrrectValue = false",
+							"            break",
+							"        }",
+							"    }",
+							"",
+							"    const isCorrect = haveCorrectKey && haveConrrectValue ? true : false",
+							"",
+							"    pm.expect(isCorrect).to.eql(true)",
+							"});",
+							"",
+							"// jsonに正しいキーと値が入っていることを確認",
+							"pm.test(\"json_check\", function () {",
+							"    const actualValue = jsonData.json[expectedKeyNameList[0]]",
+							"",
+							"    const isCorrectName = actualValue[expectedKeyNameList[1]] == expectedNameValue ? true : false",
+							"    const isCorrectAge = actualValue[expectedKeyNameList[2]] == expectedAgeValue ? true : false",
+							"",
+							"    const isCorrect = isCorrectAge && isCorrectName ? true : false",
+							"",
+							"    pm.expect(isCorrect).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userA\":{\"name\":\"hoge\",\"age\":29}}"
+				},
+				"url": {
+					"raw": "{{protcol}}://{{FQDN}}/post",
+					"protocol": "{{protcol}}",
+					"host": [
+						"{{FQDN}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "問題4",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ddb4a125-2633-424a-a63e-0f5398487cb3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c275adef-08bc-4031-86f5-db80cda068b6",
+						"exec": [
+							"// dataとjsonの値に、正しいキーと値が入っていることを確認する",
+							"const jsonData = pm.response.json();",
+							"const expectedKey = \"name\"",
+							"const expectedValue = \"taro\"",
+							"",
+							"// dataが空であることを確認",
+							"pm.test(\"data_check\", function () {",
+							"    const actualData = jsonData.data",
+							"    const expectedData = \"\"",
+							"",
+							"    pm.expect(actualData).to.eql(expectedData)",
+							"});",
+							"",
+							"// formに正しいキーと値が入っていることを確認",
+							"pm.test(\"form_check\", function () {",
+							"    const actualValue = jsonData.form[expectedKey]",
+							"",
+							"    pm.expect(actualValue).to.eql(expectedValue);",
+							"});",
+							"",
+							"// jsonがnullであることを確認",
+							"pm.test(\"json_check\", function () {",
+							"    const actualJson = jsonData.json",
+							"    const expectedJson = null",
+							"",
+							"    pm.expect(actualJson).to.eql(expectedJson);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "taro",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{protcol}}://{{FQDN}}/post",
+					"protocol": "{{protcol}}",
+					"host": [
+						"{{FQDN}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "クイズ1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Test",
+						"value": "hello",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST_URL}}/headers",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"headers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "クイズ2・3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0cafaed5-e711-45c1-b56a-232bb1143ee8",
+						"exec": [
+							"// uuid生成のAPIをコールする（エラーハンドリングはしてません、、）",
+							"pm.sendRequest(\"https://httpbin.org/uuid\", function (err, response) {",
+							"    // 環境変数を初期化する",
+							"    pm.environment.unset('UUID4_Token')",
+							"",
+							"    // レスポンスのuuidの値を環境変数に格納する",
+							"    const uuid = response.json()[\"uuid\"]",
+							"    pm.globals.set(\"UUID4_Token\", uuid);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c4f39ab-e408-4e5e-8d59-d1042b621bbe",
+						"exec": [
+							"const expectedKey = \"X-Api-Key\"",
+							"const expectedValue = pm.globals.get(\"UUID4_Token\");",
+							"",
+							"// レスポンスのheadersに生成したuuidの値が含まれていることを確認する",
+							"pm.test(\"headers_check\", function () {",
+							"    const actualValue = pm.response.json()[\"headers\"][expectedKey]",
+							"    pm.expect(actualValue).to.eql(expectedValue);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{UUID4_Token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST_URL}}/post",
+					"host": [
+						"{{HOST_URL}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "98dbaea8-d925-4cf9-bf3a-3984985ed6e8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b1be1fb8-59cb-40bc-96bd-799608a8758e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2600bd37-0ec6-4ad5-b336-0f9bfad4bb77",
+			"key": "protcol",
+			"value": "https"
+		},
+		{
+			"id": "c671a6ef-9b06-4eff-bece-31ef96a79110",
+			"key": "FQDN",
+			"value": "httpbin.org"
+		},
+		{
+			"id": "b7d29210-efc7-411c-afe6-115faae322a4",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"id": "34a80008-5380-4264-88eb-aa297d302300",
+			"value": "",
+			"disabled": true
+		}
+	],
+	"protocolProfileBehavior": {}
+}
