@@ -71,7 +71,7 @@
 |コマンド|概要|備考|
 |----|----|----|
 |`npm init`|初期化処理を行い、`package.json`を生成する||
-|`npm install <パッケージ名>`|パッケージのインストール||
+|`npm install <パッケージ名>`|パッケージのインストール|`npm i`と省略表記も可能|
 |`npm uninstall <パッケージ名>`|パッケージのアンインストール||
 |`npm install`|`package.json`の`dependencies`と`devDependencies`に記載されているパッケージのインストール|他人のnpmプロジェクトを取得し動かす場合には、このコマンドを使用|
 |`npm update <パッケージ名>`|パッケージの更新|おそらく無闇にこのコマンドを打つと動かなくなるなど問題が発生すると考えられるので注意|
@@ -114,7 +114,7 @@
 |ファイル名|作成されるタイミング|概要|備考|
 |----|----|----|----|
 |`package.json`|`npm init`を行った時|npmを公開する際に必須とされるプロジェクトの基本情報（例えば著者やプロジェクトの詳細）を中心に記載する。パッケージ名も記載はされるが、実際にインストールされたパッケージ全てが記載されているわけではない。<br>例えば、`npm install express`を実行した場合、`express`自体のパッケージ名やバージョン名は記載されるが、`express`が依存して使用している内部のパッケージ(例えば`body-parser`など)はこのファイルには記載されない。||
-|`package-lock.json`|`npm install <パッケージ名>`を行った時|`package.json`には記載されない、`npm install <パッケージ名>`を行った際に**実際にインストール**されるモジュール全ての名前とバージョンが記載される。||
+|`package-lock.json`|`npm install <パッケージ名>`を行った時|`package.json`には記載されない、`npm install <パッケージ名>`を行った際に**実際にインストール**されるモジュール全ての名前とバージョンが記載される。またGitリポジトリには含めるべき。||
 
 ### `package.json`の中身
 
@@ -161,16 +161,21 @@
 |Turbo-Console-Log|VS Codeの拡張。選択した変数を出力するconsole.logを挿入する。`Ctrl + Option + L`で自動挿入。|変数名がプレフィックスとしてつく。設定からカスタマイズも可能|
 |nodebrew|npmのバージョン管理ツール。ローカルマシン内で複数のnodeのバージョンを管理できる。|プロジェクトにより、使用しているnpmのバージョンが異なる場合が多いため、これを使用する。homebrewでインストール可能|
 
-#### よく使用されるパッケージ
+#### よく使用されるパッケージ名
 
 |パッケージ名|概要|備考|
 |----|----|----|
 |passport|認証まわり||
-|ejs|テンプレート||
+|ejs|テンプレートエンジンの1つ。Effective JavaScript templatingの略。||
+|body-parser||expressv4.16.0以降では、expressにbody-parserの機能がデフォルトで搭載されたため、`express.json()`、`express.erlencoded()`のように使用する|
+|cookie-parser|||
+|express-session|||
 
 ### 参考
 
 * [Node.js + Express で作る Webアプリケーション 実践講座](https://www.udemy.com/course/web-application-with-nodejs-express/?utm_source=adwords&utm_medium=udemyads&utm_campaign=LongTail_la.JA_cc.JP&utm_content=deal4584&utm_term=_._ag_107181210924_._ad_452531407125_._kw__._de_c_._dm__._pl__._ti_dsa-930814700879_._li_1028851_._pd__._&matchtype=b&gclid=CjwKCAiA_9r_BRBZEiwAHZ_v1_4m_AlAqs007bNd3C_IGnf0hZPtE2DPq5FGw8pvVYmqsSGQxyEr7BoCx5oQAvD_BwE)
+  * 「[node-express-udemy-lesson](https://github.com/kamimi01/node-express-udemy-lesson)
+  」のリポジトリで学習中
 * Node.js公式のAPIドキュメント：https://nodejs.org/ja/docs/
 * [package.json](https://docs.npmjs.com/cli/v6/configuring-npm/package-json)(npm公式)
 * [package-lock.json](https://docs.npmjs.com/cli/v6/configuring-npm/package-lock-json)(npm公式)
@@ -179,3 +184,4 @@
 * [CLI 環境構築 グローバルインストールとローカルインストールの違いについて](https://qiita.com/aya02/items/4c9c827f6a782ef65d57)
 * [npm](https://www.npmjs.com/)
 * [package-lock.jsonについて知りたくても聞けなかったこと](https://qiita.com/fj_yohei/items/7ca887a45e0855917279)(Qiita) →`package.json`と`package-lock.json`に関してかなり詳しく書いてある！
+* [Body-ParserがExpressにexpress.json()として標準搭載されている話](https://qiita.com/atlansien/items/c587a0bf2f7f9022107c)
