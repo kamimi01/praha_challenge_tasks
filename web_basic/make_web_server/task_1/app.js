@@ -28,7 +28,7 @@ app.post("/", (req, res) => {
     return
   }
 
-  res.status(201).send(reqBody)
+  res.status(201).json(reqBody)
 })
 
 app.listen(port)
