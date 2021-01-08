@@ -1,8 +1,32 @@
 # 課題1：node.jsとexpressでWEBサーバを作ってください
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [動作環境（2020/01時点）](#%E5%8B%95%E4%BD%9C%E7%92%B0%E5%A2%83202001%E6%99%82%E7%82%B9)
+- [課題の回答](#%E8%AA%B2%E9%A1%8C%E3%81%AE%E5%9B%9E%E7%AD%94)
+  - [`curl`コマンドによる確認結果](#curl%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E7%A2%BA%E8%AA%8D%E7%B5%90%E6%9E%9C)
+  - [POSTMANによる確認結果](#postman%E3%81%AB%E3%82%88%E3%82%8B%E7%A2%BA%E8%AA%8D%E7%B5%90%E6%9E%9C)
+    - [確認方法](#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95)
+- [`Node.js`、`npm`、`express`に関する事項の整理](#nodejsnpmexpress%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%BA%8B%E9%A0%85%E3%81%AE%E6%95%B4%E7%90%86)
+  - [`npm`に関する各コマンド](#npm%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E5%90%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
+    - [`npm install`に関するオプション](#npm-install%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3)
+    - [ローカルインストールとグローバルインストールの違い](#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AE%E9%81%95%E3%81%84)
+  - [`npm`に関するファイル・フォルダ](#npm%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%BB%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80)
+    - [`package.json`と`package-lock.json`の違い](#packagejson%E3%81%A8package-lockjson%E3%81%AE%E9%81%95%E3%81%84)
+  - [`package.json`の中身](#packagejson%E3%81%AE%E4%B8%AD%E8%BA%AB)
+    - [`dependencies`と`devDependencies`の違い](#dependencies%E3%81%A8devdependencies%E3%81%AE%E9%81%95%E3%81%84)
+  - [便利ツール・モジュール](#%E4%BE%BF%E5%88%A9%E3%83%84%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB)
+    - [開発時に共通して使用されるパッケージ一覧](#%E9%96%8B%E7%99%BA%E6%99%82%E3%81%AB%E5%85%B1%E9%80%9A%E3%81%97%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%95%E3%82%8C%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%80%E8%A6%A7)
+    - [ツール一覧](#%E3%83%84%E3%83%BC%E3%83%AB%E4%B8%80%E8%A6%A7)
+    - [よく使用されるパッケージ](#%E3%82%88%E3%81%8F%E4%BD%BF%E7%94%A8%E3%81%95%E3%82%8C%E3%82%8B%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)
+  - [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 動作環境（2020/01時点）
 
