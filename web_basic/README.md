@@ -18,4 +18,4 @@
 
 ## [2. curlとpostmanに慣れる](curl_and_postman)
 
-## [3. リクエストをパースするWEBサーバを作ってみる](make_server)
+## [3. リクエストをパースするWEBサーバを作ってみる](make_web_server)
