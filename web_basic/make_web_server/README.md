@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [リクエストをパースするWEBサーバを作ってみる](#%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%82%92%E3%83%91%E3%83%BC%E3%82%B9%E3%81%99%E3%82%8Bweb%E3%82%B5%E3%83%BC%E3%83%90%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B)
+  - [Table of Contents](#table-of-contents)
+  - [学ばないと何が起きるのか](#%E5%AD%A6%E3%81%B0%E3%81%AA%E3%81%84%E3%81%A8%E4%BD%95%E3%81%8C%E8%B5%B7%E3%81%8D%E3%82%8B%E3%81%AE%E3%81%8B)
+  - [課題説明](#%E8%AA%B2%E9%A1%8C%E8%AA%AC%E6%98%8E)
+    - [課題１（実装）](#%E8%AA%B2%E9%A1%8C%EF%BC%91%E5%AE%9F%E8%A3%85)
+    - [課題２（質問）](#%E8%AA%B2%E9%A1%8C%EF%BC%92%E8%B3%AA%E5%95%8F)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # リクエストをパースするWEBサーバを作ってみる
 
 ## Table of Contents
