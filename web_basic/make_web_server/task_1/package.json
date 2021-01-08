@@ -1,9 +1,10 @@
 {
   "name": "task_1",
   "version": "1.0.0",
-  "description": "make server",
+  "description": "## Table of Contents <!-- START doctoc generated TOC please keep comment here to allow auto update --> <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE --> <details> <summary>Details</summary>",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
