@@ -50,7 +50,8 @@
 1. `task_1`のフォルダをローカルにダウンロードする
 2. `npm install`を実行する
 3. `npm start`を実行する
-  * `npm start`とは`package.json`内で定義されているエイリアスコマンドであり、コマンドの実態は`node index.js`
+  * `npm start`とは`package.json`内で定義されているエイリアスコマンドであり、コマンドの実態は`node app.js`
+  * nodemonを使用して、開発を行う場合は代わりに`npm run start-dev`を実行ください。コマンドの実態は`nodemon app.js`
 4. ローカルのPOSTMANに[postman_dump]()フォルダのコレクションと環境変数をインポートする
 5. コレクションを「Run」する
 
@@ -85,7 +86,7 @@
 |オプション名|概要|備考|
 |----|----|----|
 |`--save`|（今後使用することはない！）<br>`dependencies`にインストールしたパッケージ名を記載する役割を持っていた|npm5.x.x以降、デフォルトで記載されるようになったため、今後使用する機会はないと思われる。npm公式からも記載がなくなっている。|
-|`--save-dev`|`devDependencies`にインストールしたパッケージ名が記載される||
+|`--save-dev`|`devDependencies`にインストールしたパッケージ名が記載される|省略形は`-D`|
 
 * `dependencies`と`devDependencies`の違いについては、「[`dependencies`と`devDependencies`の違い](#dependenciesとdevdependenciesの違い)」を参照
 
