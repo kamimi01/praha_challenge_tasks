@@ -64,14 +64,27 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 * 以下は、想定のレスポンスが返っていることを確認したテストスクリプトの実行結果です
 ![postman_run_result_make_web_server](../../../assets/postman_run_result_make_web_server.png)
 
-#### 確認方法
+### request.bodyについての質問
+
+> そもそもなぜrequest.bodyの内部はストリームなのでしょうか？
+
+* Node.jsの特徴である、「大量のアクセスを捌く」「動作が速い」を実現するため。
+  * ストリームを使わないことで、以下の問題が発生し、パフォーマンスが落ちる可能性がある
+    * 扱うデータ量が大きい場合、プログラムはユーザ数と同じだけの大量のメモリを消費してしまう
+    * ユーザがデータを受け取る前に、全てを読み込むのを待つ必要があり、レイテンシ（通信の遅延時間）が非常に高くなってしまう
+
+* 参考
+  * [stream-handbook](https://github.com/meso/stream-handbook)
+
+
+#### POSTMANでのテスト実行方法
 
 * 以下の方法でローカルのPOSTMANでも確認可能です
 
 1. `task_1`のフォルダをローカルにダウンロードする
 2. `npm install`を実行する
 3. `npm start`を実行する
-4. ローカルのPOSTMANに[postman_dump](./postman_dump)フォルダのコレクションと環境変数をインポートする
+4. ローカルのPOSTMANに[postman_dump](./postman_dump)フォルダのコレクションをインポートする
 5. コレクションを「Run」する
 
 #### 定義済みnpmコマンド
@@ -95,6 +108,38 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 
 * 課題とは関係ありません。個人的な調査メモです
 * 今回の課題を機に、今までなんとなく使用していたnpmのコマンドやファイルの違いなど理解できていないこと、疑問を以下に整理する
+
+### `Node.js`について
+
+* Node.jsとは
+  * JavaScriptを用いた**Non-blocking I/O環境**
+* 特徴
+  * うまくスケールできること（大量のアクセスを捌けること）
+  * 動作が速いこと
+    * スレッドではなく、イベントループを採用
+    * イベントループには、シングルスレッドのためメモリを食いにくいが、コードのどこかでブロックする処理があるとプロセス全体がストップしてしまうという弱点があり
+    * それをなくし、Non-Blocking I/Oを強制したのがnode.js
+      * ちなみにJavaScriptがシングルスレッドモデルでイベントループの仕組みを持っていたので、Node.**js**になった
+
+  * 参考
+    * [node.jsドキュメント](https://nodejs.jp/docs)
+    * [node.js とは何か](https://badatmath.hatenablog.com/entry/20101020/1287587240)
+  
+* Node.jsのStream APIについて
+  * ストリームモジュールは、Nodeのビルトインであり、コアライブラリでも利用されている
+  * ユーザ領域のモジュールでも使用可能
+  * ストリームを使わないとどうなるか
+    * 扱うデータ量が大きい場合、プログラムはユーザ数と同じだけの大量のメモリを消費する
+    * ユーザーがデータを受け取る前に、全てを読み込むのを待つ必要があり、レイテンシ（通信の遅延時間）が非常に高くなってしまう
+
+  * 参考
+    * [stream-handbook](https://github.com/meso/stream-handbook)
+    * ストリーミングデータとは：数千ものデータソースによって継続的に生成されるデータ
+      * [ストリーミングデータとは](https://aws.amazon.com/jp/streaming-data/)
+    * [Stream](https://nodejs.org/docs/latest/api/stream.html#stream_stream)
+    * [[Javascript] イベント駆動型の設計ができるEventEmitterに入門](https://www.yoheim.net/blog.php?q=20170103)
+    * [Node Streams: How do they work?](https://maxogden.com/node-streams)
+
 
 ### `npm`に関する各コマンド
 
@@ -176,13 +221,24 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 
 ### 便利ツール・モジュール
 
-#### 開発時に共通して使用されるパッケージ一覧
+#### 開発時によく使用されるパッケージ一覧（kamimi01調べ）
 
 |パッケージ名|概要|備考|
 |----|----|----|
 |express|node.jsのフレームワーク||
 |nodemon|サーバーコードを修正した際に修正を検知して自動再度起動する|毎回サーバコードを修正する度に再起動するのが面倒なので、その手間を省くことができる|
 |ESLint|javascriptのlinter||
+|passport|認証まわり||
+|ejs|テンプレートエンジンの1つ。Effective JavaScript templatingの略。||
+|body-parser||expressv4.16.0以降では、expressにbody-parserの機能がデフォルトで搭載されたため、`express.json()`、`express.erlencoded()`のように使用可能なため、`body-parser`自体のインストールは不要。|
+|cookie-parser|Cookieの設定・取得を容易に行う||
+|express-session|セッションの設定・取得を容易に行う||
+|jsdoc|定義された形式で書いたコメントを元にドキュメントの生成を行う||
+|cors|クロスドメインアクセスの許可を容易に行う||
+
+* 参考
+  * [Google JavaScript スタイルガイド - 日本語訳](https://w.atwiki.jp/aias-jsstyleguide2/pages/14.html)
+  * [JavaScriptでJSDocコメントを書くメリットとは](https://ics.media/entry/6789/)
 
 #### ツール一覧
 
@@ -190,18 +246,6 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 |----|----|----|
 |Turbo-Console-Log|VS Codeの拡張。選択した変数を出力するconsole.logを挿入する。`Ctrl + Option + L`で自動挿入。|変数名がプレフィックスとしてつく。設定からカスタマイズも可能|
 |nodebrew|npmのバージョン管理ツール。ローカルマシン内で複数のnodeのバージョンを管理できる。|プロジェクトにより、使用しているnpmのバージョンが異なる場合が多いため、これを使用する。homebrewでインストール可能|
-
-#### よく使用されるパッケージ名
-
-|パッケージ名|概要|備考|
-|----|----|----|
-|passport|認証まわり||
-|ejs|テンプレートエンジンの1つ。Effective JavaScript templatingの略。||
-|body-parser||expressv4.16.0以降では、expressにbody-parserの機能がデフォルトで搭載されたため、`express.json()`、`express.erlencoded()`のように使用する|
-|cookie-parser|||
-|express-session|||
-|jsdoc|||
-|cors|||
 
 ### 参考
 
