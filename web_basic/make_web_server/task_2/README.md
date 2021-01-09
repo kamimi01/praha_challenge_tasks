@@ -12,7 +12,7 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## 質問1：Content-typeにapplication/x-www-form-urlencodedを指定した時と、application/jsonを指定した時で、送信されるデータ形式がどのように異なるのか説明してください。どんな時にどちらを選択するべきでしょうか？
+## 質問：Content-typeにapplication/x-www-form-urlencodedを指定した時と、application/jsonを指定した時で、送信されるデータ形式がどのように異なるのか説明してください。どんな時にどちらを選択するべきでしょうか？
 
 |Content-Type|意味|送信されるデータ形式|利用シーン|データ形式の例|備考|
 |----|----|----|----|----|----|
@@ -25,8 +25,20 @@
   * [REST API のコツ](https://www.slideshare.net/pospome/rest-api-57207424)
   * [フォームデータの送信](https://developer.mozilla.org/ja/docs/Learn/Forms/Sending_and_retrieving_form_data)
 
-## 質問2：
+ ## HTMLフォーム送信のサンプル
 
-|||
+ ## 実行方法メモ
+ 1. `task_2`ディレクトリで、`node app.js`で3000ポートで起動
+ 2. `task_2`ディレクトリで、`python3 -m http.server 8000`で8000ポートで起動
+ 3. `http://localhost:8000/public`にブラウザでアクセス
+ 4. フォームの送信ボタンをおす
 
-* 
+## 確認したリクエストとレスポンス
+
+* リクエスト
+  * `Content-Type`：`application/x-www-urlencoded`
+  * ボディ
+
+    ![form_data](../../../assets/form_data_make_web_server.png)
+* レスポンス
+  * ボディ：`{ say: 'Hi', to: 'Mom' }`
