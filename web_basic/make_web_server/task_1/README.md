@@ -37,9 +37,31 @@
 
 ### `curl`コマンドによる確認結果
 
+```bash
+$ curl localhost:3000 -H "Content-Type: application/json"
+
+{"text":"hello world"}
+```
+
+```bash
+$ curl localhost:3000 -d '{"name": "hoge"}' -H "Content-Type: application/json"
+
+{"name":"hoge"}
+```
+
+```bash
+$ curl localhost:3000 -d '{"name": "hoge"}'
+
+{"error":{"message":"Bad Request"}}
+```
+
 ### POSTMANによる確認結果
 
-* 想定のレスポンスが返っていることを確認するための、テストスクリプトの実行結果です
+* 以下のリンクでリクエストとレスポンスを確認可能です
+  * https://documenter.getpostman.com/view/7430399/TVzPneNu
+
+* 以下は、想定のレスポンスが返っていることを確認したテストスクリプトの実行結果です
+![postman_run_result_make_web_server](../../../assets/postman_run_result_make_web_server.png)
 
 #### 確認方法
 
@@ -59,7 +81,7 @@
 |----|----|----|----|
 |start|`npm start`|`node app.js`|`app.js`を実行する|
 |start-dev|`npm run start-dev`|`nodemon app.js`|`app.js`をnodemonを使用して実行する（開発用）|
-|jsdoc|`npm run jsdoc`|`./node_modules/.bin/jsdoc app.js`|`app.js`のJSDocを作成する。<br>`out`フォルダのにドキュメントが作成され、`index.html`を開いてドキュメントを参照可能（開発用）|
+|jsdoc|`npm run jsdoc`|`./node_modules/.bin/jsdoc app.js`|`app.js`のJSDocを作成する。<br> `out`フォルダのにドキュメントが作成され、`index.html`を開いてドキュメントを参照可能（開発用）|
 
 <!-- 余裕があれば以下を行う -->
 <!-- ### テストモジュール`jest`による単体テスト
@@ -178,6 +200,7 @@
 |cookie-parser|||
 |express-session|||
 |jsdoc|||
+|cors|||
 
 ### 参考
 
