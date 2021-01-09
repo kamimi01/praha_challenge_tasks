@@ -171,6 +171,7 @@
 |body-parser||expressv4.16.0以降では、expressにbody-parserの機能がデフォルトで搭載されたため、`express.json()`、`express.erlencoded()`のように使用する|
 |cookie-parser|||
 |express-session|||
+|jsdoc|||
 
 ### 参考
 
@@ -186,3 +187,4 @@
 * [npm](https://www.npmjs.com/)
 * [package-lock.jsonについて知りたくても聞けなかったこと](https://qiita.com/fj_yohei/items/7ca887a45e0855917279)(Qiita) →`package.json`と`package-lock.json`に関してかなり詳しく書いてある！
 * [Body-ParserがExpressにexpress.json()として標準搭載されている話](https://qiita.com/atlansien/items/c587a0bf2f7f9022107c)
+* [もうメンテナンスは怖くない！JSDoc 3を使ってみた](http://tech.innovation.co.jp/2018/06/08/I-tried-to-use-J-S-Doc3.html)
