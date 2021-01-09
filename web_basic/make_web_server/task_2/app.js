@@ -1,20 +1,22 @@
 const express = require("express")
 const app = express()
+// メソッドを_methodの値で上書きするミドルウェア
+const methodOverride = require("method-override")
 
 // x-www-urlencodedをパースする
 app.use(express.urlencoded({ extended: true }))
 
-app.post("/", (req, res) => {
-  console.log("🚀 ~ file: app.js ~ line 9 ~ app.post ~ req", req)
+// キー(_method)を指定する
+app.use(methodOverride("_method"))
+
+app.put("/", (req, res) => {
+  console.log("受け取ったメソッド：", req.method)
 
   const contentType = req.headers["content-type"]
-  console.log(
-    "🚀 ~ file: app.js ~ line 9 ~ app.post ~ contentType",
-    contentType
-  )
+  console.log("リクエストのContent-Type：", contentType)
 
   const reqBody = req.body
-  console.log("🚀 ~ file: app.js ~ line 11 ~ app.post ~ reqBody", reqBody)
+  console.log("リクエストボディ：", reqBody)
 })
 
 app.listen(3000)

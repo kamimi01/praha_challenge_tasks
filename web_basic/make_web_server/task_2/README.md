@@ -24,6 +24,7 @@
   * Web API The Good Part(書籍)
   * [REST API のコツ](https://www.slideshare.net/pospome/rest-api-57207424)
   * [フォームデータの送信](https://developer.mozilla.org/ja/docs/Learn/Forms/Sending_and_retrieving_form_data)
+  * [Express 4.x でmethod-overrideでput / delete メソッドを使いたいにハマる。](https://chaika.hatenablog.com/entry/2015/10/06/183604)
 
  ## HTMLフォーム送信のサンプル
 
@@ -35,10 +36,14 @@
 
 ## 確認したリクエストとレスポンス
 
-* リクエスト
-  * `Content-Type`：`application/x-www-urlencoded`
-  * ボディ
+* リクエストボディ
 
-    ![form_data](../../../assets/form_data_make_web_server.png)
-* レスポンス
-  * ボディ：`{ say: 'Hi', to: 'Mom' }`
+![form_data](../../../assets/form_data_make_web_server.png)
+
+* サーバー側ログ
+```bash
+$ node app.js
+受け取ったメソッド： PUT
+リクエストのContent-Type： application/x-www-form-urlencoded
+リクエストボディ： { say: 'Hi', to: 'Mom' }
+```

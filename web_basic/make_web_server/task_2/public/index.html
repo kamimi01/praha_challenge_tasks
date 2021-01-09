@@ -6,7 +6,8 @@
   </head>
   <body>
     <!-- POSTメソッドでフォームデータを送信する -->
-    <form action="http://localhost:3000" method="post">
+    <!-- HTMLフォームはGET/POSTしか対応してないため、クエリパラメータで使用したいメソッドを指定する -->
+    <form action="http://localhost:3000/?_method=PUT" method="post">
       <div>
         <label for="say">What greeting do you want to say?</label>
         <input name="say" id="say" value="Hi" />
