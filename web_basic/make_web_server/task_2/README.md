@@ -12,10 +12,21 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## 質問1：Content-typeにapplication/x-www-form-urlencodedを指定した時と、application/jsonを指定した時で、送信されるデータ形式がどのように異なるのか説明してください。
+## 質問1：Content-typeにapplication/x-www-form-urlencodedを指定した時と、application/jsonを指定した時で、送信されるデータ形式がどのように異なるのか説明してください。どんな時にどちらを選択するべきでしょうか？
 
-* 
+|Content-Type|意味|送信されるデータ形式|利用シーン|データ形式の例|備考|
+|----|----|----|----|----|----|
+|`application/x-www-form-urlencoded`|HTMLフォーム形式。`x-`がついているが、IANAに登録された正式なメディアタイプ。|キーとバリューがその間に`=`がある組み合わせであり、`&`で区切られてエンコードされている。キーや値の英数字以外の文字は、パーセントエンコーディングされる。|HTMLのフォームデータを送信する際に使われる。|a=1&b=1|HTMLのFormの仕様では、GETとPOSTのみがサポートされているため、他のメソッドが利用できないが、リクエストデータに`_method`として使用したいメソッドを指定することで他のメソッドを指定できる。（ただし書籍では`_method`の方法は推奨されておらず、`X-HTTP-Method-Override`ヘッダの使用が推奨されている）<br>`_method`の方法では、`application/x-www-urlencoded`以外の方式でデータを送信することはできない|
+|`application/json`|JSON文書|JSON(JavaScript Object Notation)という構造データ表現フォーマット|JSONを送信する場合に使用される。`application/x-www-form-urlencoded`と違い、データを階層構造で持つことができる。|{"name": "hoge"}|
 
-## 質問2：どんな時にどちらを選択するべきでしょうか？
+* 参考
+  * [POST](https://developer.mozilla.org/ja/docs/Web/HTTP/Methods/POST)(MDN Web Docs)
+  * Web API The Good Part(書籍)
+  * [REST API のコツ](https://www.slideshare.net/pospome/rest-api-57207424)
+  * [フォームデータの送信](https://developer.mozilla.org/ja/docs/Learn/Forms/Sending_and_retrieving_form_data)
+
+## 質問2：
+
+|||
 
 * 
