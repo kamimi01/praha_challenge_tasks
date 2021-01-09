@@ -50,10 +50,18 @@
 1. `task_1`のフォルダをローカルにダウンロードする
 2. `npm install`を実行する
 3. `npm start`を実行する
-  * `npm start`とは`package.json`内で定義されているエイリアスコマンドであり、コマンドの実態は`node app.js`
-  * nodemonを使用して、開発を行う場合は代わりに`npm run start-dev`を実行ください。コマンドの実態は`nodemon app.js`
 4. ローカルのPOSTMANに[postman_dump]()フォルダのコレクションと環境変数をインポートする
 5. コレクションを「Run」する
+
+#### 定義済みnpmコマンド
+
+* 以下のコマンドを`package.json`のscriptsに設定済み
+
+|フィールド名|エイリアスコマンド|コマンドの実態|概要|
+|----|----|----|----|
+|start|`npm start`|`node app.js`|`app.js`を実行する|
+|start-dev|`npm run start-dev`|`nodemon app.js`|`app.js`をnodemonを使用して実行する（開発用）|
+|jsdoc|`npm run jsdoc`|`./node_modules/.bin/jsdoc app.js`|`app.js`のJSDocを作成する。<br>`out`フォルダのにドキュメントが作成され、`index.html`を開いてドキュメントを参照可能（開発用）|
 
 <!-- 余裕があれば以下を行う -->
 <!-- ### テストモジュール`jest`による単体テスト
