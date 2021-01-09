@@ -35,13 +35,14 @@ app.post("/", (req, res) => {
   const actualContentType = req.headers["content-type"]
   const expectedContentType = "application/json"
 
-  if (actualContentType != expectedContentType) {
-    const resBody = data.BadRequest
-    res.status(400).json(resBody)
+  if (actualContentType == expectedContentType) {
+    res.status(201).json(reqBody)
     return
   }
 
-  res.status(201).json(reqBody)
+  const resBody = data.BadRequest
+
+  res.status(400).json(resBody)
 })
 
 app.listen(port)
