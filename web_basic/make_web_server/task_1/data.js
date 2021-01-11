@@ -4,7 +4,7 @@ module.exports = {
   },
   BadRequest: {
     error: {
-      message: "Bad Request",
+      message: "Invalid Content-Type",
     },
   },
 }
