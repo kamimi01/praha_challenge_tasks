@@ -96,7 +96,7 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 |----|----|----|----|
 |start|`npm start`|`node app.js`|`app.js`を実行する|
 |start-dev|`npm run start-dev`|`nodemon app.js`|`app.js`をnodemonを使用して実行する（開発用）|
-|jsdoc|`npm run jsdoc`|`./node_modules/.bin/jsdoc app.js`|`app.js`のJSDocを作成する。<br> `out`フォルダのにドキュメントが作成され、`index.html`を開いてドキュメントを参照可能（開発用）|
+|jsdoc|`npm run jsdoc`|`./node_modules/.bin/jsdoc app.js`|`app.js`のJSDocを作成する。<br> `out`フォルダのにドキュメントが作成され、`index.html`を開いてドキュメントを参照可能（開発用）`scripts`でコマンド定義せずとも、`npm jsdoc app.js`でも実行可能|
 
 <!-- 余裕があれば以下を行う -->
 <!-- ### テストモジュール`jest`による単体テスト
@@ -140,6 +140,9 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
     * [Stream](https://nodejs.org/docs/latest/api/stream.html#stream_stream)
     * [[Javascript] イベント駆動型の設計ができるEventEmitterに入門](https://www.yoheim.net/blog.php?q=20170103)
     * [Node Streams: How do they work?](https://maxogden.com/node-streams)
+    * [メモリ管理](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management)(MDN Web Docs)
+    * [デバッグガイド](https://nodejs.org/ja/docs/guides/debugging-getting-started/#enabling-remote-debugging-scenarios)(nodejs公式)
+    * [Node.jsの使用メモリを観測する方法](https://qiita.com/ledsun/items/60ece250b96cac1af0f7)
 
 
 ### `npm`に関する各コマンド
@@ -263,3 +266,4 @@ $ curl localhost:3000 -d '{"name": "hoge"}'
 * [package-lock.jsonについて知りたくても聞けなかったこと](https://qiita.com/fj_yohei/items/7ca887a45e0855917279)(Qiita) →`package.json`と`package-lock.json`に関してかなり詳しく書いてある！
 * [Body-ParserがExpressにexpress.json()として標準搭載されている話](https://qiita.com/atlansien/items/c587a0bf2f7f9022107c)
 * [もうメンテナンスは怖くない！JSDoc 3を使ってみた](http://tech.innovation.co.jp/2018/06/08/I-tried-to-use-J-S-Doc3.html)
+* [知らないのは損！npmに同梱されているnpxがすごい便利なコマンドだった](https://dev.classmethod.jp/articles/node-npm-npx-getting-started/)
