@@ -32,10 +32,9 @@ app.get("/", (req, res) => {
  */
 app.post("/", (req, res) => {
   const reqBody = req.body
-  const actualContentType = req.headers["content-type"]
   const expectedContentType = "application/json"
 
-  if (actualContentType == expectedContentType) {
+  if (req.is(expectedContentType)) {
     res.status(201).json(reqBody)
     return
   }
