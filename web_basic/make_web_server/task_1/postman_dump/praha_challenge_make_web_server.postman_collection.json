@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "92ceb2a5-a597-495b-8b6e-c1ff2eaf8dba",
+		"name": "praha_challenge_make_web_server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello-World-200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e344d13b-7ac4-49df-97ca-197f3c07de18",
+						"exec": [
+							"// ステータスが200であることを確認",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// レスポンスヘッダのContent-Typeがapplication/jsonであることを確認",
+							"pm.test(\"Content-Type is application/json\", function () {",
+							"    const actualContentType = responseHeaders[\"Content-Type\"]",
+							"    const expectedContentType = \"application/json\"",
+							"    ",
+							"    pm.expect(actualContentType).to.include(expectedContentType);",
+							"});",
+							"",
+							"// レスポンスボディのキー：textにhello worldのバリューが入っていることを確認",
+							"pm.test(\"Value of 'text' key is 'hello world'\", function () {",
+							"    const actualTextKeyValue = pm.response.json()[\"text\"]",
+							"    const expectedTextKeyValue = \"hello world\"",
+							"",
+							"    pm.expect(actualTextKeyValue).to.eql(expectedTextKeyValue);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{FQDN}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{FQDN}}"
+					]
+				},
+				"description": "GETリクエスト受けた時、{text: hello world}とjsonをHTTPステータス200で返す"
+			},
+			"response": [
+				{
+					"name": "Hello-World-200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16-435FIvxQfToiwp4vhTlfISUoHuQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 06:54:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"text\": \"hello world\"\n}"
+				},
+				{
+					"name": "Hello-World-200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16-435FIvxQfToiwp4vhTlfISUoHuQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 06:54:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"text\": \"hello world\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Name-Hoge-201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fadb2473-292f-44c0-a056-7429eda75c70",
+						"exec": [
+							"// ステータスが201であることを確認",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"// レスポンスヘッダのContent-Typeがapplication/jsonであることを確認",
+							"pm.test(\"Content-Type is application/json\", function () {",
+							"    const actualContentType = responseHeaders[\"Content-Type\"]",
+							"    const expectedContentType = \"application/json\"",
+							"    ",
+							"    pm.expect(actualContentType).to.include(expectedContentType);",
+							"});",
+							"",
+							"// リクエストボディとレスポンスボディが一致することを確認",
+							"pm.test(\"Request Body is same as Response Body\", function () {",
+							"    const reqBody = request[\"data\"]",
+							"",
+							"    pm.response.to.have.body(reqBody);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"hoge\"}"
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{FQDN}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{FQDN}}"
+					]
+				},
+				"description": "POSTリクエストを受けた時、リクエストbodyに含まれるjsonデータを、レスポンスのbodyに含めて、HTTPステータス201で返してください"
+			},
+			"response": [
+				{
+					"name": "Name-Hoge-201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"hoge\"}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f-uWuyLkxupAphkHebyeBoF3gPT3I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 07:03:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"hoge\"\n}"
+				},
+				{
+					"name": "Name-Hoge-201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"hoge\"}"
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f-uWuyLkxupAphkHebyeBoF3gPT3I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 07:35:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"hoge\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Name-Hoge-400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "83e7879c-8882-40b3-9997-3ae89d19ab40",
+						"exec": [
+							"// ステータスが400であることを確認",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "hoge",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{FQDN}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{FQDN}}"
+					]
+				},
+				"description": "POSTリクエストを受けた時、Content-Typeがapplication/json以外の時は、HTTPステータス400を返してください"
+			},
+			"response": [
+				{
+					"name": "Name-Hoge-400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hoge",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-vgS1KL1M/2kHKBNKW2PwffYHopA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 07:36:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Bad Request\"\n    }\n}"
+				},
+				{
+					"name": "Name-Hoge-400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "hoge",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{PROTOCOL}}://{{FQDN}}",
+							"protocol": "{{PROTOCOL}}",
+							"host": [
+								"{{FQDN}}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-vgS1KL1M/2kHKBNKW2PwffYHopA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 09 Jan 2021 07:07:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Bad Request\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "c91d9a01-0075-40f5-8fd8-c8ac47daee13",
+			"key": "PROTOCOL",
+			"value": "http"
+		},
+		{
+			"id": "18a497b0-27c0-425e-9bda-323e63f4e6a1",
+			"key": "FQDN",
+			"value": "localhost:3000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
