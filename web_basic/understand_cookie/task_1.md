@@ -151,12 +151,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
   * [RFC 6265, HTTP State Management Mechanism 8. セキュリティの考慮点（非公式日本語訳）](https://triple-underscore.github.io/http-cookie-ja.html#security-considerations)
   * [IPA セッション対策](https://www.ipa.go.jp/security/awareness/vendor/programmingv2/contents/302.html)
   * [IPA 安全なウェブサイトの作り方 - 1.4 セッション管理の不備](https://www.ipa.go.jp/security/vuln/websecurity-HTML-1_4.html)
-  * GDPRでは、以下の通りCookieに関するコンプライアンスを定めている（以下はkamimi01訳）
-    * 本当に必須なクッキーをのぞいて、どんなクッキーであってもユーザを承諾を得る必要がある
-    * 承諾を得る前に、クッキーごとのデータやその目的に関する正確な情報を提供する必要がある
-    * ユーザから受け取った承諾をドキュメント化して残しておく必要がある
-    * ユーザがクッキーの使用を拒否した場合でも、ユーザーがそのサービスにアクセスできるようにしておく必要がある
-    * 最初にユーザーがクッキーの承諾を行ったのと同様に、その承諾の撤回もユーザが簡単に行うことができるようにしておく必要がある
+  * GDPRでは、Cookieに関するコンプライアンスを定めている（以下はkamimi01訳）
     * 参考
       * [Cookies, the GDPR, and the ePrivacy Directive](https://gdpr.eu/cookies/)
   * [CookieのDomain属性は *指定しない* が一番安全](https://blog.tokumaru.org/2011/10/)
@@ -182,6 +177,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 * 参考
   * [CookieとWebStorageとSessionについてのまとめ](https://qiita.com/pipiox/items/95554673ba3b078ac112)
   * [JavaScript Cookies vs Local Storage vs Session](https://www.youtube.com/watch?v=GihQAC1I39Q)
+  * [Web Storage API](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API)(MDN Web Docs)
 
 * 疑問
   * ローカルストレージとセッションストレージとクッキーの違い、使い分けは？
