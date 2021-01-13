@@ -22,6 +22,22 @@
 
 ### 回答
 
+* 送信されない。同一オリジンではないため。
+
+* 疑問
+  * `Domain`属性に`com`が指定されていた場合は、送信されるのか？
+
+## 質問3
+
+> hoge.com:8080のクッキーはhoge.com:9090にも送信されるでしょうか？
+
+### 回答
+
+* 送信される。クッキーはポートによる解離を行わないため、あるポート上で稼働しているサービスで読み取れるならば、そのクッキーは，同じサーバの別ポート上のサービスでも読み取れる。 クッキーが，あるポート上のサービスで書き込めるならば、そのクッキーは，同じサーバの別ポート上のサービスでも書き込める。
+
+* 参考
+  * [RFC 6265, HTTP State Management Mechanism 8.5. 機密性の弱点](https://triple-underscore.github.io/http-cookie-ja.html#weak-confidentiality)
+
 ## 質問 4
 
 > www.hoge.comで発行されたクッキーは、www.api.hoge.comにも送信されるでしょうか？
@@ -61,6 +77,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 * 参考
   * [Cookieへのアクセス制限](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies#restrict_access_to_cookies)
   * [RFC 6265, HTTP State Management Mechanism 4.1.2.6. HttpOnly 属性（非公式日本語訳）](https://triple-underscore.github.io/http-cookie-ja.html#sane-httponly)
+  * [クロスサイトスクリプティング(XSS)対策としてCookieのHttpOnly属性でどこまで安全になるのか](https://www.youtube.com/watch?v=4JREwhSC2dQ)
 
 ## 質問7
 
@@ -101,13 +118,34 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 
 ### 回答
 
+* `SameSite`属性とは、クロスオリジン間のクッキーの送信元を制御するための属性。
+* 以下３つの値が設定可能であり、デフォルト値は`None`であったが、最近のブラウザでは`Lax`がデフォルトとされる動きがある。
+  * `Strict`：ブラウザはクッキーを設定したのと同じサイトから発信されたリクエストに対してのみ、クッキーを送信する。リクエストが現在のURLと異なる場合は送信されない。
+  * `Lax`：画像やフレームをロードするための呼び出しなどのクロスサイトサブリクエストではクッキーが抑止されますが、ユーザーがリンクをクリックするなどして外部サイトからURLに移動すると送信される。
+  * `None`:ブラウザはクロスサイトと same-site の両方のリクエストでクッキーを送信する。この値を使用する場合は、`Secure`属性を付与する必要がある。（付与しなかった場合、そのクッキーは拒否され、警告が表示される。）
+
+* 参考
+  * [draft-ietf-httpbis-cookie-same-site](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-1)
+  * [SameSite cookies](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
+
+* 疑問
+  * `Domain`属性と`SameSite`属性の違いがよくわからない
+
 ## 質問 10
 
 > クッキーに格納しない方が良い情報の例を、3 つ以上挙げてください
 
 ### 回答
 
-* 
+* ユーザIDやパスワード、権限情報などの書き換えられると困る情報、を暗号化してない文字列（e.g.`password`などパスワードが暗号化されずに格納されているなど）
+  * ただし、RFC6265によると、基本的にデータを直接クッキーには保存せず、セッションIDを保存する方が攻撃者にクッキーの内容を盗まれた際の被害が制限される。
+  * 「体系的に学ぶ 安全なWebアプリケーションの作り方」（書籍）においては、**セッションIDとトークン以外をクッキーに保存することは推奨されていない**
+* 攻撃者に推測されやすいセッションID（e.g.時刻情報などを基にした単純なアルゴリズムで生成されている）
+  * 攻撃者に簡単に推測されてしまうことで、セッションハイジャックの危険がある。
+* 容量の大きいクッキー（以下の制限を超えたクッキーは削除される可能性がある）
+  * 1クッキーあたり、4096byte
+  * 1ドメインあたり、50個のクッキー
+  * 全部で3000個のクッキー
 
 * 参考
   * [RFC 6265, HTTP State Management Mechanism 8. セキュリティの考慮点（非公式日本語訳）](https://triple-underscore.github.io/http-cookie-ja.html#security-considerations)
@@ -121,6 +159,8 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
     * 最初にユーザーがクッキーの承諾を行ったのと同様に、その承諾の撤回もユーザが簡単に行うことができるようにしておく必要がある
     * 参考
       * [Cookies, the GDPR, and the ePrivacy Directive](https://gdpr.eu/cookies/)
+  * [CookieのDomain属性は *指定しない* が一番安全](https://blog.tokumaru.org/2011/10/)
+  * [RFC 6265, HTTP State Management Mechanism 6.1 制限（非公式日本語訳）](https://triple-underscore.github.io/http-cookie-ja.html#implementation-limits)
 
 ## 質問 11
 
@@ -128,11 +168,47 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 
 ### 回答
 
+* クッキーを使うべきタイミング:認証関連を処理したい場合に向いている
+  * 有効期限を設定したい場合
+  * サーバにデータを送信したい場合
+    * ローカルストレージはサーバには送らず、ブラウザ上でデータを保持する
+  * HTML4に対応したい場合
+    * ローカルストレージはHTML4に対応してない
+* ローカルストレージを使うべきタイミング:
+  * 半永久的にデータを保存したい場合
+  * 大容量のデータを保存したい場合
+    * > クッキーを使用する場合、すべてのリクエストで送信されるので、 (特にモバイルデータ通信で) 性能を悪化させる可能性があります。クライアントストレージ向けの新しい API として、Web Storage API (localStorage および sessionStorage) と IndexedDB があります。
+
+* 参考
+  * [CookieとWebStorageとSessionについてのまとめ](https://qiita.com/pipiox/items/95554673ba3b078ac112)
+  * [JavaScript Cookies vs Local Storage vs Session](https://www.youtube.com/watch?v=GihQAC1I39Q)
+
+* 疑問
+  * ローカルストレージとセッションストレージとクッキーの違い、使い分けは？
+
 ## 質問 12
 
 > stack overflow のような WEB 掲示板サービスを開発しているとしましょう。XSS（クロスサイトスクリプティング）により、他ユーザのクッキー情報が抜き出される仕組みを説明してください。どのような対策が考えられますか？
 
 ### 回答
+
+* XSSにより、例えば以下の手順でクッキー情報が盗み出される可能性がある
+  1. 攻撃者が用意したウェブサイトをユーザがクリックする。
+  2. クリックにより、スクリプトを含む文字列を送信
+  3. スクリプトを含むwebページを出力する
+  4. ユーザのブラウザ上でクッキーを悪意ある人に送信するスクリプトが実行される
+  5. 攻撃者がユーザのクッキーを取得する
+* 対策（多くの対策が存在するが、ここではIPAで推奨されている全アプリケーションに共通の対策を記載する）
+  * HTTPレスポンスヘッダの`Content-Type`に`charset`を指定する
+    * > たとえば、具体的な例として、HTMLテキストに、 「+ADw-script+AD4-alert(+ACI-test+ACI-)+ADsAPA-/script+AD4-」という文字列が埋め込まれた場合が考えられます。この場合、一部のブラウザはこれを「UTF-7」の文字コードでエンコードされた文字列として識別します。これがUTF-7として画面に表示されると 「<script>alert('test');</script>」として扱われるため、スクリプトが実行されてしまいます。
+  * クッキーに`HttpOnly`属性を付与する
+  * XSSの潜在的な脆弱性対策として有効なブラウザの機能を有効にするレスポンスヘッダ を返す
+    * `X-XSS-Protection`：ブラウザの「XSS フィルタ」の設定を有効にするパラメータです。ブラウザで明示的に無効になっている場合でも、このパラメータを受信することで有効になる
+    * `Content Security Policy`：ブラウザで起こりうる問題を緩和するセキュリティの追加レイヤー。その機能の一つに、反射型クロスサイト・スクリプティング攻撃を防止する「reflected-xss」がある。
+
+* 参考
+  * [安全なウェブサイトの作り方 - 1.5 クロスサイト・スクリプティング](https://www.ipa.go.jp/security/vuln/websecurity-HTML-1_5.html)
+  * [クロスサイトスクリプティング(XSS)対策としてCookieのHttpOnly属性でどこまで安全になるのか](https://www.youtube.com/watch?v=4JREwhSC2dQ)
 
 ---
 
@@ -173,11 +249,11 @@ response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 |----|----|----|----|
 |`Expires=<date> `|クッキーの有効期限で、HTTPの日時のタイムスタンプ。サーバではなく、クッキーが設定されているクライアントからの相対時刻で設定される。|`Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT`|指定されてなかった場合、クッキーはセッションクッキーの寿命となる。ただ、多くのWebブラウザではセッション復元機能があるため、セッションクッキーも復元される。|
 |`Max-Age=<number>`|クッキーの期限までの秒数。ゼロまたは負の数値の場合は、クッキーは直ちに期限切れになる。|`Set-Cookie: id=a3fWa; Max-Age=2592000`|Expires および Max-Age の両方が設定されていたら、 Max-Age が優先され|
-|`Domain=<domain-value>`|クッキーを送信する先のホスト|`Set-Cookie: qwerty=219ffwef9w0f; Domain=somecompany.co.uk`|指定されなかった場合は、既定で現在の文書の URL におけるホスト名の部分になり、**サブドメインを含まない。**ドメイン名の前のドット (.example.com) は無視される。複数のホストやドメインの値を指定することはできませんが、ドメインが指定された場合、すべてのサブドメインが常に含まれ。複数のホストやドメインの値を指定することはできませんが、ドメインが指定された場合、すべてのサブドメインが常に含まれる。|
+|`Domain=<domain-value>`|クッキーを**送信する先**のホストを制御するための属性。|`Set-Cookie: qwerty=219ffwef9w0f; Domain=somecompany.co.uk`|指定されなかった場合は、既定で現在の文書の URL におけるホスト名の部分になり、**サブドメインを含まない。**ドメイン名の前のドット (.example.com) は無視される。複数のホストやドメインの値を指定することはできませんが、ドメインが指定された場合、すべてのサブドメインが常に含まれ。複数のホストやドメインの値を指定することはできませんが、ドメインが指定された場合、すべてのサブドメインが常に含まれる。|
 |`Path=<path-value>`|リクエストの URL に含まれるべきパスです。含まれていないと、ブラウザーは Cookie ヘッダーを送信しない。||スラッシュ ("/") の文字はディレクトリ区切りとして解釈され、サブディレクトリも同様に一致します (例えば Path=/docs であれば、 /docs, /docs/Web/, /docs/Web/HTTP はすべて一致します)|
 |`Secure`|セキュアクッキーは、リクエストが SSL と HTTPS プロトコルを使用して行われた場合にのみサーバーに送信される。|`Set-Cookie: __Host-ID=123; Secure; Path=/`|安全ではないサイト (http:) は  Secure ディレクティブを付けてクッキーを設定することができなくなった。|
 |`HttpOnly`|JavaScript が Document.cookie プロパティなどを介してこのクッキーにアクセスすることを禁止する。HttpOnly で作成されたクッキーは、JavaScript で開始されたリクエスト、例えば、 XMLHttpRequest.send() や fetch() と共に送信される。|`Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly`|クロスサイトスクリプティング (XSS) の攻撃を軽減する。|
-|`SameSite=<samesite-value>`|`Strict`：ブラウザは same-site のリクエスト（つまり、クッキーを設定したのと同じサイトから発信されたリクエスト）に対してのみクッキーを送信します。リクエストが現在のURLとは異なるURLから発生した場合、SameSite=Strict 属性を持つクッキーは送信されない。<br>`Lax`：画像やフレームをロードするための呼び出しなどのクロスサイトサブリクエストではクッキーが抑止されますが、ユーザーがリンクをクリックするなどして外部サイトからURLに移動すると送信される。<br>`None`：ブラウザはクロスサイトと same-site の両方のリクエストでクッキーを送信する。|`Set-Cookie: flavor=choco; SameSite=None; Secure`|クッキーがオリジン間リクエストで送信されないことを主張することで、クロスサイトリクエストフォージェリ攻撃 (CSRF) に対していくらか防御できる。ブラウザーは クッキーに SameSite=Lax の既定値を持たせるよう移行しつつあります。オリジンをまたいでクッキーを送信する必要がある場合、 None ディレクティブを用いて SameSite の制約を外してください。 None ディレクティブは Secure 属性を必要とする。|
+|`SameSite=<samesite-value>`|クッキーを**送信する元**を制御するための属性。`Strict`：ブラウザは same-site のリクエスト（つまり、クッキーを設定したのと同じサイトから発信されたリクエスト）に対してのみクッキーを送信します。リクエストが現在のURLとは異なるURLから発生した場合、SameSite=Strict 属性を持つクッキーは送信されない。<br>`Lax`：画像やフレームをロードするための呼び出しなどのクロスサイトサブリクエストではクッキーが抑止されますが、ユーザーがリンクをクリックするなどして外部サイトからURLに移動すると送信される。<br>`None`：ブラウザはクロスサイトと same-site の両方のリクエストでクッキーを送信する。|`Set-Cookie: flavor=choco; SameSite=None; Secure`|クッキーがオリジン間リクエストで送信されないことを主張することで、クロスサイトリクエストフォージェリ攻撃 (CSRF) に対していくらか防御できる。ブラウザーは クッキーに SameSite=Lax の既定値を持たせるよう移行しつつあります。オリジンをまたいでクッキーを送信する必要がある場合、 None ディレクティブを用いて SameSite の制約を外してください。 None ディレクティブは Secure 属性を必要とする。|
 
 
 #### Cookieの持続時間の定義
