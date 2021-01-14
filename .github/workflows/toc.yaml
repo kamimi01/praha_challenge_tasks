@@ -31,6 +31,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           name: 'Github Actions Workflow'
-          channel: '#experimental-station'
+          channel: '#pair-1c-notification'
           icon_url: 'https://user-images.githubusercontent.com/47489629/104346721-16e1d200-5543-11eb-869f-80ac22ee4501.png'
     

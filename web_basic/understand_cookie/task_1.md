@@ -244,8 +244,8 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 
 ---
 
-### Cookieについての整理
-#### Cookieについて
+## Cookieについての整理
+### Cookieについて
 * サーバがユーザのwebブラウザに送信する小さなデータのことであり、ブラウザに保存され、その後のリクエストと共に同じサーバへ返送される。一般的には2つのリクエストが同じブラウザから送信された物であるかを知るために使用される。またユーザのログイン状態を維持することができる。
 * Cookieの用途
   * セッション管理
@@ -258,7 +258,7 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 Cookie: PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1
 ```
 
-#### `Set-cookie`とは
+### `Set-cookie`とは
 * WebサーバがHTTPリクエストを受け取った後にCookieをセットするHTTPヘッダのこと
 * `<cookie-name>=<cookie-value>`で構成される
 * ブラウザがこのヘッダを受け取ったあとは、ブラウザは以前格納された全てのCookieを`Cookie`ヘッダを使用してサーバへ送信する
@@ -288,11 +288,11 @@ response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 |`SameSite=<samesite-value>`|クッキーを**送信する元**を制御するための属性。`Strict`：ブラウザは same-site のリクエスト（つまり、クッキーを設定したのと同じサイトから発信されたリクエスト）に対してのみクッキーを送信します。リクエストが現在のURLとは異なるURLから発生した場合、SameSite=Strict 属性を持つクッキーは送信されない。<br>`Lax`：画像やフレームをロードするための呼び出しなどのクロスサイトサブリクエストではクッキーが抑止されますが、ユーザーがリンクをクリックするなどして外部サイトからURLに移動すると送信される。<br>`None`：ブラウザはクロスサイトと same-site の両方のリクエストでクッキーを送信する。|`Set-Cookie: flavor=choco; SameSite=None; Secure`|クッキーがオリジン間リクエストで送信されないことを主張することで、クロスサイトリクエストフォージェリ攻撃 (CSRF) に対していくらか防御できる。ブラウザーは クッキーに SameSite=Lax の既定値を持たせるよう移行しつつあります。オリジンをまたいでクッキーを送信する必要がある場合、 None ディレクティブを用いて SameSite の制約を外してください。 None ディレクティブは Secure 属性を必要とする。|
 
 
-#### Cookieの持続時間の定義
+### Cookieの持続時間の定義
 * セッションCookie：現在のセッションが終了数すると削除される。ブラウザーによっては再起動時にセッションの復元を使用するため、セッションクッキーが無期限に持続することがある。
 * 持続的Cookie：有効期限が設定されたCookie。`Expires`属性や`Max-age`属性で有効期限を指定可能。
 
-#### Cookieのアクセス制限
+### Cookieのアクセス制限
 * `Secure`属性：この属性がついたクッキーは、HTTPSプロトコル上の暗号化されたリクエストでのみサーバに送信され、安全でないHTTPでは送信されない
 * `HttpOnly`属性：JavaScriptの`Document.cookie`APIにはアクセスできず、サーバに送信される
   * `Document.cookie`とは：`Document`の`cookie`プロパティで文書に関連づけられたクッキーを読み書きできる
