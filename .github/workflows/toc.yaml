@@ -4,7 +4,7 @@ name: toc-generate
 on: 
   push:
     branches:
-      - ${{ env.WORKFLOW_ACTIVE_BRANCH }}
+      - "feature/*"
 
 jobs:
   # with以下でtoc-generatorの設定を指定
