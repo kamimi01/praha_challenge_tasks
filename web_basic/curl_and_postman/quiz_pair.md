@@ -5,7 +5,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
-<summary>Details</summary>
+<summary>目次</summary>
 
 - [curlのクイズ](#curl%E3%81%AE%E3%82%AF%E3%82%A4%E3%82%BA)
   - [クイズ1](#%E3%82%AF%E3%82%A4%E3%82%BA1)
