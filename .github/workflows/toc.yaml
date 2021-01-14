@@ -12,6 +12,9 @@ jobs:
     name: TOC Generator
     runs-on: ubuntu-latest
     steps:
+      - uses: technote-space/load-config-action@v1
+        with:
+          CONFIG_FILENAME: workflow-settings.json
       - name: toc-generator
         uses: technote-space/toc-generator@v3
         with:
@@ -27,11 +30,14 @@ jobs:
     name: workflow notification to slack
     runs-on: ubuntu-latest
     steps:
+      - uses: technote-space/load-config-action@v1
+        with:
+          CONFIG_FILENAME: workflow-settings.json
       - uses: Gamesight/slack-workflow-status@master
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          name: ${{ env.WORKFLOW_NOTIFICATION_NAME }}
-          channel: '#pair-1c-notification'
-          icon_url: 'https://user-images.githubusercontent.com/47489629/104346721-16e1d200-5543-11eb-869f-80ac22ee4501.png'
+          name: ${{ env.WORKFLOW_NOTIFICATION_BOT_NAME }}
+          channel: ${{ env.WORKFLOW_NOTIFICATION_CHANNEL_NAME }}
+          icon_url: ${{ env.WORKFLOW_NOTIFICATION_ICON_URL }}
     
