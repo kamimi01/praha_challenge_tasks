@@ -1,13 +1,13 @@
 name: toc-generate
 
-# developブランチにプッシュされた場合のみ起動
+# feature以下のブランチにプッシュされた場合のみ起動
 on: 
   push:
     branches:
       - "feature/*"
 
-# with以下でtoc-generatorの設定を指定
 jobs:
+  # with以下でtoc-generatorの設定を指定
   generateTOC:
     name: TOC Generator
     runs-on: ubuntu-latest
@@ -20,6 +20,7 @@ jobs:
           COMMIT_MESSAGE: "docs: toc-generatorによる目次自動作成\n#7"
           TARGET_PATHS: "**/*.md"
   
+  # with以下でslack通知先の設定を指定
   slack-notify:
     if: always()
     needs: [generateTOC]
@@ -30,7 +31,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          name: 'Github Actions Workflow'
+          name: ${{ env.WORKFLOW_NOTIFICATION_NAME }}
           channel: '#pair-1c-notification'
           icon_url: 'https://user-images.githubusercontent.com/47489629/104346721-16e1d200-5543-11eb-869f-80ac22ee4501.png'
     
