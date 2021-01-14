@@ -5,7 +5,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
-<summary>目次</summary>
+<summary>Details</summary>
 
 - [課題：以下のヘッダーの意味と役割を説明してください](#%E8%AA%B2%E9%A1%8C%E4%BB%A5%E4%B8%8B%E3%81%AE%E3%83%98%E3%83%83%E3%83%80%E3%83%BC%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%A8%E5%BD%B9%E5%89%B2%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84)
   - [回答](#%E5%9B%9E%E7%AD%94)

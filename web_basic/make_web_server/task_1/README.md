@@ -4,7 +4,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
-<summary>目次</summary>
+<summary>Details</summary>
 
 - [動作環境（2020/01時点）](#%E5%8B%95%E4%BD%9C%E7%92%B0%E5%A2%83202001%E6%99%82%E7%82%B9)
 - [課題の回答](#%E8%AA%B2%E9%A1%8C%E3%81%AE%E5%9B%9E%E7%AD%94)
