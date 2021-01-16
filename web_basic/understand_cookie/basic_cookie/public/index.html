@@ -1,0 +1,32 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>サンプル</title>
+  </head>
+  <body>
+    <button id="cookie_test">クッキーのテスト</button>
+
+    <script type="text/javascript">
+      $(function () {
+        // CORS無許可確認ボタンクリック時
+        $("#cookie_test").on("click", function () {
+          console.log("テスト")
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:8000",
+          })
+            // Ajaxリクエストが成功した時発動
+            .done((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが失敗した時発動
+            .fail((data) => {
+              console.log(data);
+            })
+            // Ajaxリクエストが成功・失敗どちらでも発動
+            .always((data) => {});
+        });
+    </script>
+  </body>
+</html>
