@@ -1,12 +1,21 @@
 const express = require("express")
+
+// クッキーの取得のためのミドルウェア
+const cookieParser = require("cookie-parser")
 const app = express()
+
+app.use(cookieParser())
 
 app.use(express.json())
 
 app.get("/", (req, res) => {
+  //// クッキーの取得
+  const parsedCookie = req.cookies
+
   // CORSを許可する（ngrokを使用して公開ドメインを使う場合は、以下の設定だとCORSのエラー出るので注意）
   res.header("Access-Control-Allow-Origin", "http://localhost:3000")
 
+  //// クッキーの設定
   // 第一引数がname、第二引数がvalue、第三引数はオプション
   res.cookie("name1", "value1")
 
@@ -45,10 +54,10 @@ app.get("/", (req, res) => {
 
   res.cookie("name7", "value7", {
     // httpsにのみクッキーが送られる
-    sameSite: "lax"
+    sameSite: "lax",
   })
 
-  res.json({ test: "test" })
+  res.json(parsedCookie)
 })
 
 app.listen(8000, () => {
