@@ -5,28 +5,31 @@
     <title>サンプル</title>
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <button id="cookie_test">クッキーのテスト</button>
 
     <script type="text/javascript">
+      // クッキーのセット
+      document.cookie = "test_cookie=test_cookie"
+
       $(function () {
         // CORS無許可確認ボタンクリック時
         $("#cookie_test").on("click", function () {
-          console.log("テスト")
           $.ajax({
             type: "GET",
             url: "http://localhost:8000",
           })
             // Ajaxリクエストが成功した時発動
             .done((data) => {
-              console.log(data);
+              console.log(data)
             })
-            // Ajaxリクエストが失敗した時発動
-            .fail((data) => {
-              console.log(data);
-            })
-            // Ajaxリクエストが成功・失敗どちらでも発動
-            .always((data) => {});
-        });
+
+          // 全てのクッキーを取得、出力する
+          allCookies = document.cookie
+          console.log(allCookies)
+        })
+      })
     </script>
   </body>
 </html>
