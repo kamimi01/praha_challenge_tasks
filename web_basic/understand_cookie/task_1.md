@@ -62,6 +62,11 @@
 
 * 疑問
   * `Domain`属性に`com`が指定されていた場合は、送信されるのか？
+    * 送信されない。`com`はPublic Suffix Listに該当するため。
+    * > 4.1.2.3. Domain 属性
+        注記： セキュリティの理由から、多くの UA では，公共接尾辞に対応する Domain 属性は却下するように環境設定されている。 例えば、一部の UA は Domain 属性が "com" や "co.uk" であるものを却下することになる。 （詳細は § 保管モデルを見よ。）
+    * 参考
+      * [cookies: HTTP State Management Mechanism （日本語訳）](https://triple-underscore.github.io/http-cookie-ja.html#sane-domain)
 
 ## 質問3
 
@@ -238,6 +243,14 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
     * `X-XSS-Protection`：ブラウザの「XSS フィルタ」の設定を有効にするパラメータです。ブラウザで明示的に無効になっている場合でも、このパラメータを受信することで有効になる
     * `Content Security Policy`：ブラウザで起こりうる問題を緩和するセキュリティの追加レイヤー。その機能の一つに、反射型クロスサイト・スクリプティング攻撃を防止する「reflected-xss」がある。
 
+  * 以下は補足
+    * 毎回送る必要がない情報は、ストレージに入れている
+      * サーバには不要でフロントにしか必要ない情報は、ストレージに入れる
+      * 例えばfacebook：下書きがローカルストレージに入っている（msgdraft）
+          * おそらくこのクッキーに入っているのは具体的な内容というより、IDだと思われ、内容はDBとかに持っていると思われる
+          * 必要になったら、サーバにその内容に送るという感じではないか
+    * ローカルストレージは、そんなに頻繁に使うものではないイメージ
+
 * 参考
   * [安全なウェブサイトの作り方 - 1.5 クロスサイト・スクリプティング](https://www.ipa.go.jp/security/vuln/websecurity-HTML-1_5.html)
   * [クロスサイトスクリプティング(XSS)対策としてCookieのHttpOnly属性でどこまで安全になるのか](https://www.youtube.com/watch?v=4JREwhSC2dQ)
@@ -300,6 +313,52 @@ response.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);
 ```
 Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly
 ```
+
+### その他質問事項
+
+* RFC6265のクッキーのExpires属性に関する記述の中で、以下の記述の意味がよくわかりませんでした。。（非公式日本語訳→ https://triple-underscore.github.io/http-cookie-ja.html#expires-attribute ）
+
+  * > If the expiry-time is later than the last date the user agent can
+     represent, the user agent MAY replace the expiry-time with the last
+     representable date.
+
+  * > If the expiry-time is earlier than the earliest date the user agent
+     can represent, the user agent MAY replace the expiry-time with the
+     earliest representable date.
+
+  * ここでいう「UAが表現可能な最も未来の日付」「UAが表現可能な最も過去の日付」とはなんのことでしょうか？
+
+  * 回答
+    * 表現可能というのは、紀元前とかそのくらい大昔前だと表現できないので、おそらく19xx年とかに置き換えられますよ。（未来も同様）という意味だと思われる
+    * 例えばUNIX時間は、協定世界時（UTC）での1970年1月1日午前0時0分0秒からの経過秒数で表現されるが、Expiresが自動的にこの値に置換されるという意味だと思われる（ブラウザによって対応は異なっていそう）
+
+* Expiresが設定されたクッキーは、どのようにして削除されるのでしょうか？
+
+  * RFC6265によるとサーバーからはクッキーの属性を確認できないので、サーバーではなくブラウザで何らかの処理が行われると推測できます。
+
+  * 例えば、ブラウザ内のクッキーの期限を常に監視しているのでしょうか？
+それともリクエストを送る際に期限を確認しているのでしょうか？
+
+  * 回答：ブラウザ次第
+    * firefox：expiresしても消えない。手動で消さないとだめ。上限容量を超えたら、初めて消しに行く
+    * IEやEdge：次にユーザがリクエストした時に、expiresしていたら消す
+    * expiresしていたら、送られないという仕様だけは共通
+    * RFCによる仕様と、ブラウザの実装は分けて考える
+
+* クッキーに保存するセッションIDはワンタイムなものにした方がいいのでしょうか？
+  * 例えばユーザーIDをハッシュ化したものではだめなのでしょうか？
+  * 回答
+    * こんなクラッカーもいる。
+      * ハッシュ化されたIDをずっととっておいて、10年くらい経ち脆弱性が出てきた時に解読するというのがある。
+      * 今は安全だが、将来も安全とは限らない。
+    * ワンタイムな方が安全。
+    * ワンタイムトークンを生成する時に、シードというランダム数を生成するシートがあるが、それを傍受されている場合、規則性がわかってしまうので、日付の様な推測されやすいトークンを使ったワンタイムトークンを使うのは良くない。（徳丸さんのブログに記載あり）
+    * よく使われるのはJWT
+      * 署名がつくので、基本的に偽造はできない
+      * トークンとかにはJWTを使うのが良いと思う
+      * セッションIDで個人を判別し、トークンで本当にこの人かを検証する、という使い方が多い
+
+
 
 ### 参考
 * [HTTP Cookie の使用](https://developer.mozilla.org/ja/docs/Web/HTTP/Cookies)（MDN Web Docs）
