@@ -1,0 +1,9 @@
+{
+  "TOC_FOLDING": "1",
+  "TOC_TITLE": "**Details**",
+  "TOC_TARGET_PATHS": "**/*.md",
+  "TOC_COMMIT_MESSAGE": "docs: toc-generatorによる目次自動作成\n#7",
+  "WORKFLOW_NOTIFICATION_BOT_NAME": "Github Actions Workflow",
+  "WORKFLOW_NOTIFICATION_CHANNEL_NAME": "#pair-1c-notification",
+  "WORKFLOW_NOTIFICATION_ICON_URL": "https://user-images.githubusercontent.com/47489629/104346721-16e1d200-5543-11eb-869f-80ac22ee4501.png"
+}
