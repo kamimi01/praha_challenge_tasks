@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
   //// クッキーの取得
   const parsedCookie = req.cookies
 
-  // CORSを許可する（ngrokを使用して公開ドメインを使う場合は、以下の設定だとCORSのエラー出るので注意）
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+  // CORSを許可する（ngrokとlocalhostで切り替えが面倒なので、一旦*で）
+  res.header("Access-Control-Allow-Origin", "*")
 
   //// クッキーの設定
   // 第一引数がname、第二引数がvalue、第三引数はオプション
@@ -44,6 +44,7 @@ app.get("/", (req, res) => {
   res.cookie("name5", "value5", {
     // ここに設定されているドメインのサブドメインにはクッキーが送られる
     // ただ、ここには何も設定しないのが一番安全
+    // ngrok.ioはPublic Suffix Listにあるため、適用はされないが、一応書いてる
     domain: ".ngrok.io",
   })
 
@@ -53,9 +54,10 @@ app.get("/", (req, res) => {
   })
 
   res.cookie("name7", "value7", {
-    // httpsにのみクッキーが送られる
     sameSite: "lax",
   })
+
+  console.log(parsedCookie)
 
   res.json(parsedCookie)
 })
