@@ -83,9 +83,9 @@
   ```html
   <a href="example.com/this-ad" target="_blank" rel="noopener"> <img src = "example.com/ad-img"> </a>
   ```
-
-* [What’s the Difference Between First-Party and Third-Party Cookies?](https://clearcode.cc/blog/difference-between-first-party-third-party-cookies/)
-* [All you need to know about Third-Party Cookies](https://cookie-script.com/all-you-need-to-know-about-third-party-cookies.html)
+* 参考
+  * [What’s the Difference Between First-Party and Third-Party Cookies?](https://clearcode.cc/blog/difference-between-first-party-third-party-cookies/)
+  * [All you need to know about Third-Party Cookies](https://cookie-script.com/all-you-need-to-know-about-third-party-cookies.html)
 
 ## 質問4
 
@@ -97,7 +97,7 @@
 * また、対応の厳格さを比較すると、Safari > Firefox > Google （左にいくほど厳格）となる。
 
 |ブラウザ(提供元)|サードパーティクッキーの扱い|備考|
-|----|----|----|----|
+|----|----|----|
 |Chrome(Google)|サードパーティクッキーはデフォルトではブロックされない。ただし設定からブロックすることが可能。2022年までにサードパーティクッキーを廃止することが発表されている。<br> 代替手段として、Privacy SandBoxを提案している。|
 |Firefox(Mozilla)|サードパーティクッキーをデフォルトでブロックする。それ以外はデフォルトではブロックしないが、ユーザ設定を変更することにより、より強固なブロック設定に変更加納。<br> サードパーティクッキーに関して、Enhanced Tracking Protectionの設定として以下３つの選択肢を用意した。<br>・Standard<br>・Strict<br>・Custom||
 |Safari(Apple)|サードパーティクッキーをデフォルトでブロックする。クッキーを制御するための機能として、Intelligent Tracking Prevention（ITP）を導入している。|Appleは広告収入による影響を受けないため、ユーザのプライバシーを優先して、他企業よりも厳格な方針を取っている。|
