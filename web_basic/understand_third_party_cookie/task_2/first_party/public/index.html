@@ -1,0 +1,29 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>サンプル</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <a href="index2.html" target="_blank" rel="noreferrer"><img src="/Users/mikaurakawa/Desktop/praha_challenge/web_basic/understand_third_party_cookie/task_2/img/profile.jpg"></a>
+
+    <script type="text/javascript">
+      $(function () {
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8000",
+        })
+          // Ajaxリクエストが成功した時発動
+          .done((data) => {
+            console.log(data)
+          })
+
+        // 受け取ったクッキーを取得、出力する（なにも表示されないはず）
+        allCookies = document.cookie
+        console.log(allCookies)
+      })
+    </script>
+  </body>
+</html>
