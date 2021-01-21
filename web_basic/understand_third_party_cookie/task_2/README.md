@@ -7,7 +7,7 @@
 <summary>Details</summary>
 
 - [動作環境](#%E5%8B%95%E4%BD%9C%E7%92%B0%E5%A2%83)
-- [](#)
+- [実装イメージ](#%E5%AE%9F%E8%A3%85%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
