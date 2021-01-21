@@ -20,3 +20,30 @@
 ## 実装イメージ
 
 ![](../../../assets/third_party_cookie_architecture.png)
+
+## 確認方法
+
+1. [third_party](./third_party)ディレクトリで、`node app.js`を実行する
+   * ローカルサーバを3000番ポートで起動する
+2. 別のターミナルで、`ngrok http 3000`を実行する
+   * ngrokが`localhost:3000`向けにリクエストを転送するための外部公開用のURLを払い出す
+     * HTTPとHTTPSの２つのURLが払い出されるが、今回使用するのはHTTPSの方
+3. 2で払い出された`**HTTPS**のngrok.ioのURL + /img/profile.jpg`（e.g. https://xxxx.ngrok.io/img/profile.jpg ）を、[first_partyディレクトリのindex.html](./first_party/public/index.html)の`<img>`の`src`属性の値に設定する
+4. [first_pary](./first_party)ディレクトリで、`node app.js`を実行する
+
+![](../../../assets/third_party_terminal.png)
+
+## 確認結果
+
+* `Application`タブを見ると、`Domain`が異なるクッキーが2つ表示されている
+
+![](../../../assets/third_party_cookie_result.png)
+
+* 疑問
+  * Developer ToolsのCookiesの下には、なぜngrokのURL（https://xxxx.ngrok.io）は表示されないのか？ドメインは異なっているので、サードパーティクッキーをブラウザに設定すること自体はできていると思うのだが。。
+
+## 参考
+
+* ngrokについて
+  * [開発環境用のトンネリングツールとそのしくみ（ngrok編）](https://speakerdeck.com/gishi_yama/mild-web-sap06)
+  * [ngrok](https://ngrok.com/)
