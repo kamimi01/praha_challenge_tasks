@@ -5,14 +5,20 @@ const PORT = 3000
 
 app.use(cookieParser())
 
-app.use("/public", express.static(__dirname + "/public"))
+const staticOptions = {
+  setHeaders: function (res, path, stat) {
+    res.cookie("third_party", "fuga", {
+      // httpOnly属性のみだと、Chromeブラウザのデフォルト設定がSameSiteがLaxであるため、ブロックされる
+      httpOnly: true,
+      // クロスサイト間でのクッキーのやりとりを可能にするため、以下の属性を付与する
+      sameSite: "none",
+      secure: true,
+    })
+  },
+}
 
-app.get("/", (req, res) => {
-  res.cookie("third_party", "fuga", {
-    httpOnly: true,
-  })
-})
+app.use("/img", express.static(__dirname + "/img", staticOptions))
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 })
