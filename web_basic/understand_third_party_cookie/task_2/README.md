@@ -19,4 +19,4 @@
 
 ## 実装イメージ
 
-![](../../../assets/third_party.png)
+![](../../../assets/third_party_cookie_architecture.png)
