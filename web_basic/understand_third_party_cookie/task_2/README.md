@@ -8,6 +8,9 @@
 
 - [動作環境](#%E5%8B%95%E4%BD%9C%E7%92%B0%E5%A2%83)
 - [実装イメージ](#%E5%AE%9F%E8%A3%85%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8)
+- [確認方法](#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95)
+- [確認結果](#%E7%A2%BA%E8%AA%8D%E7%B5%90%E6%9E%9C)
+- [参考](#%E5%8F%82%E8%80%83)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
