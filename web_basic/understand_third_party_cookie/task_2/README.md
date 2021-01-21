@@ -19,6 +19,7 @@
 
 * `node`のバージョン：`v15.5.1`
 * `npm`のバージョン：`6.14.11`
+* ブラウザ：Chromeのバージョン: 87.0.4280.88（Official Build） （x86_64）
 
 ## 実装イメージ
 
@@ -33,6 +34,7 @@
      * HTTPとHTTPSの２つのURLが払い出されるが、今回使用するのはHTTPSの方
 3. 2で払い出された`HTTPSのngrok.ioのURL + /img/profile.jpg`（e.g. https://xxxx.ngrok.io/img/profile.jpg ）を、[first_partyディレクトリのindex.html](./first_party/public/index.html)の`<img>`の`src`属性の値に設定する
 4. [first_pary](./first_party)ディレクトリで、`node app.js`を実行する
+5. `http://localhost:8000/public/index.html`をブラウザで開く
 
 ![](../../../assets/third_party_terminal.png)
 
