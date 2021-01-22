@@ -10,6 +10,27 @@
     <!-- 以下にngrokでホスティングした画像のURL(HTTPSの方)を記載する -->
     <img src="https://xxxxx.ngrok.io/img/profile.jpg" />
 
+    <!-- scriptタグでリクエスト -->
+    <script src="index.js"></script>
+
+    <!-- formタグでリクエスト -->
+    <form action="http://e91384d1b915.ngrok.io/" method="POST">
+      <div>
+        <label for="say">What greeting do you want to say?</label>
+        <input name="say" id="say" value="Hi" />
+      </div>
+      <div>
+        <label for="to">Who do you want to say it to?</label>
+        <input name="to" id="to" value="Mom" />
+      </div>
+      <div>
+        <button>Send my greetings</button>
+      </div>
+    </form>
+
+    <!-- aタグでリクエスト -->
+    <a href="http://e91384d1b915.ngrok.io/" target="_blank" rel="noopenner">別のページへ飛ぶ</a>
+
     <script type="text/javascript">
       // 受け取ったクッキーを取得、出力する（なにも表示されないはず）
       allCookies = document.cookie

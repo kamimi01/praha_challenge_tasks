@@ -5,15 +5,12 @@ const PORT = 8000
 
 app.use(cookieParser())
 
-const staticOptions = {
-  setHeaders: function (res, path, stat) {
-    res.cookie("first_party", "hoge", {
-      httpOnly: true,
-    })
-  },
-}
-
-app.use("/public", express.static(__dirname + "/public", staticOptions))
+app.get("/", (req, res) => {
+  res.cookie("first_party", "hoge", {
+    httpOnly: true,
+  })
+  res.sendFile(__dirname + "/public/index.html")
+})
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
