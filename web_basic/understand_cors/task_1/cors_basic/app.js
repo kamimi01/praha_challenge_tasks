@@ -17,7 +17,7 @@ app.get("/api", (req, res) => {
   console.log("corsのAPIが呼ばれた")
 
   // クッキーを送信する場合、*の値だとエラーになるので、具体的なドメインを指定する
-  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Origin', "http://localhost:8000");
   // クッキーを送信する場合、レスポンスヘッダ として以下を返す必要がある
   res.header("Access-Control-Allow-Credentials", true)
 
