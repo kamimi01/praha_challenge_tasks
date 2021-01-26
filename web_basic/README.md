@@ -22,3 +22,7 @@
 ## [3. リクエストをパースするWEBサーバを作ってみる](make_web_server)
 
 ## [4. クッキーを理解する](understand_cookie)
+
+## [5. サードパーティクッキーを理解する](understand_third_party_cookie)
+
+## [6. CORSについて理解する](understand_cors)
