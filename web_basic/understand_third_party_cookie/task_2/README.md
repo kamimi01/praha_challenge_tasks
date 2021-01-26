@@ -27,14 +27,15 @@
 
 ## 確認方法
 
-1. [third_party](./third_party)ディレクトリで、`node app.js`を実行する
+1. [third_party](./third_party)ディレクトリで、`npm install`を実行する
+2. `node app.js`を実行する
    * ローカルサーバを3000番ポートで起動する
-2. 別のターミナルで、`ngrok http 3000`を実行する
+3. 別のターミナルで、`ngrok http 3000`を実行する
    * ngrokが`localhost:3000`向けにリクエストを転送するための外部公開用のURLを払い出す
      * HTTPとHTTPSの２つのURLが払い出されるが、今回使用するのはHTTPSの方
-3. 2で払い出された`HTTPSのngrok.ioのURL + /img/profile.jpg`（e.g. https://xxxx.ngrok.io/img/profile.jpg ）を、[first_partyディレクトリのindex.html](./first_party/public/index.html)の`<img>`の`src`属性の値に設定する
-4. [first_pary](./first_party)ディレクトリで、`node app.js`を実行する
-5. `http://localhost:8000/public/index.html`をブラウザで開く
+4. 2で払い出された`HTTPSのngrok.ioのURL + /img/profile.jpg`（e.g. https://xxxx.ngrok.io/img/profile.jpg ）を、[first_partyディレクトリのindex.html](./first_party/public/index.html)の`<img>`の`src`属性の値に設定する
+5. [first_pary](./first_party)ディレクトリで、`node app.js`を実行する
+6. `http://localhost:8000/public/index.html`をブラウザで開く
 
 ![](../../../assets/third_party_terminal.png)
 

@@ -6,6 +6,7 @@ const PORT = 8000
 app.use(cookieParser())
 
 app.get("/", (req, res) => {
+  // set-cookieに付与される
   res.cookie("first_party", "hoge", {
     httpOnly: true,
   })

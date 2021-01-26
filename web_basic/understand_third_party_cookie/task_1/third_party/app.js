@@ -6,7 +6,7 @@ const PORT = 3000
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
-app.post("/", (req, res)=>{
+app.post("/form", (req, res) => {
   // フォームの中身を送信する
   const reqBody = req.body
   console.log(reqBody)
@@ -18,10 +18,11 @@ app.post("/", (req, res)=>{
   res.cookie("samesiteLaxPost", "lax", {
     sameSite: "lax",
   })
+
+  res.send("OK")
 })
 
 app.get("/", (req, res) => {
-
   res.cookie("samesiteStrict", "strict", {
     sameSite: "strict",
   })
@@ -32,25 +33,36 @@ app.get("/", (req, res) => {
 
   // noneの場合は、secure属性を付与しないと送信が拒否される
   res.cookie("samesiteNone", "none", {
+    httpOnly: true,
     sameSite: "none",
     secure: true,
   })
   res.sendFile(__dirname + "/public/index.html")
 })
 
-// const staticOptions = {
-//   setHeaders: function (res, path, stat) {
-//     res.cookie("third_party", "fuga", {
-//       // httpOnly属性のみだと、Chromeブラウザのデフォルト設定がSameSiteがLaxであるため、ブロックされる
-//       httpOnly: true,
-//       // クロスサイト間でのクッキーのやりとりを可能にするため、以下の属性を付与する
-//       sameSite: "none",
-//       secure: true,
-//     })
-//   },
-// }
+// 画像を表示する
+app.get("/img", (req, res) => {
+  // set-cookieに付与される
+  res.cookie("imgCookie", "img", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  })
 
-// app.use("/img", express.static(__dirname + "/img", staticOptions))
+  res.sendFile(__dirname + "/img/profile.jpg")
+})
+
+// javascriptファイルを読み込む
+app.get("/js", (req, res) => {
+  // set-cookieに付与されるが、samesiteがnoneになっていないと、ブロックされる
+  res.cookie("jsCookie", "js", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true
+  })
+
+  res.sendFile(__dirname + "/index.js")
+})
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)

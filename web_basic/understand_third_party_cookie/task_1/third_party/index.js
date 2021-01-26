@@ -1,1 +1,1 @@
-alert("scriptタグからjsファイルが読み込まれた")
+console.log("jsファイルを読み込んだよ")
