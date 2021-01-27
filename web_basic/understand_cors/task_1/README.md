@@ -124,3 +124,18 @@
         ![](../../../assets/cors_cookie_ng.png)
 
 ## 参考
+
+---
+
+## CORSに関する調査
+
+- 以下にCORSに関しての調査内容や疑問点を整理する
+- 課題とは直接関係ないため、レビュー対象外で大丈夫です
+
+### プリフライトリクエストでやり取りするヘッダ
+
+|要求の種類|リクエスト|レスポンス|値の例|
+|----|----|----|----|
+|メソッドに対する許可|`Access-Control-Request-Method`|`Access-Control-Allow-Method`|`POST`|
+|ヘッダに対する許可|`Access-Control-Request-Headers`|`Access-Control-Allow-Headers`|`content-type`|
+|オリジンに対する許可|`Origin`|`Access-Control-Allow-Origin`|`http://example.com`|
