@@ -8,6 +8,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html")
 })
 
+// index.jsを実行する
+app.get("/js", (req, res) => {
+  res.sendFile(__dirname + "/public/index.js")
+})
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 })
@@ -15,7 +20,7 @@ app.listen(PORT, () => {
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-// CORSの設定を行う
+// CORSの設定を行う（corsモジュールは使用せずに実装します）
 app.use((req, res, next) => {
   const origin = req.headers.origin
   const ALLOWED_ORIGINS = ["http://localhost:8000"]
@@ -31,7 +36,7 @@ app.use((req, res, next) => {
   next()
 })
 
-// OPTIONSメソッドでのリクエストを受ける
+// プリフライトリクエストのOPTIONSメソッドでのリクエストを受ける
 app.options("*", (req, res) => {
   res.sendStatus(204)
 })
@@ -45,6 +50,7 @@ app.post("/simple", (req, res) => {
   res.json(resBody)
 })
 
+// プリフライトリクエストの実際のリクエストを受ける
 app.post("/preflight", (req, res) => {
   const resBody = {
     message: "プリフライトリクエストを受け付けた",
