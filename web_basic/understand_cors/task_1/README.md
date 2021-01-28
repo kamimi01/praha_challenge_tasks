@@ -17,6 +17,8 @@
 - [質問5](#%E8%B3%AA%E5%95%8F5)
   - [回答](#%E5%9B%9E%E7%AD%94-4)
 - [参考](#%E5%8F%82%E8%80%83)
+- [CORSに関する調査](#cors%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E8%AA%BF%E6%9F%BB)
+  - [プリフライトリクエストでやり取りするヘッダ](#%E3%83%97%E3%83%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%82%84%E3%82%8A%E5%8F%96%E3%82%8A%E3%81%99%E3%82%8B%E3%83%98%E3%83%83%E3%83%80)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
