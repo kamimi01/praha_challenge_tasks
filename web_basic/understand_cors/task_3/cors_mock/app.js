@@ -1,6 +1,5 @@
 const express = require("express")
 const staticFileRouter = require("./routes/staticFile")
-const cors = require("./middlewares/cors")
 const app = express()
 const PORT = 8000
 
@@ -18,16 +17,17 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 })
 
+const cors = require("./middlewares/cors")
 const corsApp = express()
 const OTHER_PORT = 8080
 
 // cors（corsモジュールは使用せずに実装）のミドルウェアの設定
 corsApp.use(cors)
 
-// プリフライトリクエストのOPTIONSメソッドでのリクエストを受ける
-corsApp.options("/preflight", (req, res) => {
-  res.sendStatus(204)
-})
+/**
+ * TODO：CORS対応のAPIもrouterを使用して、corsApp.use("/simple", corsRequestRouter)のようにしたかったが、
+ * 静的ファイルのようにうまくいかなった&時間切れのため、未実装
+ */
 
 // シンプルリクエストを受ける
 corsApp.post("/simple", (req, res) => {
@@ -36,6 +36,11 @@ corsApp.post("/simple", (req, res) => {
   }
 
   res.json(resBody)
+})
+
+// プリフライトリクエストのOPTIONSメソッドでのリクエストを受ける
+corsApp.options("/preflight", (req, res) => {
+  res.sendStatus(204)
 })
 
 // プリフライトリクエストの実際のリクエストを受ける
