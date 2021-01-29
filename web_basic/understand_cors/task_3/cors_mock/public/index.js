@@ -2,6 +2,8 @@ const baseUrl = "http://localhost:8080"
 const simpleUrl = baseUrl + "/simple"
 const preflightUrl = baseUrl + "/preflight"
 
+console.log(simpleUrl, preflightUrl)
+
 // シンプルリクエストを行う
 const simpleReq = new XMLHttpRequest()
 simpleReq.open("POST", simpleUrl)
