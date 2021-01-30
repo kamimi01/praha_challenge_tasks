@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const apiApp = express()
-// const cors = require("cors")
+const cors = require("cors")
 const PORT = 8090
 const OTHER_PORT = 8080
 
@@ -16,21 +16,13 @@ apiApp.use(express.urlencoded({ extended: true }))
 apiApp.use(express.json())
 
 const corsOptions = {
-  origin: "*",
+  "origin": "*",
   // "methods": "PUT, POST",
   // "allowedHeaders": "Content-Type",
   // "optionsSuccessStatus": 204
 }
 
-const cors = (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  next()
-}
-
-// CORSの設定を行う
-apiApp.use(cors)
-
-apiApp.post("/users/:id", (req, res) => {
+apiApp.post("/users/:id", cors(corsOptions), (req, res) => {
   console.log("受けた")
   console.log(req.params.id)
   const resBody = {
