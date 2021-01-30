@@ -12,23 +12,36 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 })
 
+// APIの提供
 apiApp.use(express.urlencoded({ extended: true }))
 apiApp.use(express.json())
 
 const corsOptions = {
-  "origin": "*",
-  // "methods": "PUT, POST",
-  // "allowedHeaders": "Content-Type",
-  // "optionsSuccessStatus": 204
+  origin: "http://localhost:8090",
+  methods: "PUT, POST",
+  allowedHeaders: "Content-Type",
+  optionsSuccessStatus: 204,
 }
 
-apiApp.post("/users/:id", cors(corsOptions), (req, res) => {
-  console.log("受けた")
+function commonProcess(req, res) {
   console.log(req.params.id)
+  console.log(req.headers.origin)
+
+  const id = req.params.id
   const resBody = {
-    message: "受け付けた",
+    message: `取得したID：${id}`,
   }
   res.json(resBody)
+}
+
+apiApp.options("/users/:id", cors(corsOptions))
+
+apiApp.post("/users/:id", cors(corsOptions), (req, res) => {
+  commonProcess(req, res)
+})
+
+apiApp.put("/users/:id", cors(corsOptions), (req, res) => {
+  commonProcess(req, res)
 })
 
 apiApp.listen(OTHER_PORT, () => {
