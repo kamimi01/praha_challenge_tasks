@@ -24,16 +24,16 @@ const corsOptionsDelegate = function (req, callback) {
   const ALLOW_HEADERS = ["Content-Type"]
   const OPTIONS_SUCCESS_STATUS = 204
 
-  const allowedOrigin = function () {
+  // ALLOW_ORIGINSの要素以外のオリジンでは、origin:falseとなるため、CORSエラーが発生する
+  const isAllowOrigin = () => {
     if (ALLOW_ORIGINS.includes(origin)) {
-      return origin
+      return true
     }
-    return ""
+    return false
   }
-  console.log(allowedOrigin())
 
   const corsOptions = {
-    origin: allowedOrigin(),
+    origin: isAllowOrigin(),
     methods: ALLOW_METHODS.join(","),
     allowedHeaders: ALLOW_HEADERS.join(","),
     optionsSuccessStatus: OPTIONS_SUCCESS_STATUS,
