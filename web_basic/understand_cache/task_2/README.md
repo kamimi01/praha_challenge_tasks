@@ -1,5 +1,9 @@
 # 課題2
 
+## Table of Contents
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 ## 動作環境
 
 - `node`：v12.20.1
