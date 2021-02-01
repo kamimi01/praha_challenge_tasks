@@ -2,8 +2,39 @@
 
 ## Table of Contents
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+  - [質問 1](#%E8%B3%AA%E5%95%8F-1)
+    - [回答](#%E5%9B%9E%E7%AD%94)
+  - [質問 2](#%E8%B3%AA%E5%95%8F-2)
+    - [回答](#%E5%9B%9E%E7%AD%94-1)
+  - [質問 3](#%E8%B3%AA%E5%95%8F-3)
+    - [回答](#%E5%9B%9E%E7%AD%94-2)
+  - [質問 4](#%E8%B3%AA%E5%95%8F-4)
+    - [回答](#%E5%9B%9E%E7%AD%94-3)
+  - [質問5](#%E8%B3%AA%E5%95%8F5)
+    - [回答](#%E5%9B%9E%E7%AD%94-4)
+  - [質問6](#%E8%B3%AA%E5%95%8F6)
+    - [回答](#%E5%9B%9E%E7%AD%94-5)
+- [キャッシュに関する調査内容](#%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E8%AA%BF%E6%9F%BB%E5%86%85%E5%AE%B9)
+  - [キャッシュについて](#%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+  - [キャッシュの方法](#%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E6%96%B9%E6%B3%95)
+    - [期限切れモデル（Expiration Model）](#%E6%9C%9F%E9%99%90%E5%88%87%E3%82%8C%E3%83%A2%E3%83%87%E3%83%ABexpiration-model)
+      - [キャッシュ用のヘッダ](#%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E7%94%A8%E3%81%AE%E3%83%98%E3%83%83%E3%83%80)
+    - [検証モデル（Validation Model）](#%E6%A4%9C%E8%A8%BC%E3%83%A2%E3%83%87%E3%83%ABvalidation-model)
+      - [条件付きGETに関わるヘッダ](#%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8Dget%E3%81%AB%E9%96%A2%E3%82%8F%E3%82%8B%E3%83%98%E3%83%83%E3%83%80)
+        - [ETagについて](#etag%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+          - [ETagの計算](#etag%E3%81%AE%E8%A8%88%E7%AE%97)
+          - [強い検証と弱い検証](#%E5%BC%B7%E3%81%84%E6%A4%9C%E8%A8%BC%E3%81%A8%E5%BC%B1%E3%81%84%E6%A4%9C%E8%A8%BC)
+    - [期限切れモデルと検証モデルの比較](#%E6%9C%9F%E9%99%90%E5%88%87%E3%82%8C%E3%83%A2%E3%83%87%E3%83%AB%E3%81%A8%E6%A4%9C%E8%A8%BC%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E6%AF%94%E8%BC%83)
+    - [キャッシュの単位の指定](#%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AE%E5%8D%98%E4%BD%8D%E3%81%AE%E6%8C%87%E5%AE%9A)
+    - [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 質問 1
 
