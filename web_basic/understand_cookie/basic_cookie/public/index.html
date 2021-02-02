@@ -1,0 +1,33 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>サンプル</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <a href="index2.html" target="_blank" rel="noreferrer">index2のページへ</a>
+
+    <script type="text/javascript">
+      // クッキーのセット
+      // document.cookie = "test_cookie=test_cookie"
+
+      $(function () {
+        // CORS無許可確認ボタンクリック時
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:8000",
+        })
+          // Ajaxリクエストが成功した時発動
+          .done((data) => {
+            console.log(data)
+          })
+
+        // 全てのクッキーを取得、出力する
+        allCookies = document.cookie
+        console.log(allCookies)
+      })
+    </script>
+  </body>
+</html>
