@@ -1,0 +1,40 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>サンプル</title>
+  </head>
+  <body>
+    <h1>ファーストパーティ</h1>
+
+    <!-- 以下にngrokでホスティングした画像のURL(HTTPSの方)を記載する -->
+    <img src="https://xxx.ngrok.io/img" />
+
+    <!-- scriptタグでリクエスト -->
+    <script src="https://xxx.ngrok.io/js"></script>
+
+    <!-- formタグでリクエスト -->
+    <form action="https://xxx.ngrok.io/form" method="POST">
+      <div>
+        <label for="say">What greeting do you want to say?</label>
+        <input name="say" id="say" value="Hi" />
+      </div>
+      <div>
+        <label for="to">Who do you want to say it to?</label>
+        <input name="to" id="to" value="Mom" />
+      </div>
+      <div>
+        <button>Send my greetings</button>
+      </div>
+    </form>
+
+    <!-- aタグでリクエスト -->
+    <a href="https://xxx.ngrok.io/" target="_blank" rel="noopenner">別のページへ飛ぶ</a>
+
+    <script type="text/javascript">
+      // 受け取ったクッキーを取得、出力する（なにも表示されないはず）
+      allCookies = document.cookie
+      console.log(allCookies)
+    </script>
+  </body>
+</html>
