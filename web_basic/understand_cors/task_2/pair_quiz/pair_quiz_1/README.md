@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [ペアのクイズ1,2](#%E3%83%9A%E3%82%A2%E3%81%AE%E3%82%AF%E3%82%A4%E3%82%BA12)
+  - [クイズ1,2](#%E3%82%AF%E3%82%A4%E3%82%BA12)
+    - [確認手順](#%E7%A2%BA%E8%AA%8D%E6%89%8B%E9%A0%86)
+    - [確認結果](#%E7%A2%BA%E8%AA%8D%E7%B5%90%E6%9E%9C)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # ペアのクイズ1,2
 
 ## クイズ1,2
