@@ -38,3 +38,7 @@ Express のエコシステムには CORS の設定を簡単にできるミドル
 ![](../../../../../assets/cors_put_quiz_result.png)
 
 - OPTIONSメソッドのリクエスト結果のスクショは省略するが、問題なくリクエストできていた
+
+### 参考
+
+- [CORS in Action](https://livebook.manning.com/book/cors-in-action/table-of-contents/)（オンライン書籍）
