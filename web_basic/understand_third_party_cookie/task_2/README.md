@@ -47,6 +47,9 @@
 
 * 疑問
   * Developer ToolsのCookiesの下には、なぜngrokのURL（ https://xxxx.ngrok.io ）は表示されないのか？ドメインは異なっているので、サードパーティクッキーをブラウザに設定すること自体はできていると思うのだが。。
+    * クロームのcookieタブについて。
+      iframeは全く別のサイトを開いてる状態。
+      cookieが8081にセットされるのでなく、iframeのサイトにcookieにセットされる。
 
 ## 参考
 
