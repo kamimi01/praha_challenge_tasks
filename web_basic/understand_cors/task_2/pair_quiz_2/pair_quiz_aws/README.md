@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [ペアのクイズ](#%E3%83%9A%E3%82%A2%E3%81%AE%E3%82%AF%E3%82%A4%E3%82%BA)
+  - [行ったこと](#%E8%A1%8C%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8)
+  - [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # ペアのクイズ
 
 ## 行ったこと
