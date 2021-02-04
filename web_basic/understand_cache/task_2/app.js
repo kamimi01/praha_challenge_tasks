@@ -19,11 +19,22 @@ function showCurDate() {
 
 apiApp.get("/use_cache", (req, res) => {
   showCurDate()
+  // プライベートだが、ブラウザキャッシュには保存される。
+  // （共有キャッシュへの保存は許可されない→nginxやcloud frontで確認必要）
   // 期限を10秒に設定
-  res.header("cache-control", "max-age=10")
+  // res.header("cache-control", "private, max-age=20")
+  res.header("cache-control", "no-store")
+
+  // 現在時刻を取得
+  const currentDate = new Date()
+  // 現在時刻から10秒追加
+  currentDate.setSeconds(currentDate.getSeconds() + 10)
+  // 15秒後にブラウザをリフレッシュしたが、まだキャッシュが効いていたため、expiresヘッダの設定は無視されていることがわかった
+  // res.header("Expires", currentDate)
+
   res.sendFile(__dirname + "/image/dog.png")
 
-  console.log("サーバにdog画像のデータを取得しにきた")
+  console.log("GET /use_cache")
 })
 
 apiApp.get("/nouse_cache", (req, res) => {
@@ -32,7 +43,7 @@ apiApp.get("/nouse_cache", (req, res) => {
   res.header("cache-control", "no-store")
   res.sendFile(__dirname + "/image/cat.png")
 
-  console.log("サーバにcat画像のデータを取得しにきた")
+  console.log("GET /nouse_cache")
 })
 
 apiApp.listen(PORT_API, () => {

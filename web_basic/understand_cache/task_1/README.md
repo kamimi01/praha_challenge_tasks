@@ -110,6 +110,7 @@
 ### 回答
 
 - [Qiita](https://qiita.com/)
+  - `cache-control: max-age=0, private, must-revalidate`
   - `etag: W/"2e709c47148dbf95592ae69eb859165a"`
     - データに変更があるかをサーバに検証しにいく、検証モデルによるキャッシュの仕組みを導入していると考えられる。
     - `W/`がついているため、弱い検証を利用している
@@ -124,7 +125,10 @@
 
 - [Amazon](https://www.amazon.co.jp/)
   - `expires: -1`
-    - `Expires`の値は`HTTP-date timestamp`とされているので、正しい値の設定方法ではないように思われるが、詳細は不明...
+    - `Expires`の値は`HTTP-date timestamp`とされているので、正しい値の設定方法ではない。そのため、既に失効したものとして扱われれる。
+      - 参考
+        - [RFC 7234, Caching 5.3 Expires（非公式日本語訳）](https://triple-underscore.github.io/RFC7234-ja.html#section-5.3)
+        - [HTTPヘッダチューニング Expiresヘッダについて](https://blog.redbox.ne.jp/http-header-expires.html)の「Expires -1 について」
   - `pragma: no-cache`
     - キャッシュするが、検証が必要
   - `vary: Accept-Encoding,User-Agent,Content-Type,Accept-Encoding,X-Amzn-CDN-Cache,X-Amzn-AX-Treatment,User-Agent`
