@@ -17,7 +17,8 @@
   "extensions": [
     "dbaeumer.vscode-eslint",
     "coenraads.bracket-pair-colorizer",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "humao.rest-client"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
