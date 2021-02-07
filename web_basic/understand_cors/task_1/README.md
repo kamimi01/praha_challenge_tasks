@@ -52,6 +52,29 @@
 - `Access-Control-Allow-Origin`の値を`*`にすることで、全てのドメインからのアクセスを許可することになるため、非公開情報を扱い場合は`*`を指定すべきではない。（ただし、連携先が多い場合は、敢えて`*`をしてし、別の方法で情報漏洩を防ぐという実装も存在する）
   - 例えば、クライアントとドメインが異なり、`Access-Control-Allow-Origin`を`*`としているAPIが存在しているとする。そのAPIは、異なるドメインからのリクエストでも許可してしまうため、クライアントに非公開の情報が渡ってしまうなどが考えられる。
 
+- 補足
+  - **CORSの設定というのは、本来アプリケーションのロジックには関係ないため、DNS側でCNAMEで設定するのが良いと考えられる**
+  - ただし、アプリケーション側で設定する場合は以下の通りに行うのが良いと考えられる
+    - CORS設定は、全てのドメインに一律で同じ設定をするのではなく、CORSを許可したいドメインにのみ、CORSの設定をするようにするのが良い
+    - またそのようにすれば、ワイルドカードを設定すること自体は特に問題にはならないと考えられる
+    - もし認証情報を持ったクッキーを付与したい場合は、そもそもワイルドカードは設定できない
+    - 参考
+      - [Is Access-Control-Allow-Origin: * insecure?](https://advancedweb.hu/is-access-control-allow-origin-star-insecure/)
+
+```javascript
+const allowed_origins = [
+	"https://site.example",
+	"https://www.site.example",
+];
+const origin = req.headers.Origin;
+
+if (allowed_origins.includes(origin)) {
+	res.setHeader("Access-Control-Allow-Origin", origin);
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Vary", "Origin");
+}
+```
+
 ## 質問3
 
 > preflight requestが送信されない「シンプルなリクエスト」に該当するための条件を説明してください
