@@ -12,6 +12,13 @@
   - [回答](#%E5%9B%9E%E7%AD%94-1)
 - [質問3](#%E8%B3%AA%E5%95%8F3)
   - [回答](#%E5%9B%9E%E7%AD%94-2)
+- [非同期通信についての整理](#%E9%9D%9E%E5%90%8C%E6%9C%9F%E9%80%9A%E4%BF%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E6%95%B4%E7%90%86)
+  - [Ajax（Asynchronous JavaScript + XML）について](#ajaxasynchronous-javascript--xml%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+  - [従来型（同期通信）とAjax（非同期通信）](#%E5%BE%93%E6%9D%A5%E5%9E%8B%E5%90%8C%E6%9C%9F%E9%80%9A%E4%BF%A1%E3%81%A8ajax%E9%9D%9E%E5%90%8C%E6%9C%9F%E9%80%9A%E4%BF%A1)
+  - [Ajaxアプリの実装方針](#ajax%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E5%AE%9F%E8%A3%85%E6%96%B9%E9%87%9D)
+  - [Promiseオブジェクト](#promise%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88)
+  - [Fetch API](#fetch-api)
+  - [参考](#%E5%8F%82%E8%80%83)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
