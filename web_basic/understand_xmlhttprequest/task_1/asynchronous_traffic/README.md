@@ -1,8 +1,17 @@
 # 非同期通信（Ajax）の動作検証
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [動作バージョン](#%E5%8B%95%E4%BD%9C%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3)
+- [確認方法](#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95)
+- [確認結果](#%E7%A2%BA%E8%AA%8D%E7%B5%90%E6%9E%9C)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 動作バージョン
 
