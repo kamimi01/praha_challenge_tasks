@@ -29,9 +29,13 @@
 
 ### 回答
 
+- JavaScriptを介して、サーバと非同期通信をするために頻繁に使用されるWeb APIのこと。（※XMLHttpRequestは同期通信のために使用することもできるが、非推奨）
+  - ブラウザのアドレスバーにURLを入力して送信するのは、同期通信。
+  - 同期通信のデメリットや非同期通信のメリットは、[従来型（同期通信）とAjax（非同期通信）](#従来型同期通信とajax非同期通信)参照
+
 ## 質問2
 
-> example.comのページからapi.example.com（API）に向けて、XMLHttpRequestを使ってリクエストを送信するコードを書いたが、リクエストにクッキー情報が付与されないのはなぜか？
+> example.com のページから api.example.com（API）に向けて、XMLHttpRequestを使ってリクエストを送信するコードを書いたが、リクエストにクッキー情報が付与されないのはなぜか？
 
 コードは以下の通り
 
@@ -43,11 +47,30 @@ xhr.send(null);
 
 ### 回答
 
+- 以下のリクエストは、送信元と送信先のドメインが異なっているため、クロスオリジンアクセスとなる。
+  - > example.com のページから api.example.com（API）に向けて、XMLHttpRequestを使ってリクエストを送信
+- `XMLHttpRequest`オブジェクトを使用して、クロスオリジンリクエストの場合、デフォルトではクッキーはリクエストに含まれない。
+- リクエストにクッキーを含めて送信するためには、以下の通り`withCredentials`プロパティを`true`に設定する必要がある（デフォルトは`false`）
+
+```javascript
+// xhrは、XMLHttpReqeustオブジェクト
+xhr.withCredentials = true;
+```
+
 ## 質問3
 
 > 「No 'Access-Control-Allow-Origin' header is present on the requested resource」のエラーが出てきて、リクエストが送られない。どうすれば良いか？
 
 ### 回答
+
+- クロスオリジン アクセスを行う場合、サーバ側がリクエストに含まれる`Origin`からのアクセスを許可する必要がある。
+- その許可のためには、レスポンスに付与するヘッダ`Access-Control-Allow-Origin`にリクエスト元のオリジンが含まれている必要がある。
+- サーバ側の実装例は、以下の通り
+
+```javascript
+// CORSミドルウェアを使用しない、JavaScriptの実装例
+res.header("Access-Control-Allow-Origin", <許可したいOrigin>)
+```
 
 ---
 
@@ -80,8 +103,8 @@ xhr.send(null);
     - リッチなユーザインターフェースをブラウザ標準の技術だけで構築できる
     - 動作に特別なプラグインを必要としないため、導入が容易
 - 実際の動作デモによる比較を以下のフォルダにて行った
-  - 同期通信：[synchronous_traffic](./task_1/synchronous_traffic)
-  - 非同期通信：[asynchronous_traffic](./task_1/asynchronous_traffic)
+  - 同期通信：[synchronous_traffic](./asynchronous_traffic)
+  - 非同期通信：[asynchronous_traffic](./asynchronous_traffic)
 
 ### Ajaxアプリの実装方針
 
@@ -100,9 +123,9 @@ xhr.send(null);
        - `error`：リクエストが失敗した時
      - 詳しいコードは、[asynchronous_traffic/index.js](./task_1/asynchronous_traffic/index.js)参照
     
-![](../../assets/onreadystatechange.png)
+![](../../../assets/onreadystatechange.png)
 
-3. 非同期通信の開始
+1. 非同期通信の開始
 
    - リクエストをサーバに送信する
 
@@ -133,10 +156,12 @@ xhr.send(requestBody)
   - fetch() はサイトをまたぐクッキーを受信することができる。フェッチを使用してサイトをまたぐセッションを確立することができる。
   - fetch はサーバーとの間で cookies を送受信しないため、サイトがユーザーセッションの維持に頼っている場合は未認証のリクエストになる。**クッキーを送るには、認証情報の init オプションを設定しておく必要がある**
 
-### 参考
+## 参考
 
+- [XMLHttpRequest](https://xhr.spec.whatwg.org/)
 - JavaScript本格入門（書籍）
 - [XMLHttpRequest の使用](https://developer.mozilla.org/ja/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 - [Fetch の使用](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
+- [同期と非同期のリクエスト](https://developer.mozilla.org/ja/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests)
 - [まだXMLHttpRequestを使ってるの？　fetchのすすめ](https://qiita.com/uhyo/items/91649e260165b35fecd7)
 - [非同期処理:コールバック/Promise/Async Function](https://jsprimer.net/basic/async/#async-handling)（JavaScript Primer）
