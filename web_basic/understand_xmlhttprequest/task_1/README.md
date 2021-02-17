@@ -18,7 +18,7 @@
   - [Ajaxアプリの実装方針](#ajax%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E5%AE%9F%E8%A3%85%E6%96%B9%E9%87%9D)
   - [Promiseオブジェクト](#promise%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88)
   - [Fetch API](#fetch-api)
-  - [参考](#%E5%8F%82%E8%80%83)
+- [参考](#%E5%8F%82%E8%80%83)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
