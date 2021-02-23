@@ -4,7 +4,30 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
 
+- [質問 1](#%E8%B3%AA%E5%95%8F-1)
+  - [回答](#%E5%9B%9E%E7%AD%94)
+- [質問 2](#%E8%B3%AA%E5%95%8F-2)
+  - [回答](#%E5%9B%9E%E7%AD%94-1)
+- [質問 3](#%E8%B3%AA%E5%95%8F-3)
+  - [回答](#%E5%9B%9E%E7%AD%94-2)
+- [質問 4](#%E8%B3%AA%E5%95%8F-4)
+  - [回答](#%E5%9B%9E%E7%AD%94-3)
+- [Dependency Injection に関する整理](#dependency-injection-%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%95%B4%E7%90%86)
+  - [Dependency Injection（以下 DI）とは](#dependency-injection%E4%BB%A5%E4%B8%8B-di%E3%81%A8%E3%81%AF)
+    - [DIのメリット・デメリット](#di%E3%81%AE%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88%E3%83%BB%E3%83%87%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88)
+  - [Node.js における Denpendency Injection - classes vs functions](#nodejs-%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B-denpendency-injection---classes-vs-functions)
+  - [オーケストレーションとツール](#%E3%82%AA%E3%83%BC%E3%82%B1%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%A8%E3%83%84%E3%83%BC%E3%83%AB)
+  - [Dependency Injection の種類](#dependency-injection-%E3%81%AE%E7%A8%AE%E9%A1%9E)
+    - [コンストラクターインジェクション](#%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)
+    - [セッターインジェクション](#%E3%82%BB%E3%83%83%E3%82%BF%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)
+    - [インターフェースインジェクション](#%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)
+    - [コンストラクタインジェクションとセッターインジェクション](#%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%A8%E3%82%BB%E3%83%83%E3%82%BF%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)
+- [参考](#%E5%8F%82%E8%80%83)
+
+</details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 質問 1
