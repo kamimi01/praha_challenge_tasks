@@ -1,0 +1,33 @@
+@startuml
+
+title: 検証モデル（Vaidation Model）
+hide footbox
+
+participant クライアント
+participant キャッシュ
+participant サーバ
+
+
+クライアント -> サーバ: GET /doc
+サーバ -> キャッシュ: 200 OK \nデータをキャッシュ
+キャッシュ -> クライアント: 200 OK
+
+|||
+
+クライアント -> キャッシュ: GET /doc
+キャッシュ -> サーバ: GET /doc
+サーバ -> キャッシュ: 304 Not Modified
+
+note over サーバ: キャッシュが以前と変わっていないので（=fresh）\n304 Not Modifiedを返す
+
+キャッシュ -> クライアント: 304 Not Modified
+
+|||
+
+== データ変更後 ==
+
+クライアント -> サーバ: GET /doc
+サーバ -> キャッシュ: 200 OK \nデータをキャッシュ
+キャッシュ -> クライアント: 200 OK
+
+@enduml
