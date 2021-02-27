@@ -1,0 +1,9 @@
+@startuml
+
+hide footbox
+
+クライアント -> サーバ: GET /doc HTTP/1.1 \n Origin: foo.example
+|||
+サーバ -> クライアント: HTTP/1.1 200 OK \n Access-Control-Allow-Origin: *
+
+@enduml

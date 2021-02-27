@@ -1,0 +1,29 @@
+@startuml
+
+title: 期限切れモデル（Expiration Model）
+hide footbox
+
+participant クライアント
+participant キャッシュ
+participant サーバ
+
+クライアント -> サーバ: GET /doc
+サーバ -> キャッシュ: 200 OK \nデータをキャッシュ
+キャッシュ -> クライアント: 200 OK
+
+|||
+
+クライアント -> キャッシュ: GET /doc
+キャッシュ -> クライアント: 200 OK
+
+note over キャッシュ: 保持しているキャッシュの期限が切れていないので（=fresh）\nサーバとの通信は発生しない
+
+|||
+
+== キャッシュ期限 ==
+
+クライアント -> サーバ: GET /doc
+サーバ -> キャッシュ: 200 OK \nデータをキャッシュ
+キャッシュ -> クライアント: 200 OK
+
+@enduml
