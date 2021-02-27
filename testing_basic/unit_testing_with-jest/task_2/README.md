@@ -15,3 +15,5 @@
 
 - 以下のリポジトリで、課題に取り組んでいます
   - https://github.com/kamimi01/praha-challenge-templates
+- [Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+- [Facebook製のJavaScriptテストツール「Jest」の逆引き使用例](https://qiita.com/chimame/items/e97883fd46b67529d59f)
