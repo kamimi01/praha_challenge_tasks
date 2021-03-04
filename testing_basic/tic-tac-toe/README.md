@@ -3,8 +3,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [Available Scripts](#available-scripts)
+  - [`yarn start`](#yarn-start)
+  - [`yarn test`](#yarn-test)
+  - [`yarn build`](#yarn-build)
+  - [`yarn eject`](#yarn-eject)
+- [Learn More](#learn-more)
+  - [Code Splitting](#code-splitting)
+  - [Analyzing the Bundle Size](#analyzing-the-bundle-size)
+  - [Making a Progressive Web App](#making-a-progressive-web-app)
+  - [Advanced Configuration](#advanced-configuration)
+  - [Deployment](#deployment)
+  - [`yarn build` fails to minify](#yarn-build-fails-to-minify)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Available Scripts
 
