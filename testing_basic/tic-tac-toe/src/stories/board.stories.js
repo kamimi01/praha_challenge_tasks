@@ -1,14 +1,30 @@
 import { React } from "react";
 import { Board } from "../index";
 
-// const board = new Board();
-// const boardRender = board.render()
-
 export default {
   title: "Tic-Tac-Toe/Board",
-  component: Board
-}
+  component: Board,
+  argTypes: { onClick: { action: "Clicked" } },
+};
 
-const Template = (args) => <Board />;
+const Template = (args) => <Board {...args} />;
 
-export const Usual = Template.bind({})
+export const AllCircle = Template.bind({});
+AllCircle.args = {
+  squares: ["O", "O", "O", "O", "O", "O", "O", "O", "O"],
+};
+
+export const AllCross = Template.bind({});
+AllCross.args = {
+  squares: ["X", "X", "X", "X", "X", "X", "X", "X", "X"],
+};
+
+export const AllTriangles = Template.bind({});
+AllTriangles.args = {
+  squares: ["△", "△", "△", "△", "△", "△", "△", "△", "△"],
+};
+
+export const Mix = Template.bind({});
+Mix.args = {
+  squares: ["X", "O", "△", "X", "O", "△", "X", "O", "△"],
+};
