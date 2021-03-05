@@ -62,7 +62,7 @@ exports[`Storyshots Tic-Tac-Toe/Game Usual 1`] = `
     className="game-info"
   >
     <div>
-      Next Player: 丁
+      Next Player: X
     </div>
     <ol>
       <li>

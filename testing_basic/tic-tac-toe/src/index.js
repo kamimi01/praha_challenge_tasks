@@ -58,7 +58,7 @@ export const Game = () => {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? "X" : "O";
+    squares[i] = xIsNext ? "丁" : "半";
 
     setHistory(history.concat([
       {
@@ -91,7 +91,7 @@ export const Game = () => {
   if (winner) {
     status = "Winner: " + winner;
   } else {
-    status = "Next Player: " + (xIsNext ? "X" : "O");
+    status = "Next Player: " + (xIsNext ? "丁" : "半");
   }
   return (
     <div className="game">
