@@ -23,6 +23,11 @@ export const Board = (props) => {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
+      <div className="board-row">
+        {renderSquare(9)}
+        {renderSquare(10)}
+        {renderSquare(11)}
+      </div>
     </div>
   );
 };
