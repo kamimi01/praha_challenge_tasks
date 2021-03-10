@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Board } from "../Board/Board";
+import { Board } from "../components/Board/Board";
 
 export default {
   title: "Tic-Tac-Toe/Board",

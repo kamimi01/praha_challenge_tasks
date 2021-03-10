@@ -1,4 +1,5 @@
 import { Square } from "../Square/Square";
+import "./board.css"
 
 export const Board = (props) => {
   const renderSquare = (i) => {

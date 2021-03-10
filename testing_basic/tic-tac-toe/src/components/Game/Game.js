@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Board } from "../Board/Board";
-import { calculateWinner } from "../util";
+import { calculateWinner } from "../../util";
+import "./game.css"
 
 export const Game = () => {
   const [history, setHistory] = useState([
