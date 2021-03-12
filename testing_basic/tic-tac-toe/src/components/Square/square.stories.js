@@ -1,5 +1,5 @@
 import React from "react";
-import { Square } from "../components/Square/Square";
+import { Square } from "./Square";
 
 export default {
   title: "Tic-Tac-Toe/Square",
