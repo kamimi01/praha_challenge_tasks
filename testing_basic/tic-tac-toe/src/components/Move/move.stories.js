@@ -21,8 +21,8 @@ Start.args = {
   ],
 };
 
-export const Usual = Template.bind({});
-Usual.args = {
+export const Default = Template.bind({});
+Default.args = {
   history: [
     {
       squares: Array(9).fill(null),
