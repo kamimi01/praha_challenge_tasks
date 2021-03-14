@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Tic-Tac-Toe/Board All Circle 1`] = `
+exports[`Snapshot Testing Tic-Tac-Toe/Board All Circle 1`] = `
 <div>
   <div
     className="board-row"
@@ -71,7 +71,7 @@ exports[`Storyshots Tic-Tac-Toe/Board All Circle 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tic-Tac-Toe/Board All Cross 1`] = `
+exports[`Snapshot Testing Tic-Tac-Toe/Board All Cross 1`] = `
 <div>
   <div
     className="board-row"
@@ -142,7 +142,7 @@ exports[`Storyshots Tic-Tac-Toe/Board All Cross 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tic-Tac-Toe/Board All Triangles 1`] = `
+exports[`Snapshot Testing Tic-Tac-Toe/Board All Triangles 1`] = `
 <div>
   <div
     className="board-row"
@@ -213,7 +213,291 @@ exports[`Storyshots Tic-Tac-Toe/Board All Triangles 1`] = `
 </div>
 `;
 
-exports[`Storyshots Tic-Tac-Toe/Board Mix 1`] = `
+exports[`Snapshot Testing Tic-Tac-Toe/Board Mix 1`] = `
+<div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Board All Circle 1`] = `
+<div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+  </div>
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Board All Cross 1`] = `
+<div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+  </div>
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Board All Triangles 1`] = `
+<div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Board Mix 1`] = `
 <div>
   <div
     className="board-row"
