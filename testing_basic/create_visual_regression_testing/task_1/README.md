@@ -64,3 +64,18 @@ color: red;
 ## 参考
 
 - [@storybook/addon-storyshots-puppeteer](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-puppeteer)
+- [微妙な違いも見逃すな！ビジュアルリグレッションテスト！ / phpcon2020](https://speakerdeck.com/blue_goheimochi/phpcon2020)
+- ビジュアルリグレッションテストの差分閾値（どの程度の差分でテストを失敗とするか）は設定しているか？
+  - デフォルトから変えたことはない。何回やっても差分が出る場合は、差分が生まれる背景に目を向ける必要がある。（テスト内容や環境差異など　→　それにより環境を統一するなどの対応）
+  - 機械学習で過去の差分を学習してくれるサービスもある
+  - applitools:https://applitools.com/
+  - 環境際の発生などを考慮し、差分スナップショットは、CI環境に別にコンテナを用意してそこで取ることが多い。
+  - 過去に閾値を変えたことはないが、変える場合は`failureThreshold`の値を変えることであっている。
+- 実際にリグレッションテストを行う場合は、Github Actionsのみで完結せずに、CIパイプラインを使うなどして、構築している
+  - 参考：https://speakerdeck.com/blue_goheimochi/phpcon2020?slide=26
+  - 今後、ビジュアルリグレッショnテストをやる機会があれば以下のサービスを使いたい。
+    - persy：Saasのサービス (コマンド一つでビジュアルリグレッションテストまでやってくれる)
+    - 開発状の利便性を上げるためにバンドルサイズが大きくなり、サーバーも立ち上げるため遅くなりがち。そのため、yarn build storybookでテストすることの方が多い。
+    - storybookのチュートリアルにCIのチュートリアルがある
+    - chromaticを使ってPRを作成するごとにstorybookをホスティングするgithub-actionsのworkflow
+      - https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/
