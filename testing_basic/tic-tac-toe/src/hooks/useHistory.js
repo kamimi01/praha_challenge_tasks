@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {calculateWinner} from "../utils/util"
+import { calculateWinner } from "../utils/util";
 
 export const useHistory = () => {
   const [history, setHistory] = useState([

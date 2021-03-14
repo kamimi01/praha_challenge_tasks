@@ -1,17 +1,10 @@
 import React from "react";
 import { Board } from "../Board/Board";
+import { Move } from "../Move/Move";
+import { Status } from "../Status/Status";
 import "./game.css";
 
 export const Game = (props) => {
-  const moves = props.history.map((step, move) => {
-    const desc = move ? "Go to move #" + move : "Go to game start";
-    return (
-      <li key={move}>
-        <button onClick={() => props.jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
-
   return (
     <div className="game">
       <div className="game-board">
@@ -21,8 +14,8 @@ export const Game = (props) => {
         />
       </div>
       <div className="game-info">
-        <div>{props.status}</div>
-        <ol>{moves}</ol>
+        <Status status={props.status} />
+        <Move history={props.history} jumpTo={props.jumpTo} />
       </div>
     </div>
   );
