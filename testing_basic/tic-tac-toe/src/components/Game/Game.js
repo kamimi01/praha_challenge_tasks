@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Board } from "../Board/Board";
-import { calculateWinner } from "../../util";
+import { calculateWinner } from "../../utils/util";
 import "./game.css"
 
 export const Game = () => {
