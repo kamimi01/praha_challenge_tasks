@@ -28,3 +28,4 @@
 - [cypress公式](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements)
 - [cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
 - [Cypressで始めるReactのE2Eテスト-導入から実際にテストを書いてみよう！](https://blog.microcms.io/cypress-react-e2e/)
+- [idやclassを使ってテストを書くのは、もはやアンチパターンである](https://qiita.com/akameco/items/519f7e4d5442b2a9d2da)
