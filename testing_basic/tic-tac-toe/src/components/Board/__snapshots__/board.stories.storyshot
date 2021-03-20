@@ -7,40 +7,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Circle 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
@@ -51,18 +32,46 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Circle 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
@@ -78,40 +87,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Cross 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
@@ -122,18 +112,46 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Cross 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
@@ -149,40 +167,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Triangles 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
     </button>
     <button
       className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
@@ -193,21 +192,129 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board All Triangles 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      △
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshot Testing Tic-Tac-Toe/Board Draw 1`] = `
+<div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+  </div>
+  <div
+    className="board-row"
+  >
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      半
+    </button>
+    <button
+      className="square"
+      data-e2e="square"
+      onClick={[Function]}
+    >
+      丁
     </button>
   </div>
 </div>
@@ -220,18 +327,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board Mix 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
@@ -242,18 +352,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board Mix 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △
@@ -264,302 +377,21 @@ exports[`Snapshot Testing Tic-Tac-Toe/Board Mix 1`] = `
   >
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       丁
     </button>
     <button
       className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       半
     </button>
     <button
       className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-</div>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Board All Circle 1`] = `
-<div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-  </div>
-</div>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Board All Cross 1`] = `
-<div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-  </div>
-</div>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Board All Triangles 1`] = `
-<div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-</div>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Board Mix 1`] = `
-<div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      △
-    </button>
-  </div>
-  <div
-    className="board-row"
-  >
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      丁
-    </button>
-    <button
-      className="square"
-      onClick={[Function]}
-    >
-      半
-    </button>
-    <button
-      className="square"
+      data-e2e="square"
       onClick={[Function]}
     >
       △

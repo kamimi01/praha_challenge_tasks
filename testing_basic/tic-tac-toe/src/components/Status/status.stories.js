@@ -15,5 +15,5 @@ Win.args = {
 
 export const Next = Template.bind({})
 Next.args = {
-  status: "Next Player: 張"
+  status: "Next Player: 丁"
 }

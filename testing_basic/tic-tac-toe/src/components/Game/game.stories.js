@@ -27,13 +27,13 @@ AllCross.args = {
 
 export const AllCircle = Template.bind({});
 AllCircle.args = {
-  status: "Winner: 張",
+  status: "Winner: 丁",
   current: {
-    squares: Array(9).fill("張"),
+    squares: Array(9).fill("丁"),
   },
   history: [
     {
-      squares: Array(9).fill("張"),
+      squares: Array(9).fill("丁"),
     },
   ],
 };
@@ -58,6 +58,46 @@ Mix.args = {
     squares: [null, null, "丁", null, "丁", "半", "丁", null, "半"],
   },
   history: [
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+  ],
+};
+
+export const Draw = Template.bind({});
+Draw.args = {
+  status: "Draw!",
+  current: {
+    squares: ["半", "丁", "半", "半", "丁", "丁", "丁", "半", "丁"],
+  },
+  history: [
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
+    {
+      squares: Array(9).fill(null),
+    },
     {
       squares: Array(9).fill(null),
     },
