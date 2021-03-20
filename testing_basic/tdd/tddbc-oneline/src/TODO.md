@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [TODO](#todo)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # TODO
 
 テスト容易性：高　重要性：高
