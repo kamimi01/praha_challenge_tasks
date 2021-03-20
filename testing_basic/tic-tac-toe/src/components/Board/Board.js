@@ -3,7 +3,7 @@ import "./board.css"
 
 export const Board = (props) => {
   const renderSquare = (i) => {
-    return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
+    return <Square value={props.squares[i]} onClick={() => props.onClick(i)}/>;
   };
 
   return (
