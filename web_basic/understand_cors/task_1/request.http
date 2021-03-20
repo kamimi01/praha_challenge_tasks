@@ -1,0 +1,5 @@
+# GithubAPIへのリクエスト
+
+https://api.github.com/users/kamimi01
+
+## 「Access-Control-Allow-Origin」の値は「*」となっている

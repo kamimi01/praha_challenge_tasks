@@ -1,0 +1,29 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>サンプル</title>
+  </head>
+  <body>
+    <h1>サンプル</h1>
+
+    <script type="text/javascript">
+      // クッキーを設定する
+      document.cookie = "cors_check=hoge"
+
+      // APIを呼ぶ
+      const url = "http://localhost:8080/api"
+
+      const req = new XMLHttpRequest()
+      req.open("GET", url)
+      // クッキーをリクエスト時に送る
+      req.withCredentials = true
+      req.onreadystatechange = function () {
+        if (req.readyState == 4 && req.status == 200) {
+          alert(req.responseText)
+        }
+      }
+      req.send(null)
+    </script>
+  </body>
+</html>
