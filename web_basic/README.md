@@ -28,3 +28,9 @@
 ## [5. サードパーティクッキーを理解する](understand_third_party_cookie)
 
 ## [6. CORSについて理解する](understand_cors)
+
+## [7. キャッシュについて理解する](understand_cache)
+
+## [8. WEBサービスの代表的な脆弱性を理解する](web_vulnerability)
+
+## [9. XMLHttpRequestを理解する](understand_xmlhttprequest)
