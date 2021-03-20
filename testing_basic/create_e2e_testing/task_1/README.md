@@ -15,8 +15,16 @@
 ## cypressの導入
 
 - 以下のコマンドで導入する
+  
   `yarn add cypress --dev`
+
+- cypressを起動する
+  
+  `yarn run cy:open`
+  - scriptsに`"cy:open": "cypress open"`を定義済み
 
 ## 参考
 
 - [cypress公式](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements)
+- [cypress Best Practices](https://docs.cypress.io/guides/references/best-practices.html)
+- [Cypressで始めるReactのE2Eテスト-導入から実際にテストを書いてみよう！](https://blog.microcms.io/cypress-react-e2e/)
