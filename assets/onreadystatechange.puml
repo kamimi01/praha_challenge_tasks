@@ -1,0 +1,27 @@
+@startuml
+
+title: コールバック関数における処理の流れ
+
+:通信の状態が変化した;
+
+if (非同期通信が完了したか) then (No(readyState!==4))
+  :[通信中...]メッセージを表示;
+  kill
+else (Yes(readyState===4))
+  if (サーバーからの応答) then (エラー(status!==200))
+    :エラーメッセージ表示;
+    kill
+  else (正常(status===200))
+    :サーバーからの応答をページに反映;
+    kill
+  endif
+endif
+
+note right
+  readyState===4（=全ての応答データを取得）
+  かつ
+  state===200（=処理が成功）
+  の場合に、サーバからの応答を取得する
+endnote
+
+@enduml
