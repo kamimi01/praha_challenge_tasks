@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:pair": "jest --config jest.config.pair.js"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
