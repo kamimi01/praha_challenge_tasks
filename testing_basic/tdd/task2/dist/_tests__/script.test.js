@@ -9,13 +9,6 @@ describe("渡された引数を足し算し、その計算結果を返す", func
         // Assert
         expect(actual).toBe(3);
     });
-    test("2 + 3が5であることをチェックする", function () {
-        // Arrange
-        // Act
-        var actual = script_1.add(2, 3);
-        // Assert
-        expect(actual).toBe(5);
-    });
     test("1 + 2 + 3が6であることをチェックする", function () {
         // Arrange
         // Act

@@ -1,11 +1,6 @@
-const argsLengthCheck = (args: number[]) => {
-  const argsLength = args.length;
-  if (argsLength >= 31) {
-    throw new Error("引数が31個以上指定されています");
-  }
-};
+import { argsLengthCheck } from "../src/util";
 
-export function add(...args: number[]) {
+export const add = (...args: number[]) => {
   argsLengthCheck(args);
   const result = args.reduce((previous, current) => {
     return previous + current;
@@ -14,9 +9,9 @@ export function add(...args: number[]) {
     return "too big";
   }
   return result;
-}
+};
 
-export function subtract(...args: number[]) {
+export const subtract = (...args: number[]) => {
   argsLengthCheck(args);
   const result = args.reduce((previous, current) => {
     return previous - current;
@@ -25,9 +20,9 @@ export function subtract(...args: number[]) {
     return "negative number";
   }
   return result;
-}
+};
 
-export function multiply(...args: number[]) {
+export const multiply = (...args: number[]) => {
   argsLengthCheck(args);
   const result = args.reduce((previous, current) => {
     return previous * current;
@@ -36,9 +31,9 @@ export function multiply(...args: number[]) {
     return "big big number";
   }
   return result;
-}
+};
 
-export function divide(...args: number[]) {
+export const divide = (...args: number[]) => {
   argsLengthCheck(args);
   const result = args.reduce((previous, current) => {
     return previous / current;
@@ -47,4 +42,4 @@ export function divide(...args: number[]) {
     return result;
   }
   return Math.floor(result);
-}
+};

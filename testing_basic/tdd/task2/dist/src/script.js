@@ -1,18 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.divide = exports.multiply = exports.subtract = exports.add = void 0;
-var argsLengthCheck = function (args) {
-    var argsLength = args.length;
-    if (argsLength >= 31) {
-        throw new Error("引数が31個以上指定されています");
-    }
-};
-function add() {
+var util_1 = require("../src/util");
+var add = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
     }
-    argsLengthCheck(args);
+    util_1.argsLengthCheck(args);
     var result = args.reduce(function (previous, current) {
         return previous + current;
     });
@@ -20,14 +15,14 @@ function add() {
         return "too big";
     }
     return result;
-}
+};
 exports.add = add;
-function subtract() {
+var subtract = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
     }
-    argsLengthCheck(args);
+    util_1.argsLengthCheck(args);
     var result = args.reduce(function (previous, current) {
         return previous - current;
     });
@@ -35,14 +30,14 @@ function subtract() {
         return "negative number";
     }
     return result;
-}
+};
 exports.subtract = subtract;
-function multiply() {
+var multiply = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
     }
-    argsLengthCheck(args);
+    util_1.argsLengthCheck(args);
     var result = args.reduce(function (previous, current) {
         return previous * current;
     });
@@ -50,14 +45,14 @@ function multiply() {
         return "big big number";
     }
     return result;
-}
+};
 exports.multiply = multiply;
-function divide() {
+var divide = function () {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
     }
-    argsLengthCheck(args);
+    util_1.argsLengthCheck(args);
     var result = args.reduce(function (previous, current) {
         return previous / current;
     });
@@ -65,5 +60,5 @@ function divide() {
         return result;
     }
     return Math.floor(result);
-}
+};
 exports.divide = divide;

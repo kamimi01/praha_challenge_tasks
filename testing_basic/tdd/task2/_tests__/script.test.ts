@@ -9,14 +9,6 @@ describe("渡された引数を足し算し、その計算結果を返す", () =
     expect(actual).toBe(3);
   });
 
-  test("2 + 3が5であることをチェックする", () => {
-    // Arrange
-    // Act
-    const actual = add(2, 3);
-    // Assert
-    expect(actual).toBe(5);
-  });
-
   test("1 + 2 + 3が6であることをチェックする", () => {
     // Arrange
     // Act
