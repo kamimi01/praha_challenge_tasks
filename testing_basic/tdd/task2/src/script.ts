@@ -40,7 +40,11 @@ export function multiply(...args: number[]) {
 
 export function divide(...args: number[]) {
   argsLengthCheck(args);
-  return args.reduce((previous, current) => {
+  const result = args.reduce((previous, current) => {
     return previous / current;
   });
+  if (Number.isInteger(result)) {
+    return result;
+  }
+  return Math.floor(result);
 }

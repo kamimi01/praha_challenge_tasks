@@ -58,8 +58,12 @@ function divide() {
         args[_i] = arguments[_i];
     }
     argsLengthCheck(args);
-    return args.reduce(function (previous, current) {
+    var result = args.reduce(function (previous, current) {
         return previous / current;
     });
+    if (Number.isInteger(result)) {
+        return result;
+    }
+    return Math.floor(result);
 }
 exports.divide = divide;

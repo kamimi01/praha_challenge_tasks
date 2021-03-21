@@ -152,3 +152,13 @@ describe("かけ算の場合、計算結果が1000を越える場合は「big bi
     expect(actual).toBe("big big number");
   });
 });
+
+describe("割り算の場合、計算結果が整数ではない場合、小数点以下を切り捨てして整数で返す", () => {
+  test("10 / 3が3であることをチェックする", () => {
+    // Arrange
+    // Act
+    const actual = divide(10, 3);
+    // Assert
+    expect(actual).toBe(3);
+  });
+});
