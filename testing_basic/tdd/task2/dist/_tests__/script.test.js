@@ -16,6 +16,13 @@ describe("渡された引数を足し算し、その計算結果を返す", func
         // Assert
         expect(actual).toBe(5);
     });
+    test("1 + 2 + 3が6であることをチェックする", function () {
+        // Arrange
+        // Act
+        var actual = script_1.add(1, 2, 3);
+        // Assert
+        expect(actual).toBe(6);
+    });
 });
 describe("渡された引数を引き算し、その計算結果を戻り値とする", function () {
     test("2 - 1が2であることをチェックする", function () {
@@ -25,22 +32,29 @@ describe("渡された引数を引き算し、その計算結果を戻り値と�
         // Assert
         expect(actual).toBe(1);
     });
-});
-describe("渡された引数を掛け算し、その計算結果を戻り値とする", function () {
-    test("2 * 3が6であることをチェックする", function () {
+    test("2 - 1 - 10が-9であることをチェックする", function () {
         // Arrange
         // Act
-        var actual = script_1.multiply(2, 3);
+        var actual = script_1.subtract(2, 1, 10);
         // Assert
-        expect(actual).toBe(6);
+        expect(actual).toBe(-9);
+    });
+});
+describe("渡された引数を掛け算し、その計算結果を戻り値とする", function () {
+    test("2 * 3 * 2が12であることをチェックする", function () {
+        // Arrange
+        // Act
+        var actual = script_1.multiply(2, 3, 2);
+        // Assert
+        expect(actual).toBe(12);
     });
 });
 describe("渡された引数を割り算し、その計算結果を戻り値とする", function () {
-    test("6 / 3が2であることをチェックする", function () {
+    test("6 / 3 / 2が1であることをチェックする", function () {
         // Arrange
         // Act
-        var actual = script_1.divide(6, 3);
+        var actual = script_1.divide(6, 3, 2);
         // Assert
-        expect(actual).toBe(2);
+        expect(actual).toBe(1);
     });
 });

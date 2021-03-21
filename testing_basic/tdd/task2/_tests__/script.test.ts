@@ -16,6 +16,14 @@ describe("渡された引数を足し算し、その計算結果を返す", () =
     // Assert
     expect(actual).toBe(5);
   });
+
+  test("1 + 2 + 3が6であることをチェックする", () => {
+    // Arrange
+    // Act
+    const actual = add(1, 2, 3);
+    // Assert
+    expect(actual).toBe(6);
+  });
 });
 
 describe("渡された引数を引き算し、その計算結果を戻り値とする", () => {
@@ -26,24 +34,32 @@ describe("渡された引数を引き算し、その計算結果を戻り値と�
     // Assert
     expect(actual).toBe(1);
   });
+
+  test("2 - 1 - 10が-9であることをチェックする", () => {
+    // Arrange
+    // Act
+    const actual = subtract(2, 1, 10);
+    // Assert
+    expect(actual).toBe(-9);
+  });
 });
 
 describe("渡された引数を掛け算し、その計算結果を戻り値とする", () => {
-  test("2 * 3が6であることをチェックする", () => {
+  test("2 * 3 * 2が12であることをチェックする", () => {
     // Arrange
     // Act
-    const actual = multiply(2, 3);
+    const actual = multiply(2, 3, 2);
     // Assert
-    expect(actual).toBe(6);
+    expect(actual).toBe(12);
   });
 });
 
 describe("渡された引数を割り算し、その計算結果を戻り値とする", () => {
-  test("6 / 3が2であることをチェックする", () => {
+  test("6 / 3 / 2が1であることをチェックする", () => {
     // Arrange
     // Act
-    const actual = divide(6, 3);
+    const actual = divide(6, 3, 2);
     // Assert
-    expect(actual).toBe(2);
+    expect(actual).toBe(1);
   });
 });
