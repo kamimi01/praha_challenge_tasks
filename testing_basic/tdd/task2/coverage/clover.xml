@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1616343151798" clover="3.2.0">
-  <project timestamp="1616343151799" name="All files">
+<coverage generated="1616343207683" clover="3.2.0">
+  <project timestamp="1616343207684" name="All files">
     <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9" elements="31" coveredelements="31" complexity="0" loc="20" ncloc="20" packages="1" files="1" classes="1"/>
     <file name="script.ts" path="/workspaces/praha_challenge/testing_basic/tdd/task2/src/script.ts">
       <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>

@@ -25,7 +25,7 @@ describe("渡された引数を足し算し、その計算結果を返す", func
     });
 });
 describe("渡された引数を引き算し、その計算結果を戻り値とする", function () {
-    test("2 - 1が2であることをチェックする", function () {
+    test("2 - 1が1であることをチェックする", function () {
         // Arrange
         // Act
         var actual = script_1.subtract(2, 1);
