@@ -4,8 +4,10 @@
   "main": "script.js",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/script.js",
     "tsc": "./node_modules/.bin/tsc",
-    "tsc:watch": "./node_modules/.bin/tsc --watch"
+    "tsc:watch": "./node_modules/.bin/tsc --watch",
+    "test": "./node_modules/.bin/jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
