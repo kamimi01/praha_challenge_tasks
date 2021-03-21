@@ -45,4 +45,24 @@ public class FizzBuzzTest {
     public void _5を渡すと文字列Buzzを返す() throws Exception{
         assertEquals("Buzz", fizzbuzz.convert(5));
     }
+    
+    @Test
+    public void 複雑な処理のテスト() throws Exception{
+        // Arrange
+        // Act
+        // Assert（実際はif文など入れ子の中でassertが行われていたり...）
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+        assertEquals("Buzz", fizzbuzz.convert(5));
+    }
 }
