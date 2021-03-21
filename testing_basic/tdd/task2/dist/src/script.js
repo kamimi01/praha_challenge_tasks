@@ -13,9 +13,13 @@ function add() {
         args[_i] = arguments[_i];
     }
     argsLengthCheck(args);
-    return args.reduce(function (previous, current) {
+    var result = args.reduce(function (previous, current) {
         return previous + current;
     });
+    if (result > 1000) {
+        return "too big";
+    }
+    return result;
 }
 exports.add = add;
 function subtract() {

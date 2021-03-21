@@ -7,9 +7,13 @@ const argsLengthCheck = (args: number[]) => {
 
 export function add(...args: number[]) {
   argsLengthCheck(args);
-  return args.reduce((previous, current) => {
+  const result = args.reduce((previous, current) => {
     return previous + current;
   });
+  if(result > 1000) {
+    return "too big"
+  }
+  return result
 }
 
 export function subtract(...args: number[]) {

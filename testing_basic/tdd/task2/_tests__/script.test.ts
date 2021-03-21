@@ -122,3 +122,13 @@ describe("31個以上の引数を指定するとエラーが発生する", () =>
     ).toThrow(new Error("引数が31個以上指定されています"));
   });
 });
+
+describe("足し算の場合、計算結果が1000を超える場合は合計ではなく「too big」と文字列が返る", () => {
+  test("足し算の場合、計算結果が1000を超える場合は合計ではなく「too big」と文字列が返る", () => {
+    // Arrange
+    // Act
+    const actual = add(500, 501);
+    // Assert
+    expect(actual).toBe("too big");
+  });
+});
