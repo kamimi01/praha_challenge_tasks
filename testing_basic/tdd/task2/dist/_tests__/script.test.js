@@ -32,12 +32,12 @@ describe("渡された引数を引き算し、その計算結果を戻り値と�
         // Assert
         expect(actual).toBe(1);
     });
-    test("2 - 1 - 10が-9であることをチェックする", function () {
+    test("10 - 1 - 2が7であることをチェックする", function () {
         // Arrange
         // Act
-        var actual = script_1.subtract(2, 1, 10);
+        var actual = script_1.subtract(10, 1, 2);
         // Assert
-        expect(actual).toBe(-9);
+        expect(actual).toBe(7);
     });
 });
 describe("渡された引数を掛け算し、その計算結果を戻り値とする", function () {
@@ -83,11 +83,20 @@ describe("31個以上の引数を指定するとエラーが発生する", funct
     });
 });
 describe("足し算の場合、計算結果が1000を超える場合は合計ではなく「too big」と文字列が返る", function () {
-    test("足し算の場合、計算結果が1000を超える場合は合計ではなく「too big」と文字列が返る", function () {
+    test("500 + 501の場合、「too big」と文字列が返る", function () {
         // Arrange
         // Act
         var actual = script_1.add(500, 501);
         // Assert
         expect(actual).toBe("too big");
+    });
+});
+describe("引き算の場合、計算結果がマイナスの場合は「negative number」と文字列が返る", function () {
+    test("1 - 2の場合、「negative number」と文字列が返る", function () {
+        // Arrange
+        // Act
+        var actual = script_1.subtract(1, 2);
+        // Assert
+        expect(actual).toBe("negative number");
     });
 });

@@ -10,17 +10,21 @@ export function add(...args: number[]) {
   const result = args.reduce((previous, current) => {
     return previous + current;
   });
-  if(result > 1000) {
-    return "too big"
+  if (result > 1000) {
+    return "too big";
   }
-  return result
+  return result;
 }
 
 export function subtract(...args: number[]) {
   argsLengthCheck(args);
-  return args.reduce((previous, current) => {
+  const result = args.reduce((previous, current) => {
     return previous - current;
   });
+  if (result < 0) {
+    return "negative number";
+  }
+  return result;
 }
 
 export function multiply(...args: number[]) {

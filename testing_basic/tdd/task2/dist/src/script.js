@@ -28,9 +28,13 @@ function subtract() {
         args[_i] = arguments[_i];
     }
     argsLengthCheck(args);
-    return args.reduce(function (previous, current) {
+    var result = args.reduce(function (previous, current) {
         return previous - current;
     });
+    if (result < 0) {
+        return "negative number";
+    }
+    return result;
 }
 exports.subtract = subtract;
 function multiply() {

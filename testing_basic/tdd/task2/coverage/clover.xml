@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1616343856940" clover="3.2.0">
-  <project timestamp="1616343856941" name="All files">
-    <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9" elements="36" coveredelements="36" complexity="0" loc="23" ncloc="23" packages="1" files="1" classes="1"/>
+<coverage generated="1616344244314" clover="3.2.0">
+  <project timestamp="1616344244316" name="All files">
+    <metrics statements="26" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0" elements="41" coveredelements="0" complexity="0" loc="26" ncloc="26" packages="1" files="1" classes="1"/>
     <file name="script.ts" path="/workspaces/praha_challenge/testing_basic/tdd/task2/src/script.ts">
-      <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="11" type="stmt"/>
-      <line num="3" count="11" type="cond" truecount="2" falsecount="0"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="8" count="50" type="stmt"/>
-      <line num="9" count="5" type="stmt"/>
-      <line num="10" count="4" type="stmt"/>
-      <line num="11" count="5" type="stmt"/>
-      <line num="13" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="16" count="3" type="stmt"/>
-      <line num="19" count="9" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="3" type="stmt"/>
-      <line num="26" count="9" type="stmt"/>
-      <line num="27" count="2" type="stmt"/>
-      <line num="28" count="2" type="stmt"/>
-      <line num="29" count="3" type="stmt"/>
-      <line num="33" count="9" type="stmt"/>
-      <line num="34" count="2" type="stmt"/>
-      <line num="35" count="2" type="stmt"/>
-      <line num="36" count="3" type="stmt"/>
+      <metrics statements="26" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <line num="1" count="0" type="stmt"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
