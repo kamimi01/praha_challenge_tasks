@@ -43,9 +43,13 @@ function multiply() {
         args[_i] = arguments[_i];
     }
     argsLengthCheck(args);
-    return args.reduce(function (previous, current) {
+    var result = args.reduce(function (previous, current) {
         return previous * current;
     });
+    if (result > 1000) {
+        return "big big number";
+    }
+    return result;
 }
 exports.multiply = multiply;
 function divide() {

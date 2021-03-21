@@ -29,9 +29,13 @@ export function subtract(...args: number[]) {
 
 export function multiply(...args: number[]) {
   argsLengthCheck(args);
-  return args.reduce((previous, current) => {
+  const result = args.reduce((previous, current) => {
     return previous * current;
   });
+  if (result > 1000) {
+    return "big big number";
+  }
+  return result;
 }
 
 export function divide(...args: number[]) {

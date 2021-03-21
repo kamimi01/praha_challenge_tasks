@@ -100,3 +100,12 @@ describe("引き算の場合、計算結果がマイナスの場合は「negativ
         expect(actual).toBe("negative number");
     });
 });
+describe("かけ算の場合、計算結果が1000を越える場合は「big big number」と文字列が返る", function () {
+    test("1 * 1001の場合、「big big number」と文字列が返る", function () {
+        // Arrange
+        // Act
+        var actual = script_1.multiply(1, 1001);
+        // Assert
+        expect(actual).toBe("big big number");
+    });
+});
