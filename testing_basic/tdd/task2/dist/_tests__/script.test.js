@@ -1,9 +1,4 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var script_1 = require("../src/script");
 describe("渡された引数を足し算し、その計算結果を返す", function () {
@@ -80,10 +75,6 @@ describe("渡された引数を割り算し、その計算結果を戻り値と�
 describe("31個以上の引数を指定するとエラーが発生する", function () {
     test("31個以上の引数を指定するとエラーが発生する", function () {
         // Arrange
-        var args = function () {
-            var array = __spreadArray([], Array(31));
-            return array.fill(2);
-        };
         // Act
         // Assert
         expect(function () {
