@@ -39,6 +39,9 @@
 
 ### 回答
 
+- `HAVING`を使用せず、`WHERE`を使用
+  - `WHERE`句の処理段階では、まだ集計が終わっていないため、集計関数をWHERE句で使用できない
+
 ```sql
 SELECT
   CustomerID,
@@ -60,11 +63,32 @@ WHERE
   NumOfOrdersByCustomer.NumOfOrders >= 3;
 ```
 
+- `HAVING`を使用
+
+```sql
+SELECT
+  CustomerID,
+  count(OrderID) AS NumOfOrders
+FROM
+  Orders
+WHERE
+  OrderDate BETWEEN '1996-01-01'
+  AND '1996-12-31'
+GROUP BY
+  CustomerID
+HAVING
+  NumOfOrders >= 3
+ORDER BY
+  NumOfOrders DESC;
+```
+
 ## 質問2
 
 > 「一度の注文で、最大どれぐらいの注文詳細が紐づく可能性があるのか」調べる必要が生じました。過去最も多くのOrderDetailが紐づいたOrderを取得してください。何個OrderDetailが紐づいていたでしょうか？
 
 ### 回答
+
+- `WHERE`を使用
 
 ```sql
 SELECT
@@ -82,11 +106,29 @@ FROM
   ) AS NumOfOrderDetailsByOrderID;
 ```
 
+- `ORDER BY`と`LIMIT`を使用
+
+```sql
+SELECT
+  count(OrderDetailID) AS NumOfOrderDetails,
+  OrderID
+FROM
+  OrderDetails
+GROUP BY
+  OrderID
+ORDER BY
+  NumOfOrderDetails DESC
+LIMIT
+  1;
+```
+
 ## 質問3
 
 > 「一番お世話になっている運送会社を教えて欲しい」と頼まれました。過去最も多くのOrderが紐づいたShipperを特定してみてください
 
 ### 回答
+
+- `WHERE`を使用
 
 ```sql
 SELECT
@@ -102,6 +144,22 @@ FROM
     GROUP BY
       ShipperID
   ) AS OrdersByShipperID;
+```
+
+- `ORDER BY`と`LIMIT`を使用
+
+```sql
+SELECT
+  count(OrderID) AS NumOfOrders,
+  ShipperID
+FROM
+  Orders
+GROUP BY
+  ShipperID
+ORDER BY
+  NumOfOrders DESC
+LIMIT
+  1;
 ```
 
 ## 質問4
