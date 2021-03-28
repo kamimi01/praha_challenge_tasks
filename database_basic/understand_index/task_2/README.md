@@ -16,6 +16,18 @@
 
 ## 環境構築
 
+## 動作環境
+
+```sql
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 5.7.24    |
++-----------+
+1 row in set (0.00 sec)
+```
+
 ### DockerからプルしてMySQLにログインする
 
 1. Dockerイメージをpullする
@@ -51,7 +63,43 @@ mysql -u root -p
 
 - 今回は普段から使用しているMySQL Workbenchを使用する
 
+### スロークエリログの設定
+
+1. デフォルトの設定を確認する
+
+```sql
+mysql> show variables like '%slow%';
++---------------------------+--------------------------------------+
+| Variable_name             | Value                                |
++---------------------------+--------------------------------------+
+| log_slow_admin_statements | OFF                                  |
+| log_slow_slave_statements | OFF                                  |
+| slow_launch_time          | 2                                    |
+| slow_query_log            | OFF                                  |
+| slow_query_log_file       | /var/lib/mysql/0771bb71246a-slow.log |
++---------------------------+--------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> show variables like 'min%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| min_examined_row_limit | 0     |
++------------------------+-------+
+1 row in set (0.00 sec)
+
+mysql> show variables like 'long%';
++-----------------+-----------+
+| Variable_name   | Value     |
++-----------------+-----------+
+| long_query_time | 10.000000 |
++-----------------+-----------+
+1 row in set (0.01 sec)
+```
+
 ## 参考
 
 - [genschsa/mysql-employees](https://hub.docker.com/r/genschsa/mysql-employees)
 - [Docker で MySQL コンテナを起動しました](https://qiita.com/pugiemonn/items/b17288494e4b627f4475)
+- [MySQL スロークエリ改善 初心者向け](https://qiita.com/SuguruOoki/items/5c4c04a120d9fa5b4267)
+- [MySQL 5.6 13.7.5.40 SHOW VARIABLES 構文](https://dev.mysql.com/doc/refman/5.6/ja/show-variables.html)
