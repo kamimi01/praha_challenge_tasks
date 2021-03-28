@@ -176,6 +176,7 @@ mysql> show variables like 'long%';
 2. スロークエリログの集計を行う
 
 - 今回は、そこまで詳しい分析を行わないため、`pt-query-digest`は使用せず、`mysqldumpslow`コマンドを使用する
+  - `cd /var/lib/mysql`に移動する
 - サーバシステム変数の確認結果は削除した結果を以下に載せる
 - `t`オプションを指定し、クエリの合計実行時間でソート
   - rootユーザーで実行しているため、`sudo`は不要
