@@ -24,7 +24,7 @@
 docker pull genschsa/mysql-employees
 ```
 
-1. コンテナを起動する
+2. コンテナを起動する
 
 ```bash
 docker run -d \
@@ -35,13 +35,13 @@ docker run -d \
   genschsa/mysql-employees
 ```
 
-1. shellに入る
+3. shellに入る
 
 ```bash
 docker exec -it <コンテナID> /bin/bash
 ```
 
-1. MySQLにログインする（パスワードを聞かれるので、入力する）
+4. MySQLにログインする（パスワードを聞かれるので、入力する）
 
 ```bash
 mysql -u root -p
