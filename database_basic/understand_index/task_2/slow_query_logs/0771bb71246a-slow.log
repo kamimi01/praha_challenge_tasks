@@ -1,0 +1,410 @@
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-03-29T08:08:06.542471Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.010828  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1617005286;
+flush logs;
+# Time: 2021-03-29T08:08:20.109213Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.187571  Lock_time: 0.000170 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005300;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:21.922144Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.202680  Lock_time: 0.000118 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005301;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:23.616047Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.170880  Lock_time: 0.000199 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005303;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:25.201322Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.171100  Lock_time: 0.000136 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005305;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:26.710386Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.171000  Lock_time: 0.000143 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005306;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:28.260491Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.173032  Lock_time: 0.000161 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005308;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:29.849326Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.175527  Lock_time: 0.000206 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005309;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:31.456446Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.172066  Lock_time: 0.000459 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005311;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:33.043604Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.171323  Lock_time: 0.000145 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005313;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:08:34.598757Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.167697  Lock_time: 0.000130 Rows_sent: 120051  Rows_examined: 120051
+SET timestamp=1617005314;
+SELECT
+  concat(first_name, ' ', last_name) AS full_name,
+  gender
+FROM
+  employees
+WHERE
+  gender = 'F';
+# Time: 2021-03-29T08:12:00.719582Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.070111  Lock_time: 0.000218 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005520;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:07.862900Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.063084  Lock_time: 0.000294 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005527;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:12.104468Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.069085  Lock_time: 0.000156 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005532;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:13.582969Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.062200  Lock_time: 0.000261 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005533;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:14.849516Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.059276  Lock_time: 0.000112 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005534;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:16.208989Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.063681  Lock_time: 0.000179 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005536;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:17.568745Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.061762  Lock_time: 0.000175 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005537;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:18.943697Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.061259  Lock_time: 0.000134 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005538;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:20.256347Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.060091  Lock_time: 0.000311 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005540;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:21.563271Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.060285  Lock_time: 0.000110 Rows_sent: 117138  Rows_examined: 117138
+SET timestamp=1617005541;
+SELECT
+  birth_date
+FROM
+  employees
+WHERE
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
+# Time: 2021-03-29T08:12:47.830268Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.665368  Lock_time: 0.000168 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005567;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:12:53.805388Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 5.065846  Lock_time: 0.000197 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005573;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:00.984400Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 5.160353  Lock_time: 0.000222 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005580;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:07.479383Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 5.245839  Lock_time: 0.000486 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005587;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:14.375539Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.877610  Lock_time: 0.000170 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005594;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:28.730383Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.682326  Lock_time: 0.000196 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005608;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:41.882067Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.748929  Lock_time: 0.000210 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005621;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:48.045055Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.759750  Lock_time: 0.000167 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005628;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:13:59.610759Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.694166  Lock_time: 0.000188 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005639;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:14:05.678880Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 4.733664  Lock_time: 0.000183 Rows_sent: 36  Rows_examined: 5688094
+SET timestamp=1617005645;
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  salary DESC;
+# Time: 2021-03-29T08:14:25.449314Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    12
+# Query_time: 0.000128  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use sys;
+SET timestamp=1617005665;
+# administrator command: Ping;
+# Time: 2021-03-29T08:14:25.460897Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    13
+# Query_time: 0.000113  Lock_time: 0.000000 Rows_sent: 4  Rows_examined: 4
+SET timestamp=1617005665;
+# administrator command: Ping;
+# Time: 2021-03-29T08:24:25.464424Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    12
+# Query_time: 0.000117  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1617006265;
+# administrator command: Ping;
+# Time: 2021-03-29T08:24:25.466655Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    13
+# Query_time: 0.000110  Lock_time: 0.000000 Rows_sent: 4  Rows_examined: 4
+SET timestamp=1617006265;
+# administrator command: Ping;
