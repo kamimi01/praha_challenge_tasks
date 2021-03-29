@@ -143,12 +143,12 @@ FROM
 WHERE
   hire_date >= date('2000-01-01')
 ORDER BY
-  hire_date DESC;
+  salary DESC;
 ```
 
 ### チューニング
 
-- 「ヤフー社内でやってるMySQLチューニングセミナー大公開」を参考にチューニングを行う
+- 「ヤフー社内でやってるMySQLチューニングセミナー大公開」の手順に乗っ取ってチューニングを行う
 
 1. スロークエリログに全SQLを記録する
 
@@ -194,13 +194,18 @@ mysql> show variables like 'long%';
 # mysqldumpslow -s t 0771bb71246a-slow.log
 
 Reading mysql slow query log from 0771bb71246a-slow.log
-Count: 10  Time=0.17s (1s)  Lock=0.00s (0s)  Rows=117138.0 (1171380), root[root]@localhost
+Count: 10  Time=8.54s (85s)  Lock=0.00s (0s)  Rows=36.0 (360), root[root]@localhost
   SELECT
-  *
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
   FROM
   employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
   WHERE
-  birth_date >= date('S')
+  hire_date >= date('S')
+  ORDER BY
+  salary DESC
 
 Count: 10  Time=0.12s (1s)  Lock=0.00s (0s)  Rows=120051.0 (1200510), root[root]@localhost
   SELECT
@@ -211,45 +216,32 @@ Count: 10  Time=0.12s (1s)  Lock=0.00s (0s)  Rows=120051.0 (1200510), root[root]
   WHERE
   gender = 'S'
 
-Count: 10  Time=0.10s (0s)  Lock=0.00s (0s)  Rows=117138.0 (1171380), root[root]@localhost
+Count: 10  Time=0.08s (0s)  Lock=0.00s (0s)  Rows=117138.0 (1171380), root[root]@localhost
   SELECT
   birth_date
   FROM
   employees
   WHERE
   birth_date >= date('S')
+  ORDER BY
+  birth_date DESC
 ```
 
-3. 実行計画の確認
+2.1. `performance_schema`による実行速度の確認
 
-- ①誕生日が1960年以降の従業員の情報を全て抽出する
-  - フルスキャン（typeがALL）となっている
+- パフォーマンススキーマとは
+  - 実行時にサーバの内部実行を検索する方法を提供する
+  - `performance_schema`データベースを使用して実装される
+- （TODO）スロークエリログの集計により、実行速度は確認済みだが、`performance_schema`による確認も行いたい。（スロークエリログの集計よりも面倒そうなので、一旦放置）
 
-```sql
-mysql> EXPLAIN SELECT
-    ->   *
-    -> FROM
-    ->   employees
-    -> WHERE
-    ->   birth_date >= date('1960-01-01')\G
-*************************** 1. row ***************************
-           id: 1
-  select_type: SIMPLE
-        table: employees
-   partitions: NULL
-         type: ALL
-possible_keys: NULL
-          key: NULL
-      key_len: NULL
-          ref: NULL
-         rows: 299866
-     filtered: 33.33
-        Extra: Using where
-1 row in set, 1 warning (0.00 sec)
-```
+1. 実行計画の確認
 
-- ②誕生日が1960年以降の従業員の誕生日のみを抽出する
-  - フルスキャン（typeがALL）となっている
+- ①誕生日が1960年以降の従業員の誕生日のみを抽出する
+  - type
+    - ALL：フルテーブルスキャンとなっており、インデックスが全く利用されていない
+  - Extra
+    - Using where：頻繁に出力される追加情報である。WHERE句に検索条件が指定されており、なおかつインデックスを見ただけではWHERE句の条件を全て適用することが出来ない場合に表示される。
+    - Using filesort：クイックソートが使われている
 
 ```sql
 mysql> EXPLAIN SELECT
@@ -257,7 +249,9 @@ mysql> EXPLAIN SELECT
     -> FROM
     ->   employees
     -> WHERE
-    ->   birth_date >= date('1960-01-01')\G
+    ->   birth_date >= date('1960-01-01')
+    -> ORDER BY
+    ->   birth_date DESC\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -270,12 +264,15 @@ possible_keys: NULL
           ref: NULL
          rows: 299866
      filtered: 33.33
-        Extra: Using where
+        Extra: Using where; Using filesort
 1 row in set, 1 warning (0.00 sec)
 ```
 
-- ③性別が女性の従業員のフルネームと性別を抽出する
-  - フルスキャン（typeがALL）となっている
+- ②性別が女性の従業員のフルネームと性別を抽出する
+  - type
+    - ALL：フルテーブルスキャンとなっており、インデックスが全く利用されていない
+  - Extra
+    - Using where：頻繁に出力される追加情報である。WHERE句に検索条件が指定されており、なおかつインデックスを見ただけではWHERE句の条件を全て適用することが出来ない場合に表示される。
 
 ```sql
 mysql> EXPLAIN SELECT
@@ -301,7 +298,58 @@ possible_keys: NULL
 1 row in set, 1 warning (0.00 sec)
 ```
 
-4. チューニングを行う
+- ③2000年代以降に入社した従業員の従業員番号、給料、入社日を、入社日の降順に抽出する
+  - 1行目には、JOINされるテーブル（駆動表）である`salary`の実行計画が出力されている
+    - 駆動表からフェッチする行数が少ないほど、実行すべきループの回数が少なくなるため有利
+      - 少なくするためには`WHERE`句で行数の絞り込みを行うなどの対策がある
+  - type
+    - ALL：フルテーブルスキャンとなっており、インデックスが全く利用されていない
+  - Extra
+    - Using where：頻繁に出力される追加情報である。WHERE句に検索条件が指定されており、なおかつインデックスを見ただけではWHERE句の条件を全て適用することが出来ない場合に表示される。
+    - Using filesort：クイックソートが使われている
+
+```sql
+mysql> EXPLAIN SELECT
+    ->   employees.emp_no,
+    ->   salaries.salary,
+    ->   employees.hire_date
+    -> FROM
+    ->   employees
+    ->   INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+    -> WHERE
+    ->   hire_date >= date('2000-01-01')
+    -> ORDER BY
+    ->   salary DESC\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: salaries
+   partitions: NULL
+         type: ALL
+possible_keys: PRIMARY
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 1
+     filtered: 100.00
+        Extra: Using filesort
+*************************** 2. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: employees
+   partitions: NULL
+         type: eq_ref
+possible_keys: PRIMARY
+          key: PRIMARY
+      key_len: 4
+          ref: employees.salaries.emp_no
+         rows: 1
+     filtered: 33.33
+        Extra: Using where
+2 rows in set, 1 warning (0.00 sec)
+```
+
+1. チューニングを行う
 
 - ①誕生日が1960年以降の従業員の情報を全て抽出する
   - `birth_date`にインデックスを作成する
@@ -351,3 +399,7 @@ Index_comment:
 - [MySQL 5.6 13.7.5.40 SHOW VARIABLES 構文](https://dev.mysql.com/doc/refman/5.6/ja/show-variables.html)
 - [MySQLスローログの手動ローテート](https://b.l0g.jp/mysql/slowlog-manual-rotate/)
 - [遅いクエリを突き止める!MySQLクエリ解析にスロークエリログを導入する手順](https://nishinatoshiharu.com/mysql-slow-query-log/#mysqldumpslow)
+- [MySQLのEXPLAINを徹底解説!! ](http://nippondanji.blogspot.com/2009/03/mysqlexplain.html)
+- [MySQLにおけるJOINのチューニングの定石](https://enterprisezine.jp/article/detail/3520?p=2)
+- [開発者のためのSQLノチューニングヘのガイド 実行計画の処理](https://use-the-index-luke.com/ja/sql/explain-plan/mysql/operations)
+- [サイボウズ版 MySQL パフォーマンスチューニングとその結果](https://blog.cybozu.io/entry/2018/08/08/080000)
