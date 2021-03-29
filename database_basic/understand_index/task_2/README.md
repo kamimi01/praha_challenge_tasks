@@ -105,18 +105,7 @@ mysql> show variables like 'long%';
 
 - 以下の3つのクエリを、10回ずつ実行する
 
-- ①誕生日が1960年以降の従業員の情報を全て抽出する
-
-```sql
-SELECT
-  *
-FROM
-  employees
-WHERE
-  birth_date >= date('1960-01-01');
-```
-
-- ②誕生日が1960年以降の従業員の誕生日のみを抽出する
+- ①誕生日が1960年以降の従業員の誕生日のみを抽出する
 
 ```sql
 SELECT
@@ -124,10 +113,12 @@ SELECT
 FROM
   employees
 WHERE
-  birth_date >= date('1960-01-01');
+  birth_date >= date('1960-01-01')
+ORDER BY
+  birth_date DESC;
 ```
 
-- ③性別が女性の従業員のフルネームと性別を抽出する
+- ②性別が女性の従業員のフルネームと性別を抽出する
 
 ```sql
 SELECT
@@ -137,6 +128,22 @@ FROM
   employees
 WHERE
   gender = 'F';
+```
+
+- ③2000年代以降に入社した従業員の従業員番号、給料、入社日を、入社日の降順に抽出する
+
+```sql
+SELECT
+  employees.emp_no,
+  salaries.salary,
+  employees.hire_date
+FROM
+  employees
+  INNER JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE
+  hire_date >= date('2000-01-01')
+ORDER BY
+  hire_date DESC;
 ```
 
 ### チューニング
