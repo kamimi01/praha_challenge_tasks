@@ -3,9 +3,20 @@
 ## Table of Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
 
+- [インデックスを作成した際のINSERTの速度](#%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E9%9A%9B%E3%81%AEinsert%E3%81%AE%E9%80%9F%E5%BA%A6)
+  - [インデックス](#%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9)
+  - [検証するクエリ](#%E6%A4%9C%E8%A8%BC%E3%81%99%E3%82%8B%E3%82%AF%E3%82%A8%E3%83%AA)
+  - [検証](#%E6%A4%9C%E8%A8%BC)
+    - [スロークエリログの確認](#%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%AD%E3%82%B0%E3%81%AE%E7%A2%BA%E8%AA%8D)
+    - [EXPLAINによる確認](#explain%E3%81%AB%E3%82%88%E3%82%8B%E7%A2%BA%E8%AA%8D)
+  - [検証結果](#%E6%A4%9C%E8%A8%BC%E7%B5%90%E6%9E%9C)
+- [インデックスとINSERT、DELETE](#%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%A8insertdelete)
+- [参考](#%E5%8F%82%E8%80%83)
 
-
+</details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## インデックスを作成した際のINSERTの速度
