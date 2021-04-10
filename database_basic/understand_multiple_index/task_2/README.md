@@ -193,4 +193,5 @@ possible_keys: salaries_idx
 
 ## 参考
 
-- 複合インデックすは、範囲指定がある場合は、効かない
+- [MySQL Index勉強会外部公開用](https://www.slideshare.net/crooz_techblog/mysql-index-26016127)
+  - 複合インデックすは、範囲指定がある場合は、効かない
