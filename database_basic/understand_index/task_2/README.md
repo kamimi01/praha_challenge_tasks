@@ -279,7 +279,7 @@ possible_keys: NULL
   - Extra
     - Using where：頻繁に出力される追加情報である。WHERE句に検索条件が指定されており、なおかつインデックスを見ただけではWHERE句の条件を全て適用することが出来ない場合に表示される。
 
-```sql
+```sql  
 mysql> EXPLAIN SELECT
     ->   concat(first_name, ' ', last_name) AS full_name,
     ->   gender
