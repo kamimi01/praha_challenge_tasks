@@ -116,3 +116,4 @@ possible_keys: PRIMARY
 - [MySQL5.6 8.2.1.19 LIMIT クエリーの最適化](https://dev.mysql.com/doc/refman/5.6/ja/limit-optimization.html)
 - [テーブル結合についての備忘録 その2](https://qiita.com/mounntainn/items/2c5a568c98b7e9c38c6f)
 - [実例で学ぶ、JOIN (NLJ) が遅くなる理屈と対処法](https://qiita.com/yuku_t/items/208be188eef17699c7a5)
+- [https://enterprisezine.jp/article/detail/3520?p=2](https://enterprisezine.jp/article/detail/3520?p=2)
