@@ -1,8 +1,18 @@
 # 課題2
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [スロークエリログを扱いやすくする](#%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%AD%E3%82%B0%E3%82%92%E6%89%B1%E3%81%84%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B)
+  - [mysqldumpslowコマンド](#mysqldumpslow%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
+- [課題3](#%E8%AA%B2%E9%A1%8C3)
+- [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## スロークエリログを扱いやすくする
 
