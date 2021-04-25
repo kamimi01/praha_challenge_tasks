@@ -1,0 +1,44 @@
+@startuml Likes Polymorphic Associations
+
+hide circle
+
+skinparam linetype ortho
+
+entity "users" as users {
+  * id: varchar [PK]
+  ---
+  name: varchar
+}
+
+entity "likes" as likes {
+  * id: varchar [PK]
+  ---
+  user_id: varchar [FK]
+  likes_target_id: varchar [FK]
+}
+
+entity "likes_target" as likes_target {
+  * id: varchar [PK]
+  ---
+  target_id: varchar 
+  likes_target_type: varchar
+}
+
+entity "posts" as posts {
+  * id: varchar [PK]
+  ---
+  description: TEXT
+}
+
+entity "comments" as comments {
+  * id: varchar [PK]
+  ---
+  contents: varchar
+}
+
+users ||--o{ likes
+posts ||--o{ likes
+comments ||--o{ likes
+likes ||--|| likes_target
+
+@enduml
