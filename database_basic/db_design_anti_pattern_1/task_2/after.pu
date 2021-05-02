@@ -1,0 +1,18 @@
+@startuml
+
+entity Post {
+  * post_id: varchar [PK]
+  ---
+  * text: varchar
+}
+
+entity Tag {
+  * tag_id: varchar [PK]
+  ---
+  * post_id: varchar [FK]
+}
+
+Post ||--|{ Tag
+
+@enduml
+
