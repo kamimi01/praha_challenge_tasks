@@ -6,13 +6,20 @@ entity Post {
   * text: varchar
 }
 
+entity Tagging {
+  * product_id: varchar [PK] [FK]
+  * tag_id: varchar [PK] [FK]
+  ---
+}
+
 entity Tag {
   * tag_id: varchar [PK]
   ---
-  * post_id: varchar [FK]
+  * text: varchar
 }
 
-Post ||--|{ Tag
+Post ||--o{ Tagging
+Tag ||--o{ Tagging
 
 @enduml
 
