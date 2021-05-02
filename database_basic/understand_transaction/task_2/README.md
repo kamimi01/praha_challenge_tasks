@@ -6,13 +6,11 @@
 <details>
 <summary>Details</summary>
 
-- [課題2](#課題2)
-  - [Table of Contents](#table-of-contents)
-  - [事前準備](#事前準備)
-  - [Dirty Read](#dirty-read)
-  - [Non-repeatable read](#non-repeatable-read)
-  - [Phantom read](#phantom-read)
-  - [参考](#参考)
+- [事前準備](#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99)
+- [Dirty Read](#dirty-read)
+- [Non-repeatable read](#non-repeatable-read)
+- [Phantom read](#phantom-read)
+- [参考](#%E5%8F%82%E8%80%83)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
