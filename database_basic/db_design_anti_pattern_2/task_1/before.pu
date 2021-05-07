@@ -1,0 +1,20 @@
+@startuml
+
+entity Post {
+  id: varchar
+  ---
+  content: varchar
+  tag1: varchar
+  tag2: varchar
+  tag3: varchar
+}
+
+entity Tag {
+  id: varchar
+  ---
+  content: varchar
+}
+
+Post |o..o| Tag
+
+@enduml
