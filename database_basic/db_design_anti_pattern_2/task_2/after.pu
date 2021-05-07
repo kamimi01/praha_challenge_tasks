@@ -20,7 +20,7 @@ entity Tag {
   content: varchar
 }
 
-Post ||..o| Tagging
-Tag ||..o| Tagging
+Post ||..o{ Tagging
+Tag ||..o{ Tagging
 
 @enduml

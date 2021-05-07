@@ -15,6 +15,6 @@ entity Tag {
   content: varchar
 }
 
-Post |o..o| Tag
+Post ||..o{ Tag
 
 @enduml
