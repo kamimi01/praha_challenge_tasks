@@ -1,0 +1,10 @@
+@startuml
+
+entity Message {
+  message_id: varchar
+  ---
+  path: varchar
+  text: varchar
+}
+
+@enduml
