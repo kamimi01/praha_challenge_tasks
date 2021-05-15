@@ -1,0 +1,33 @@
+@startuml
+
+entity NewCustomer {
+  + id: varchar <<PK>>
+  ---
+  telephone: boolean
+  metOnce: boolean
+  metAt: date
+  closed: boolean
+  closedAt: boolean
+}
+
+note right of NewCustomer::telephone
+  電話をかけたらTRUEになる
+end note
+
+note right of NewCustomer::metOnce
+  アポで面談したらTRUEになる
+end note
+
+note right of NewCustomer::metAt
+  面談をした日付が入る
+end note
+
+note right of NewCustomer::closed
+  成約した
+end note
+
+note right of NewCustomer::closedAt
+  成約した日付が入る
+end note
+
+@enduml
