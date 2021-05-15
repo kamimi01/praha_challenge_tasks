@@ -1,0 +1,14 @@
+@startuml
+
+entity Student {
+  + id: varchar <<PK>>
+  ---
+  name: varchar
+  status: varchar
+}
+
+note right of Student::status
+  CHECK(status IN ("studying", "graduated", "suspended"))
+end note
+
+@enduml
