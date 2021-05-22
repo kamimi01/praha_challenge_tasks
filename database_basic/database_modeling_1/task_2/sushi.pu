@@ -1,6 +1,6 @@
 @startuml
 
-title "お持ち帰りメニューご注文表のER図"
+title "お持ち帰りメニューご注文表のER図（課題2）"
 
 skinparam Linetype ortho
 
@@ -29,6 +29,7 @@ package "注文" as orderpkg {
     セット商品ID <<FK>>
     注文個数
     さびありなし
+    シャリサイズID
     注文ID <<FK>>
   }
 
@@ -43,6 +44,7 @@ package "注文" as orderpkg {
     付帯セット商品ID <<FK>>
     注文個数
     さびありなし
+    シャリサイズID
     注文ID <<FK>>
   }
 
@@ -59,6 +61,7 @@ package "注文" as orderpkg {
     単品商品ID <<FK>>
     注文個数
     さびありなし
+    シャリサイズID
     注文ID <<FK>>
   }
 
@@ -133,6 +136,12 @@ package "商品" as productpkg {
     単品商品カテゴリ名
     単価
   }
+
+  entity "シャリサイズ" as sharisize <<R, RESOURCE_MARK_COLOR>> {
+    + シャリサイズID <<PK>>
+    ---
+    シャリサイズ名
+  }
 }
 
 package "顧客" as customerpkg {
@@ -150,8 +159,11 @@ order ||-d-o{ set_order_detail
 order ||-d-o| set_accessorial_order_detail
 order ||-l-|| order_category
 set_order_detail ||-d-|| set_product
+set_order_detail ||--|| sharisize
 order_detail ||--|| product
+order_detail ||--|| sharisize
 set_accessorial_order_detail ||--|| accessorial_set_product
+set_accessorial_order_detail ||--|| sharisize
 set_product ||-d-|| set_product_class
 set_product ||-r-o{ accessorial_set_product
 product ||--|| product_class

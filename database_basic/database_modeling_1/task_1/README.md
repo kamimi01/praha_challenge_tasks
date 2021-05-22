@@ -16,7 +16,7 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## 質問
+## 質問1
 
 > [こちら](https://github.com/praha-inc/praha-challenge-templates/blob/master/db/design/sushi.png?raw=true)のDBスキーマを設計し、論理モデルを作成してください。
 
