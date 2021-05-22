@@ -75,3 +75,7 @@
 ## 参考
 
 - 楽々ERDレッスン(書籍)
+  - 練習用メモは[こちら](https://docs.google.com/spreadsheets/d/1w-UScZv0XnthxsMruUcHH6D8JsE7QIqKQ1bGpodrHI8/edit?usp=sharing)
+  - 第3部_第1回のER図は以下です。書籍の通りにやってみた+少し追加でエンティティを増やしています。
+
+![](../../../assets/お持ち帰りご注文用紙に関するER図.png)

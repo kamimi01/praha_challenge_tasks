@@ -1,0 +1,96 @@
+@startuml
+
+title "お持ち帰りご注文用紙に関するER図"
+
+skinparam Linetype ortho
+
+package "注文" as orderpkg {
+  entity "注文" as order {
+    + 注文ID <<PK>>
+    ---
+    注文数
+    注文時間
+    顧客ID <<FK>>
+    商品ID <<FK>>
+    注文方法ID <<FK>>
+  }
+
+  entity "注文方法" as order_method {
+    + 注文方法ID <<PK>>
+    ---
+    注文方法
+  }
+}
+
+package "商品" as productpkg {
+  entity "商品カテゴリ" as product_category {
+    + 商品カテゴリID <<PK>>
+    ---
+    カテゴリ名
+  }
+
+  entity "税" as tax {
+    + 税ID <<PK>>
+    ---
+    税率
+  }
+
+  entity "商品" as product {
+    + 商品ID <<PK>>
+    ---
+    商品カテゴリID <<FK>>
+    税ID <<FK>>
+    商品名
+    商品区分ID <<FK>>
+    金額
+    注意事項
+  }
+
+  entity "商品区分" as product_class {
+    + 商品区分ID <<PK>>
+    ---
+    商品区分
+  }
+
+  entity "商品あたり個数" as product_num {
+    + 商品あたり個数ID <<PK>>
+    ---
+    数量
+    商品ID <<FK>>
+    単位ID <<FK>>
+  }
+
+  entity "単位名" as unit {
+    + 単位ID <<PK>>
+    ---
+    単位名
+  }
+
+  entity "商品あたり人数" as product_person_num {
+    + 商品あたり人数ID <<PK>>
+    ---
+    商品ID <<FK>>
+    人数
+  }
+}
+
+package "顧客" as customer_pkg {
+  entity "顧客" as customer {
+    + 顧客ID <<PK>>
+    ---
+    名前
+    電話番号
+  }
+}
+
+order ||-r-|| customer
+order ||--|{ product
+product_category ||-r-|{ product
+product ||--|| tax
+product ||-r-o| product_num
+product ||-r-o| product_person_num
+product ||-l-|| product_class
+product_num ||--|| unit
+order ||-l-|| order_method
+
+@enduml
