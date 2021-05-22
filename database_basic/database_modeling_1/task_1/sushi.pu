@@ -20,6 +20,7 @@ package "注文" as orderpkg {
     注文時間
     注文方法ID <<FK>>
     顧客ID <<FK>>
+    注文カテゴリID <<FK>>
   }
 
   entity "セット注文明細" as set_order_detail <<E, EVENT_MARK_COLOR>> {
@@ -76,6 +77,24 @@ package "注文" as orderpkg {
     「電話」「店舗」
     などの値が入る
   end note
+
+  entity "注文カテゴリ" as order_category <<R, RESOURCE_MARK_COLOR>> {
+    + 注文カテゴリID <<PK>>
+    ---
+    注文カテゴリ名
+    税ID <<FK>>
+  }
+
+  note left of order_category
+    店内飲食や持ち帰りなど
+    を区別するためのテーブル
+  end note
+
+  entity "税" as tax <<R, RESOURCE_MARK_COLOR>> {
+    + 税ID <<PK>>
+    ---
+    税率
+  }
 }
 
 package "商品" as productpkg {
@@ -128,7 +147,8 @@ package "顧客" as customerpkg {
 order ||-l-|| order_method
 order ||-d-o| order_detail
 order ||-d-o{ set_order_detail
-order ||--o| set_accessorial_order_detail
+order ||-d-o| set_accessorial_order_detail
+order ||-l-|| order_category
 set_order_detail ||-d-|| set_product
 order_detail ||--|| product
 set_accessorial_order_detail ||--|| accessorial_set_product
@@ -136,5 +156,6 @@ set_product ||-d-|| set_product_class
 set_product ||-r-o{ accessorial_set_product
 product ||--|| product_class
 order ||-l-|| customer
+order_category ||--|| tax
 
 @enduml
