@@ -16,17 +16,23 @@ package "注文" as orderpkg {
   entity "注文" as order <<E, EVENT_MARK_COLOR>> {
     + 注文ID <<PK>>
     ---
-    注文数
     注文時間
     顧客ID <<FK>>
-    商品ID <<FK>>
     注文方法ID <<FK>>
+    注文明細ID <<FK>>
   }
 
   entity "注文方法" as order_method <<R, RESOURCE_MARK_COLOR>> {
     + 注文方法ID <<PK>>
     ---
     注文方法
+  }
+
+  entity "注文明細" as order_detail <<E, EVENT_MARK_COLOR>> {
+    + 注文明細ID <<PK>>
+    ---
+    注文個数
+    商品ID <<FK>>
   }
 }
 
@@ -92,7 +98,8 @@ package "顧客" as customer_pkg {
 }
 
 order ||-r-|| customer
-order ||--|{ product
+order ||--|{ order_detail
+order_detail ||--|{ product
 product_category ||-r-|{ product
 product ||--|| tax
 product ||-r-o| product_num
