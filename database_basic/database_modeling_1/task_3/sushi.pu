@@ -1,6 +1,6 @@
 @startuml
 
-title "お持ち帰りメニューご注文表のER図（課題2）"
+title "お持ち帰りメニューご注文表のER図（課題3）"
 
 skinparam Linetype ortho
 
@@ -142,6 +142,13 @@ package "商品" as productpkg {
     ---
     シャリサイズ名
   }
+
+  entity "エリア別単品商品" as area_product {
+    + エリア別商品ID <<PK>>
+    ---
+    エリアID <<FK>>
+    単品商品ID <<FK>>
+  }
 }
 
 package "顧客" as customerpkg {
@@ -153,7 +160,39 @@ package "顧客" as customerpkg {
   }
 }
 
-entity "店舗" as 
+package "店舗" as shoppkg {
+  entity "店舗" as shop {
+    + 店舗ID <<PK>>
+    ---
+    店舗名
+    店舗住所ID
+  }
+
+  entity "店舗住所" as shop_address {
+    + 店舗住所ID <<PK>>
+    ---
+    郵便番号
+    県ID <<FK>>
+    住所1
+    住所2
+    住所3
+  }
+}
+
+package "共通" as commonpdk {
+  entity "県" as prefecture {
+    + 県ID <<PK>>
+    ---
+    県名
+    エリアID <<FK>>
+  }
+
+  entity "エリア" as area {
+    + エリアID <<PK>>
+    ---
+    エリア名
+  }
+}
 
 order ||-l-|| order_method
 order ||-d-o| order_detail
@@ -171,5 +210,10 @@ set_product ||-r-o{ accessorial_set_product
 product ||--|| product_class
 order ||-l-|| customer
 order_category ||--|| tax
+shop ||--|| shop_address
+shop_address ||-r-|| prefecture
+area ||--|{ prefecture
+product ||--|{ area_product
+area_product }|--|| area
 
 @enduml
