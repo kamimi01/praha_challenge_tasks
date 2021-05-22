@@ -4,8 +4,16 @@ title "お持ち帰りご注文用紙に関するER図"
 
 skinparam Linetype ortho
 
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
 package "注文" as orderpkg {
-  entity "注文" as order {
+  entity "注文" as order <<E, EVENT_MARK_COLOR>> {
     + 注文ID <<PK>>
     ---
     注文数
@@ -15,7 +23,7 @@ package "注文" as orderpkg {
     注文方法ID <<FK>>
   }
 
-  entity "注文方法" as order_method {
+  entity "注文方法" as order_method <<R, RESOURCE_MARK_COLOR>> {
     + 注文方法ID <<PK>>
     ---
     注文方法
@@ -23,19 +31,19 @@ package "注文" as orderpkg {
 }
 
 package "商品" as productpkg {
-  entity "商品カテゴリ" as product_category {
+  entity "商品カテゴリ" as product_category <<R, RESOURCE_MARK_COLOR>> {
     + 商品カテゴリID <<PK>>
     ---
     カテゴリ名
   }
 
-  entity "税" as tax {
+  entity "税" as tax <<R, RESOURCE_MARK_COLOR>> {
     + 税ID <<PK>>
     ---
     税率
   }
 
-  entity "商品" as product {
+  entity "商品" as product <<R, RESOURCE_MARK_COLOR>> {
     + 商品ID <<PK>>
     ---
     商品カテゴリID <<FK>>
@@ -46,13 +54,13 @@ package "商品" as productpkg {
     注意事項
   }
 
-  entity "商品区分" as product_class {
+  entity "商品区分" as product_class <<R, RESOURCE_MARK_COLOR>> {
     + 商品区分ID <<PK>>
     ---
     商品区分
   }
 
-  entity "商品あたり個数" as product_num {
+  entity "商品あたり個数" as product_num <<R, RESOURCE_MARK_COLOR>> {
     + 商品あたり個数ID <<PK>>
     ---
     数量
@@ -60,13 +68,13 @@ package "商品" as productpkg {
     単位ID <<FK>>
   }
 
-  entity "単位名" as unit {
+  entity "単位名" as unit <<R, RESOURCE_MARK_COLOR>> {
     + 単位ID <<PK>>
     ---
     単位名
   }
 
-  entity "商品あたり人数" as product_person_num {
+  entity "商品あたり人数" as product_person_num <<R, RESOURCE_MARK_COLOR>> {
     + 商品あたり人数ID <<PK>>
     ---
     商品ID <<FK>>
@@ -75,7 +83,7 @@ package "商品" as productpkg {
 }
 
 package "顧客" as customer_pkg {
-  entity "顧客" as customer {
+  entity "顧客" as customer <<R, RESOURCE_MARK_COLOR>> {
     + 顧客ID <<PK>>
     ---
     名前
