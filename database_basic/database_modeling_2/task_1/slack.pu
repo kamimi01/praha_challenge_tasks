@@ -1,0 +1,90 @@
+@startuml
+
+title "SlackのようなチャットサービスのER図"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "メッセージ" as messagepkg {
+  entity "メッセージ" as message <<E, EVENT_MARK_COLOR>> {
+    + メッセージID <<PK>>
+    ---
+    ユーザーID <<FK>>
+    投稿スペース構造ID <<FK>>
+    投稿日時
+    メッセージ内容
+  }
+
+  entity "メッセージ関係" as message_relation <<E, EVENT_MARK_COLOR>> {
+    + メッセージ関係ID <<PK>>
+    ---
+    親メッセージID <<FK>>
+    子メッセージID <<FK>>
+  }
+}
+
+package "投稿スペース" as postspacepkg {
+  entity "ワークスペース" as workspace <<R, RESOURCE_MARK_COLOR>> {
+    + ワークスペースID <<PK>>
+    ---
+    ワークスペース名
+    ユーザー名
+  }
+
+  entity "チャンネル" as channel <<R, RESOURCE_MARK_COLOR>> {
+    + チャンネルID <<PK>>
+    ---
+    チャンネル名
+    ユーザー名
+  }
+
+  entity "投稿スペース構造" as work_channel_relation <<R, RESOURCE_MARK_COLOR>> {
+    + 投稿スペース構造ID <<PK>>
+    ---
+    ワークスペースID
+    チャンネルID
+  }
+}
+
+package "ユーザー" as userpkg {
+  entity "ユーザー所属" as user_beloging <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザー所属ID <<PK>>
+    ---
+    ユーザーID <<FK>>
+    投稿スペース構造ID <<FK>>
+  }
+
+  entity "ユーザー" as user <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザーID <<PK>>
+    ---
+    ユーザー名
+  }
+}
+
+package "検索" as seachpkg {
+  entity "検索ログ" as search_logs <<E, EVENT_MARK_COLOR>> {
+    + 検索ログID <<PK>>
+    ---
+    ユーザーID
+    検索日時
+    検索キーワード
+  }
+}
+
+message }|-r-|{ message_relation
+message }|-u-|| work_channel_relation
+message }|-l-|| user
+workspace ||--|{ work_channel_relation
+channel ||--|{ work_channel_relation
+user ||--|{ search_logs
+user ||-u-|{ user_beloging
+work_channel_relation ||--|{ user_beloging
+
+@enduml
