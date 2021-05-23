@@ -143,7 +143,7 @@ package "商品" as productpkg {
     シャリサイズ名
   }
 
-  entity "エリア別単品商品" as area_product {
+  entity "エリア別単品商品" as area_product <<R, RESOURCE_MARK_COLOR>> {
     + エリア別商品ID <<PK>>
     ---
     エリアID <<FK>>
@@ -161,14 +161,14 @@ package "顧客" as customerpkg {
 }
 
 package "店舗" as shoppkg {
-  entity "店舗" as shop {
+  entity "店舗" as shop <<R, RESOURCE_MARK_COLOR>> {
     + 店舗ID <<PK>>
     ---
     店舗名
     店舗住所ID
   }
 
-  entity "店舗住所" as shop_address {
+  entity "店舗住所" as shop_address <<R, RESOURCE_MARK_COLOR>> {
     + 店舗住所ID <<PK>>
     ---
     郵便番号
@@ -180,14 +180,14 @@ package "店舗" as shoppkg {
 }
 
 package "共通" as commonpdk {
-  entity "県" as prefecture {
+  entity "県" as prefecture <<R, RESOURCE_MARK_COLOR>> {
     + 県ID <<PK>>
     ---
     県名
     エリアID <<FK>>
   }
 
-  entity "エリア" as area {
+  entity "エリア" as area <<R, RESOURCE_MARK_COLOR>> {
     + エリアID <<PK>>
     ---
     エリア名
