@@ -195,9 +195,9 @@ package "共通" as commonpdk {
 }
 
 order ||-l-|| order_method
-order ||-d-o| order_detail
+order ||-d-o{ order_detail
 order ||-d-o{ set_order_detail
-order ||-d-o| set_accessorial_order_detail
+order ||-d-o{ set_accessorial_order_detail
 order ||-l-|| order_category
 set_order_detail ||-d-|| set_product
 set_order_detail ||--|| sharisize
