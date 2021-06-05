@@ -17,10 +17,18 @@ package "ドキュメント" as documentpkg {
     + ドキュメントID <<PK>>
     ---
     ドキュメント名
+    ドキュメント配置場所
     ユーザID <<FK>>
     更新日時
     ディレクトリID <<FK>>
   }
+
+  note right of document::ドキュメント配置場所
+    ドキュメント自体は、別のストレージ
+    に保存するため（DBには保存しない）
+    その配置ディレクトリやURLなどを
+    このカラムの値として保持する
+  end note
 }
 
 package "ディレクトリ" as directorypkg {
