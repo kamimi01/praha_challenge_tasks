@@ -1,0 +1,55 @@
+@startuml
+
+title "ドキュメント管理システム"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "ドキュメント" as documentpkg {
+  entity "ドキュメント" as document <<R, RESOURCE_MARK_COLOR>> {
+    + ドキュメントID <<PK>>
+    ---
+    ドキュメント名
+    ユーザID <<FK>>
+    更新日時
+    ディレクトリID <<FK>>
+  }
+}
+
+package "ディレクトリ" as directorypkg {
+  entity "ディレクトリ" as directory <<R, RESOURCE_MARK_COLOR>> {
+    + ディレクトリID <<PK>>
+    ---
+    ディレクトリ名
+    ディレクトリ作成日
+  }
+
+  entity "ディレクトリ関係" as directory_relation <<R, RESOURCE_MARK_COLOR>> {
+    + ディレクトリ関係ID <<PK>>
+    ---
+    親ディレクトリID <<FK>>
+    子ディレクトリID <<FK>>
+  }
+}
+
+package "ユーザ" as userpkg {
+  entity "ユーザ" as user <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザID <<PK>>
+    ---
+    ユーザ名
+  }
+}
+
+document }|--|| directory
+document }|--|| user
+directory }|--|{ directory_relation
+directory }|--|{ directory_relation
+
+@enduml
