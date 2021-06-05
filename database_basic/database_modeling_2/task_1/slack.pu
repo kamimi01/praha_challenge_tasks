@@ -17,16 +17,18 @@ package "メッセージ" as messagepkg {
     + メッセージID <<PK>>
     ---
     ユーザーID <<FK>>
-    投稿スペース構造ID <<FK>>
+    チャンネルID <<FK>>
     投稿日時
     メッセージ内容
   }
 
-  entity "メッセージ関係" as message_relation <<E, EVENT_MARK_COLOR>> {
-    + メッセージ関係ID <<PK>>
+  entity "スレッドメッセージ" as thread_message <<E, EVENT_MARK_COLOR>> {
+    + スレッドメッセージID <<PK>>
     ---
     親メッセージID <<FK>>
-    子メッセージID <<FK>>
+    ユーザーID <<FK>>
+    投稿日時
+    メッセージ内容
   }
 }
 
@@ -35,21 +37,13 @@ package "投稿スペース" as postspacepkg {
     + ワークスペースID <<PK>>
     ---
     ワークスペース名
-    ユーザー名
   }
 
   entity "チャンネル" as channel <<R, RESOURCE_MARK_COLOR>> {
     + チャンネルID <<PK>>
     ---
+    ワークスペースID <<FK>>
     チャンネル名
-    ユーザー名
-  }
-
-  entity "投稿スペース構造" as work_channel_relation <<R, RESOURCE_MARK_COLOR>> {
-    + 投稿スペース構造ID <<PK>>
-    ---
-    ワークスペースID
-    チャンネルID
   }
 }
 
@@ -58,7 +52,7 @@ package "ユーザー" as userpkg {
     + ユーザー所属ID <<PK>>
     ---
     ユーザーID <<FK>>
-    投稿スペース構造ID <<FK>>
+    チャンネルID <<FK>>
   }
 
   entity "ユーザー" as user <<R, RESOURCE_MARK_COLOR>> {
@@ -68,23 +62,11 @@ package "ユーザー" as userpkg {
   }
 }
 
-package "検索" as seachpkg {
-  entity "検索ログ" as search_logs <<E, EVENT_MARK_COLOR>> {
-    + 検索ログID <<PK>>
-    ---
-    ユーザーID
-    検索日時
-    検索キーワード
-  }
-}
-
-message }|-r-|{ message_relation
-message }|-u-|| work_channel_relation
+message ||-l-|{ thread_message
 message }|-l-|| user
-workspace ||--|{ work_channel_relation
-channel ||--|{ work_channel_relation
-user ||--|{ search_logs
-user ||-u-|{ user_beloging
-work_channel_relation ||--|{ user_beloging
+message }|--|| channel
+channel }|--|| workspace
+channel ||--|{ user_beloging
+user ||--|{ user_beloging
 
 @enduml
