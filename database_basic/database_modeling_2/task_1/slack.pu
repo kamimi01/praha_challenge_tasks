@@ -61,6 +61,7 @@ package "ユーザー" as userpkg {
 
 message }o-l-|| user
 message }o--|| channel
+message ||-l-o{ message
 channel }|--|| workspace
 channel ||--o{ user_beloging
 user ||--|{ user_beloging
