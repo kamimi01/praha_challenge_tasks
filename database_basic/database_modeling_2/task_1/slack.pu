@@ -16,20 +16,17 @@ package "メッセージ" as messagepkg {
   entity "メッセージ" as message <<E, EVENT_MARK_COLOR>> {
     + メッセージID <<PK>>
     ---
+    親メッセージID <<FK>>
     ユーザーID <<FK>>
     チャンネルID <<FK>>
     投稿日時
     メッセージ内容
   }
 
-  entity "スレッドメッセージ" as thread_message <<E, EVENT_MARK_COLOR>> {
-    + スレッドメッセージID <<PK>>
-    ---
-    親メッセージID <<FK>>
-    ユーザーID <<FK>>
-    投稿日時
-    メッセージ内容
-  }
+  note left of message::親メッセージID
+    自分が親メッセージである場合は、
+    メッセージIDと同じ値が入る
+  end note
 }
 
 package "投稿スペース" as postspacepkg {
@@ -62,11 +59,10 @@ package "ユーザー" as userpkg {
   }
 }
 
-message ||-l-|{ thread_message
-message }|-l-|| user
-message }|--|| channel
+message }o-l-|| user
+message }o--|| channel
 channel }|--|| workspace
-channel ||--|{ user_beloging
+channel ||--o{ user_beloging
 user ||--|{ user_beloging
 
 @enduml
