@@ -24,4 +24,7 @@
 
 - 検討時のメモは[こちら](https://docs.google.com/spreadsheets/d/1VY8wkXNHNpTPu-Bk3SVmADeX53uuP2y5sYRT9e5X5-8/edit?usp=sharing)
 
+- Slackの場合は、階層が2階層までと限定されている。
+- また、MySQLなど最近のRDBMSでは再帰クエリを使用することもできるので、ナイーブツリーであっても問題なさそう。
+
 - 懸念点
