@@ -19,8 +19,8 @@ package "ドキュメント" as documentpkg {
     ドキュメント名
     ドキュメント配置場所
     ユーザID <<FK>>
-    更新日時
     ディレクトリID <<FK>>
+    更新日時
   }
 
   note right of document::ドキュメント配置場所
@@ -28,6 +28,32 @@ package "ドキュメント" as documentpkg {
     に保存するため（DBには保存しない）
     その配置ディレクトリやURLなどを
     このカラムの値として保持する
+  end note
+
+  note right
+    最新のドキュメントを保持する
+  end note
+
+  entity "ドキュメント履歴" as document_history <<E, EVENT_MARK_COLOR>> {
+    + ドキュメント履歴ID <<PK>>
+    ---
+    ドキュメントID <<FK>>
+    ドキュメント名
+    ドキュメント配置場所
+    ユーザID <<FK>>
+    ディレクトリID <<FK>>
+    更新日時
+  }
+  
+  note left
+    過去のドキュメントを保持する
+    ドキュメントが更新または削除された場合に、
+    TRIGGERによってこのテーブルにレコードがINSERTされる
+    ---
+    削除された場合は、削除された最後のドキュメントがINSERTされる
+    アプリケーション側では、
+    ドキュメントテーブルにそのドキュメントIDのレコードが存在しないことで
+    削除されたと判断することができる
   end note
 }
 
@@ -37,7 +63,22 @@ package "ディレクトリ" as directorypkg {
     ---
     ディレクトリ名
     ディレクトリ作成日
+    アドミン管理ID <<FK>>
   }
+
+  entity "アドミン管理" as admin_management <<R, RESOURCE_MARK_COLOR>> {
+    + アドミン管理ID <<PK>>
+    ---
+    ディレクトリID <<FK>>
+    ユーザID <<FK>>
+  }
+
+  note left of admin_management::ユーザID
+    1つのディレクトリに対して、
+    アドミンユーザは複数名存在し得る
+    アドミンユーザはディレクトリにおける全ての操作が可能なため
+    ディレクトリ所属テーブルにはアドミンユーザー用のレコードは存在しない
+  end note
 
   entity "ディレクトリ関係" as directory_relation <<R, RESOURCE_MARK_COLOR>> {
     + ディレクトリ関係ID <<PK>>
@@ -53,11 +94,38 @@ package "ユーザ" as userpkg {
     ---
     ユーザ名
   }
+
+  entity "ディレクトリ所属" as user_belongings <<R, RESOURCE_MARK_COLOR>> {
+    + 所属ディレクトリID <<PK>>
+    ---
+    ユーザID <<FK>>
+    ディレクトリID <<FK>>
+    操作権限ID <<FK>>
+  }
+
+  entity "操作権限" as priviledge <<R, RESOURCE_MARK_COLOR>> {
+    + 操作権限ID <<PK>>
+    ---
+    権限名
+  }
+
+  note right of priviledge::権限名
+    以下の権限を想定
+    * 追加
+    * 編集
+    * 削除
+  end note
 }
 
-document }|--|| directory
-document }|--|| user
-directory }|--|{ directory_relation
-directory }|--|{ directory_relation
+document }o--|| directory
+document }o--|| user
+directory ||-l-|{ directory_relation
+directory ||-l-|{ directory_relation
+document ||-l-o{ document_history
+user ||--o{ user_belongings
+user_belongings }|--|| priviledge
+directory ||--|{ admin_management
+user ||--o{ admin_management
+directory ||--o{ user_belongings
 
 @enduml
