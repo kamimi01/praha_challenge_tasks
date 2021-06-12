@@ -123,7 +123,7 @@ directory ||-l-|{ directory_relation
 directory ||-l-|{ directory_relation
 document ||-l-o{ document_history
 user ||--o{ user_belongings
-user_belongings }|--|| priviledge
+user_belongings }o--|| priviledge
 directory ||--|{ admin_management
 user ||--o{ admin_management
 directory ||--o{ user_belongings
