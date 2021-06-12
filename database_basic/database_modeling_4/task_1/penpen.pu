@@ -98,7 +98,7 @@ package "ユーザ" as userpkg {
 }
 
 remind ||-r-|{ remind_setting
-remind }o--|{ user
+remind }o--|| user
 remind_setting }o--|| user
 remind }o-l-|| status
 remind ||--o| send_frequency_day_of_the_week_management
