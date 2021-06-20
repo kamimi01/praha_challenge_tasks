@@ -6,25 +6,28 @@
 <details>
 <summary>Details</summary>
 
-- [質問1](#%E8%B3%AA%E5%95%8F1)
-  - [回答](#%E5%9B%9E%E7%AD%94)
-- [質問2](#%E8%B3%AA%E5%95%8F2)
-  - [回答](#%E5%9B%9E%E7%AD%94-1)
-- [質問3](#%E8%B3%AA%E5%95%8F3)
-  - [回答](#%E5%9B%9E%E7%AD%94-2)
-- [質問4](#%E8%B3%AA%E5%95%8F4)
-  - [回答](#%E5%9B%9E%E7%AD%94-3)
-- [質問5](#%E8%B3%AA%E5%95%8F5)
-  - [回答](#%E5%9B%9E%E7%AD%94-4)
-- [質問6](#%E8%B3%AA%E5%95%8F6)
-  - [回答](#%E5%9B%9E%E7%AD%94-5)
-- [SOLID原則に関する整理](#solid%E5%8E%9F%E5%89%87%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%95%B4%E7%90%86)
-  - [Single Responsibility Principle（SRP） 単一責任の原則](#single-responsibility-principlesrp-%E5%8D%98%E4%B8%80%E8%B2%AC%E4%BB%BB%E3%81%AE%E5%8E%9F%E5%89%87)
-  - [Open-Closed Principle（OCP） オープン・クローズドの原則](#open-closed-principleocp-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%BB%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%BA%E3%83%89%E3%81%AE%E5%8E%9F%E5%89%87)
-  - [Liskov Substitution Principle（LSP） リスコフの置換原則](#liskov-substitution-principlelsp-%E3%83%AA%E3%82%B9%E3%82%B3%E3%83%95%E3%81%AE%E7%BD%AE%E6%8F%9B%E5%8E%9F%E5%89%87)
-  - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E5%88%86%E9%9B%A2%E3%81%AE%E5%8E%9F%E5%89%87)
-  - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E9%80%86%E8%BB%A2%E3%81%AE%E5%8E%9F%E5%89%87)
-- [参考](#%E5%8F%82%E8%80%83)
+- [課題](#課題)
+  - [Table of Contents](#table-of-contents)
+  - [質問1](#質問1)
+    - [回答](#回答)
+  - [質問2](#質問2)
+    - [回答](#回答-1)
+  - [質問3](#質問3)
+    - [回答](#回答-2)
+  - [質問4](#質問4)
+    - [回答](#回答-3)
+  - [質問5](#質問5)
+    - [回答](#回答-4)
+  - [質問6](#質問6)
+    - [回答](#回答-5)
+  - [SOLID原則に関する整理](#solid原則に関する整理)
+    - [Single Responsibility Principle（SRP） 単一責任の原則](#single-responsibility-principlesrp-単一責任の原則)
+      - [ソースコードで理解する](#ソースコードで理解する)
+    - [Open-Closed Principle（OCP） オープン・クローズドの原則](#open-closed-principleocp-オープンクローズドの原則)
+    - [Liskov Substitution Principle（LSP） リスコフの置換原則](#liskov-substitution-principlelsp-リスコフの置換原則)
+    - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-インターフェース分離の原則)
+    - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-依存関係逆転の原則)
+  - [参考](#参考)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -119,6 +122,90 @@ SOLID原則
   - 1. アクターの重複している関数がある場合、別クラスに移動する
     - 各クラスをインスタンス化して追跡する必要があるというデメリットがあるが、Facadeパターンを使用することでそのジレンマを解決できる
 
+#### ソースコードで理解する
+
+- 以下にbookの概要とその機能をカプセル化する`Book`クラスがある
+- しかし、次のような要望があると、このままでは問題がある
+  - 特定のページナンバーに飛びたい
+  - JSONやHTML、その他のフォーマットで本の内容が欲しい
+
+```ts
+class Book {
+  // 本のタイトル
+  getTitle() {
+    return "A Great Book";
+  }
+
+  // 本の著者
+  getAuthor() {
+    return "John Doe";
+  }
+
+  // ページをめくる
+  turnPage() {
+    // pointer to next page
+  }
+
+  // 現在のページを印刷する
+  printCurrentPage() {
+    return "current page content"
+  }
+}
+```
+
+- そこでSRPに従い、次のように変更する
+  - これで1つのクラスが1つの責務を負っている
+    - `Book`クラス
+      - 本の概要
+    - `Pager`クラス
+      - 本をめくる
+    - `Printer`クラス
+      - 本の内容を印刷する
+
+```ts
+class Book {
+  getTitle() {
+    return "A Great Book"
+  }
+
+  getAuthor() {
+    return "John Doe"
+  }
+}
+
+class Pager {
+  gotoPrevPage() {
+    // pointer to prev page
+  }
+
+  gotoNextPage() {
+    // pointer to next page
+  }
+
+  gotoPageByPageNumber(pagerNumber: number) {
+    // pointer to specific page
+  }
+}
+
+class Printer {
+  printPageInHTML(pageContent: any) {
+    // your logic
+  }
+
+  printPageInJSON(pageContent: any) {
+    // your logic
+  }
+
+  printPageInXML(pageContent: any) {
+    // your logic
+  }
+
+  printPageUnformatted(pageContent: any) {
+    // your logic
+  }
+}
+```
+
 ### Open-Closed Principle（OCP） オープン・クローズドの原則
 
 - **「ソフトウェアの振る舞いは、既存の成果物を変更せず拡張できるようにすべきである」**
@@ -164,9 +251,13 @@ SOLID原則
 
 - [SOLID Principles for iOS Apps](https://www.raywenderlich.com/21503974-solid-principles-for-ios-apps#toc-anchor-001)
 - （書籍）Clean Architecture 達人に学ぶソフトウェアの構造と設計 第Ⅲ部
-- [Uncle Bob SOLID principles](https://www.youtube.com/watch?v=zHiWqnTWsn4)→いつか聞いてみたい。
-- [Clean Code - Uncle Bob / Lesson 1](https://www.youtube.com/watch?v=7EmboKQH8lM)→いつか聞いてみたい。
 - [15. Facadeパターン（TECHSCORE）](https://www.techscore.com/tech/DesignPattern/Facade.html/)
 - （書籍）Java言語で学ぶデザインパターン入門 第15章 Facade
 - [単一責任原則](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4/%E5%8D%98%E4%B8%80%E8%B2%AC%E4%BB%BB%E5%8E%9F%E5%89%87/)
 - [よくわかるSOLID原則1: S（単一責任の原則）](https://note.com/erukiti/n/n67b323d1f7c5#3PKsH)
+- [SOLID-Principles-Examples-using-Typescript](https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript)→SOLID原則に沿ったリファクタリングの練習用
+- [S.O.L.I.D in TypeScript](https://medium.com/@erashu212/s-o-l-i-d-in-typescript-c0e4fe6c345a)
+- [SOLID Principles: The Software Developer's Framework to Robust & Maintainable Code [with Examples]](https://khalilstemmler.com/articles/solid-principles/solid-typescript/)
+- [Implementing SOLID and the onion architecture in Node.js with TypeScript and InversifyJS](https://dev.to/remojansen/implementing-the-onion-architecture-in-nodejs-with-typescript-and-inversifyjs-10ad)
+- [Uncle Bob SOLID principles](https://www.youtube.com/watch?v=zHiWqnTWsn4)→いつか聞いてみたい。
+- [Clean Code - Uncle Bob / Lesson 1](https://www.youtube.com/watch?v=7EmboKQH8lM)→いつか聞いてみたい。
