@@ -26,6 +26,7 @@
     - [Open-Closed Principle（OCP） オープン・クローズドの原則](#open-closed-principleocp-オープンクローズドの原則)
       - [ソースコードで理解する](#ソースコードで理解する-1)
     - [Liskov Substitution Principle（LSP） リスコフの置換原則](#liskov-substitution-principlelsp-リスコフの置換原則)
+      - [ソースコードで理解する](#ソースコードで理解する-2)
     - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-インターフェース分離の原則)
     - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-依存関係逆転の原則)
   - [参考](#参考)
@@ -270,7 +271,81 @@ class Book2 extends Book {
 ### Liskov Substitution Principle（LSP） リスコフの置換原則
 
 - 継承の使い方の指針になると考えられていたが、現代ではインターフェースと実装に関するソフトウェア設計の原則になっている
-- TODO：いまいち本だけではわからなかったので、実装とともに理解したい
+
+#### ソースコードで理解する
+
+- まずは`Kingfisher`と`Ostrich`の2つのオブジェクトの例をあげる。（ちなみにkingfisherはカワセミ、ostrichはダチョウのこと）
+- このコードのからのアウトプットは以下の通り
+  - Kingfisherは飛ぶことができる　→　良さそう
+  - Ostrichは飛ぶことができる　→　本当か？何か変。。
+- このコードは開発環境ではうまく動くが、本番でのいくつかのシナリオではうまく動かない可能性がある。またその問題の調査にも時間がかかってしまう。
+
+```ts
+class Bird {
+  fly() {
+    console.log("I can fly!")
+  }
+
+  class Kingfisher extends Bird {
+    constructor() {
+      super()
+    }
+  }
+
+  class Ostrich extends Bird {
+    constructor() {
+      super()
+    }
+  }
+}
+
+let kingfisherBird: Bird = new Kingfisher()
+
+let ostrichBird: Bird = new Ostrich()
+
+kingfisherBird.fly()  // kingfisher can fly
+
+ostrichBird.fly()  // ostrich can fly
+```
+
+- LSPでは、各サブクラスがそのスーパークラスの振る舞いに影響を与えることなく、そのスーパークラスを取り替え可能にしなければならない
+- 以下のコードでは、OstrichはBirdを追加の`run`の振る舞いで置き換えることができる
+
+```ts
+class Bird {
+  fly() {
+    console.log("I can fly!")
+  }
+}
+
+class Kingfisher extends Bird {
+  constructor() {
+    super()
+  }
+}
+
+class Ostrich extends Bird {
+  constructor() {
+    super()
+  }
+
+  fly() {
+    throw new Error("I don't fly rather I run")
+  }
+
+  run() {
+    // run
+  }
+}
+
+let kingfisherBird: Bird = new Kingfisher()
+
+let ostrichBird: Bird = new Ostrich()
+
+kingfisherBird.fly()  // kingfisher can fly
+
+ostrichBird.fly()  // I don't fly rather I run
+```
 
 ### Interface Segregation Principle（ISP） インターフェース分離の原則
 
