@@ -13,28 +13,27 @@ skinparam Linetype ortho
 !define RESOURCE_MARK_COLOR FFAA00
 
 package "リマインド" as remindpkg {
-  entity "リマインド" as remind {
+  entity "リマインド" as remind <<E, EVENT_MARK_COLOR>> {
     + リマインドID <<PK>>
     ---
     ユーザID <<FK>>
     文面
-    ステータスID <<FK>>
   }
 
-  entity "送信頻度タイプ" as send_frequency {
+  entity "送信頻度タイプ" as send_frequency <<R, RESOURCE_MARK_COLOR>> {
     + 送信頻度タイプID <<PK>>
     ---
     送信頻度タイプ
   }
 
-  entity "送信頻度曜日管理" as send_frequency_day_of_the_week_management {
+  entity "送信頻度曜日管理" as send_frequency_day_of_the_week_management <<E, EVENT_MARK_COLOR>> {
     + 送信頻度曜日管理ID <<PK>>
     ---
     リマインドID <<FK>>
     送信頻度曜日ID <<FK>>
   }
 
-  entity "送信頻度管理" as send_frequency_management {
+  entity "送信頻度管理" as send_frequency_management <<E, EVENT_MARK_COLOR>> {
     + 送信頻度管理ID <<PK>>
     ---
     リマインドID <<FK>>
@@ -42,7 +41,7 @@ package "リマインド" as remindpkg {
     送信頻度変数
   }
 
-  entity "送信頻度曜日" as send_frequency_day_of_the_week {
+  entity "送信頻度曜日" as send_frequency_day_of_the_week <<R, RESOURCE_MARK_COLOR>> {
     + 送信頻度曜日ID <<PK>>
     ---
     曜日
@@ -75,22 +74,25 @@ package "リマインド" as remindpkg {
     その管理用テーブルとリマインドテーブルを紐付ける
   end note
 
-  entity "ステータス" as status {
-    + ステータスID <<PK>>
-    ---
-    ステータス名
-  }
-
-  entity "リマインド設定先" as remind_setting {
-    + リマインド設定先ID <<PK>>
+  entity "リマインド設定" as remind_setting <<E, EVENT_MARK_COLOR>> {
+    + リマインド設定ID <<PK>>
     ---
     ユーザID <<FK>>
     リマインドID <<FK>>
+    次回通知日時
   }
+
+  note right of remind_setting
+    タスクが完了した場合は、レコードを削除する
+    ---
+    バッチが起動する度に、次回通知日時 < バッチ起動日時の条件に
+    当てはまるリマインド設定のリマインドを行う
+    リマインドを完了したら、次回通知日時を更新する
+  end note
 }
 
 package "ユーザ" as userpkg {
-  entity "ユーザ" as user {
+  entity "ユーザ" as user <<R, RESOURCE_MARK_COLOR>> {
     + ユーザID <<PK>>
     ---
     ユーザ名
@@ -100,7 +102,6 @@ package "ユーザ" as userpkg {
 remind ||-r-|{ remind_setting
 remind }o--|| user
 remind_setting }o--|| user
-remind }o-l-|| status
 remind ||--o| send_frequency_day_of_the_week_management
 remind ||--o| send_frequency_management
 send_frequency_day_of_the_week_management }o--|| send_frequency_day_of_the_week
