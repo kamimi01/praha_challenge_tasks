@@ -24,6 +24,7 @@
     - [Single Responsibility Principle（SRP） 単一責任の原則](#single-responsibility-principlesrp-単一責任の原則)
       - [ソースコードで理解する](#ソースコードで理解する)
     - [Open-Closed Principle（OCP） オープン・クローズドの原則](#open-closed-principleocp-オープンクローズドの原則)
+      - [ソースコードで理解する](#ソースコードで理解する-1)
     - [Liskov Substitution Principle（LSP） リスコフの置換原則](#liskov-substitution-principlelsp-リスコフの置換原則)
     - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-インターフェース分離の原則)
     - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-依存関係逆転の原則)
@@ -213,6 +214,58 @@ class Printer {
   - 変更の影響を受けずに、システムを拡張しやすくすること
 - 解決策
   - システムをコンポーネントに分割して、コンポーネントの依存関係を階層構造にする。そして上位レベルのコンポーネントが下位レベルのコンポーネントの変更の影響を受けないようにする。
+
+#### ソースコードで理解する
+
+- 同様にSRPで使用した`Book`クラスで考える
+- `Book`クラスの`getAuthor`メソッドは、著者の名前を提供しているのみだった。
+- しかし、admin、management、librarian、end userのために、著者名以外の詳細情報が必要になった場合はどうだろうか
+- まずは単純に詳細情報を提供するために既存コードを修正してみる
+  - だが、以下のコードは、既存のクライアントとの契約を破っている可能性がある
+
+```ts
+class Book {
+  getAuthor() {
+    return {
+      name: "Ashutosh Singh",
+      age: 27,
+      address: "India"
+    }
+  }
+}
+```
+
+- OCPを適用すると以下のようになる
+  - こうすることで、将来`getAuthor`メソッドを拡張することができる
+
+```ts
+class Book {
+  getAuthor() { }
+}
+
+class Book1 extends Book {
+  constructor() {
+    super()
+  }
+
+  getAuthor() {
+    return {
+      name: super.getAuthor(),
+      age: ""
+    }
+  }
+}
+
+class Book2 extends Book {
+  getAuthor() {
+    return {
+      name: super.getAuthor(),
+      age: "",
+      address: ""
+    }
+  }
+}
+```
 
 ### Liskov Substitution Principle（LSP） リスコフの置換原則
 
