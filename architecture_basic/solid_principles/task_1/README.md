@@ -30,6 +30,7 @@
     - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-インターフェース分離の原則)
       - [ソースコードで理解する](#ソースコードで理解する-3)
     - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-依存関係逆転の原則)
+      - [ソースコードで理解する](#ソースコードで理解する-4)
   - [参考](#参考)
 
 </details>
@@ -419,6 +420,41 @@ class Ostrich implements IOstrichBird {
     - Abstract Factoryパターンを使用する
   - 具象コンポーネント
     - 具象コンポーネント側には依存性があるため、DIPを完全に満たすことはできないが、そういった具象コンポーネントを少数に絞り込み、それらをシステムの他の部分と分離することはできる
+
+#### ソースコードで理解する
+
+- ソーシャルログインの例をあげる
+- クライアントでGoogleのOAuth認証のセットアップを行う
+
+```ts
+class Login {
+  login(googleLogin: any) {
+    // some code which will be used for google login
+  }
+}
+```
+
+- 次に、Google以外のソーシャルログインも可能になるように変更したいとする
+- その場合、`login`メソッドを変更する必要があるだろうか？（いやない）
+- DIPでは、上位レベルのクラスは下位レベルのクラスに依存すべきではない
+
+```ts
+interface ISocialLogin {
+  login(options: any)
+}
+
+class GoogleLogin implements ISocialLogin {
+  login(googleLogin: any) {
+    // some code which will be used for google login
+  }
+}
+
+class FBLogin implements ISocialLogin {
+  login(fbLogin: any) {
+    // some code which will be used for fb login
+  }
+}
+```
 
 ## 参考
 
