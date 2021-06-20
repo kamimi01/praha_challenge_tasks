@@ -28,6 +28,7 @@
     - [Liskov Substitution Principle（LSP） リスコフの置換原則](#liskov-substitution-principlelsp-リスコフの置換原則)
       - [ソースコードで理解する](#ソースコードで理解する-2)
     - [Interface Segregation Principle（ISP） インターフェース分離の原則](#interface-segregation-principleisp-インターフェース分離の原則)
+      - [ソースコードで理解する](#ソースコードで理解する-3)
     - [Dependency Inversion Priciple（DIP） 依存関係逆転の原則](#dependency-inversion-pricipledip-依存関係逆転の原則)
   - [参考](#参考)
 
@@ -349,7 +350,51 @@ ostrichBird.fly()  // I don't fly rather I run
 
 ### Interface Segregation Principle（ISP） インターフェース分離の原則
 
-- TODO：いまいち本だけではわからなかったので、実装とともに理解したい
+- **クライアントが使用しないメソッドへの依存を、強制すべきではない**
+
+#### ソースコードで理解する
+
+- 前のLSPでのbirdの例をとって、インターフェース`IBird`を追加してみた
+- 以下のコードはISPに違反している。
+- `Kingfisher`クラスは、使用しないが`run`メソッドを実行する必要があり、同様に`Ostrich`クラスも使用しない`fly`メソッドを実行する必要がある
+- このように、クライアントが使用しないメソッドへの依存を強制すべきではない
+
+```ts
+interface Bird {
+  fly()
+  run()
+}
+
+class Kingfisher implements IBird {
+  fly() { }
+  run() { }
+}
+
+class Ostrich implements IBird {
+  fly() { }
+  run() { }
+}
+```
+
+- そこで、OstrichとKingfisherにインターフェースを分離する
+
+```ts
+interface IKingfisherBird {
+  fly()
+}
+
+interface IOstrichBird {
+  run()
+}
+
+class Kingfisher implements IKingfisherBird {
+  fly() { }
+}
+
+class Ostrich implements IOstrichBird {
+  run() { }
+}
+```
 
 ### Dependency Inversion Priciple（DIP） 依存関係逆転の原則
 
@@ -380,11 +425,12 @@ ostrichBird.fly()  // I don't fly rather I run
 - [SOLID Principles for iOS Apps](https://www.raywenderlich.com/21503974-solid-principles-for-ios-apps#toc-anchor-001)
 - （書籍）Clean Architecture 達人に学ぶソフトウェアの構造と設計 第Ⅲ部
 - [15. Facadeパターン（TECHSCORE）](https://www.techscore.com/tech/DesignPattern/Facade.html/)
+- [イラストで理解するSOLID原則](https://qiita.com/baby-degu/items/d058a62f145235a0f007#iinterface-segregation%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9%E5%88%86%E9%9B%A2%E3%81%AE%E5%8E%9F%E5%89%87)
 - （書籍）Java言語で学ぶデザインパターン入門 第15章 Facade
 - [単一責任原則](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/%E3%82%A8%E3%83%83%E3%82%BB%E3%82%A4/%E5%8D%98%E4%B8%80%E8%B2%AC%E4%BB%BB%E5%8E%9F%E5%89%87/)
 - [よくわかるSOLID原則1: S（単一責任の原則）](https://note.com/erukiti/n/n67b323d1f7c5#3PKsH)
 - [SOLID-Principles-Examples-using-Typescript](https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript)→SOLID原則に沿ったリファクタリングの練習用
-- [S.O.L.I.D in TypeScript](https://medium.com/@erashu212/s-o-l-i-d-in-typescript-c0e4fe6c345a)
+- [S.O.L.I.D in TypeScript](https://medium.com/@erashu212/s-o-l-i-d-in-typescript-c0e4fe6c345a)→今回これをやってみることにしました。
 - [SOLID Principles: The Software Developer's Framework to Robust & Maintainable Code [with Examples]](https://khalilstemmler.com/articles/solid-principles/solid-typescript/)
 - [Implementing SOLID and the onion architecture in Node.js with TypeScript and InversifyJS](https://dev.to/remojansen/implementing-the-onion-architecture-in-nodejs-with-typescript-and-inversifyjs-10ad)
 - [Uncle Bob SOLID principles](https://www.youtube.com/watch?v=zHiWqnTWsn4)→いつか聞いてみたい。
