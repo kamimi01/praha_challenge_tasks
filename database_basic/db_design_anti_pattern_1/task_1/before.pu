@@ -1,0 +1,9 @@
+@startuml
+
+entity Post {
+  * id: varchar
+  * text: varchar
+  * tags: varchar
+}
+
+@enduml
