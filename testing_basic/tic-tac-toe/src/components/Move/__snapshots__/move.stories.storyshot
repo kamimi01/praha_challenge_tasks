@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Testing Tic-Tac-Toe/Move Default 1`] = `
+<ol>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to game start
+    </button>
+  </li>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to move #1
+    </button>
+  </li>
+</ol>
+`;
+
+exports[`Snapshot Testing Tic-Tac-Toe/Move Start 1`] = `
+<ol>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to game start
+    </button>
+  </li>
+</ol>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Move Default 1`] = `
+<ol>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to game start
+    </button>
+  </li>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to move #1
+    </button>
+  </li>
+</ol>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Move Start 1`] = `
+<ol>
+  <li>
+    <button
+      onClick={[Function]}
+    >
+      Go to game start
+    </button>
+  </li>
+</ol>
+`;

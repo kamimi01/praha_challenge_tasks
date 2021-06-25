@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Testing Tic-Tac-Toe/Status Next 1`] = `
+<div>
+  Next Player: 張
+</div>
+`;
+
+exports[`Snapshot Testing Tic-Tac-Toe/Status Win 1`] = `
+<div>
+  Winner: 丁
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Status Next 1`] = `
+<div>
+  Next Player: 張
+</div>
+`;
+
+exports[`スナップショットテスト Tic-Tac-Toe/Status Win 1`] = `
+<div>
+  Winner: 丁
+</div>
+`;
