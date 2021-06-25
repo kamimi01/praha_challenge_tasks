@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Board } from "../index";
+import { Board } from "../Board/Board";
 
 export default {
   title: "Tic-Tac-Toe/Board",
@@ -11,12 +11,12 @@ const Template = (args) => <Board {...args} />;
 
 export const AllCircle = Template.bind({});
 AllCircle.args = {
-  squares: ["O", "O", "O", "O", "O", "O", "O", "O", "O"],
+  squares: ["半", "半", "半", "半", "半", "半", "半", "半", "半"],
 };
 
 export const AllCross = Template.bind({});
 AllCross.args = {
-  squares: ["X", "X", "X", "X", "X", "X", "X", "X", "X"],
+  squares: ["丁", "丁", "丁", "丁", "丁", "丁", "丁", "丁", "丁"],
 };
 
 export const AllTriangles = Template.bind({});
@@ -26,5 +26,5 @@ AllTriangles.args = {
 
 export const Mix = Template.bind({});
 Mix.args = {
-  squares: ["X", "O", "△", "X", "O", "△", "X", "O", "△"],
+  squares: ["丁", "半", "△", "丁", "半", "△", "丁", "半", "△"],
 };
