@@ -1,0 +1,41 @@
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-03-31T12:43:04.441446Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.011354  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1617194584;
+set global slow_query_log = 1;
+# Time: 2021-03-31T12:43:07.459874Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    12
+# Query_time: 0.000150  Lock_time: 0.000000 Rows_sent: 3  Rows_examined: 3
+use sys;
+SET timestamp=1617194587;
+# administrator command: Ping;
+# Time: 2021-03-31T12:43:07.461539Z
+# User@Host: root[root] @  [172.17.0.1]  Id:    13
+# Query_time: 0.000061  Lock_time: 0.000000 Rows_sent: 1000  Rows_examined: 1000
+SET timestamp=1617194587;
+# administrator command: Ping;
+# Time: 2021-03-31T12:43:23.976463Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.006658  Lock_time: 0.000171 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1617194603;
+INSERT INTO employees VALUES (5000000, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000001, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000002, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000003, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000004, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000005, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000006, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000007, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000008, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01'), (5000009, '1999-01-01', 'hiroshi', 'tokumaru', 'M', '1990-02-01');
+# Time: 2021-03-31T12:43:37.316660Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.004211  Lock_time: 0.000209 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1617194617;
+INSERT INTO salaries VALUES (5000000, 999999, '2003-01-01', '9999-01-01'), (5000001, 999999, '2003-02-02', '9999-01-01'), (5000002, 999999, '2003-03-03', '9999-01-01'), (5000003, 999999, '2003-04-04', '9999-01-01'), (5000004, 999999, '2003-05-05', '9999-01-01'), (5000005, 999999, '2003-06-06', '9999-01-01'), (5000006, 999999, '2003-07-07', '9999-01-01'), (5000007, 999999, '2003-08-08', '9999-01-01'), (5000008, 999999, '2003-09-09', '9999-01-01'), (5000009, 999999, '2003-10-10', '9999-01-01');
+# Time: 2021-03-31T12:44:01.452000Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 0.180112  Lock_time: 0.000143 Rows_sent: 0  Rows_examined: 300034
+SET timestamp=1617194641;
+DELETE FROM employees WHERE birth_date >= '1999-01-01';
+# Time: 2021-03-31T12:44:25.561065Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 17.692705  Lock_time: 0.000120 Rows_sent: 0  Rows_examined: 2844047
+SET timestamp=1617194665;
+DELETE FROM salaries WHERE salary = 999999;
