@@ -1,0 +1,175 @@
+@startuml
+
+title "お持ち帰りメニューご注文表のER図（課題2）"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "注文" as orderpkg {
+  entity "注文" as order <<E, EVENT_MARK_COLOR>> {
+    + 注文ID <<PK>>
+    ---
+    支払い済みか否か
+    注文日時
+    注文方法ID <<FK>>
+    顧客ID <<FK>>
+    注文カテゴリID <<FK>>
+  }
+
+  entity "セット注文明細" as set_order_detail <<E, EVENT_MARK_COLOR>> {
+    + セット注文明細ID <<PK>>
+    ---
+    セット商品ID <<FK>>
+    注文個数
+    さびありなし
+    シャリサイズID
+    注文ID <<FK>>
+  }
+
+  note right of set_order_detail
+    セットメニューに関する
+    テーブルが紐づいていく
+  end note
+
+  entity "付帯セット注文明細" as set_accessorial_order_detail <<E, EVENT_MARK_COLOR>> {
+    + 付帯セット注文明細ID <<PK>>
+    ---
+    付帯セット商品ID <<FK>>
+    注文個数
+    さびありなし
+    シャリサイズID
+    注文ID <<FK>>
+  }
+
+  note right of set_accessorial_order_detail
+    セットメニューの中でも
+    化粧箱入りなど
+    付帯商品が存在するセット商品
+    に関するテーブルが紐づいていく
+  end note
+
+  entity "単品注文明細" as order_detail <<E, EVENT_MARK_COLOR>> {
+    + 単品注文明細ID <<PK>>
+    ---
+    単品商品ID <<FK>>
+    注文個数
+    さびありなし
+    シャリサイズID
+    注文ID <<FK>>
+  }
+
+  note right of order_detail
+    お好みすし、に関する
+    テーブルが紐づいていく
+  end note
+
+  entity "注文方法" as order_method <<R, RESOURCE_MARK_COLOR>> {
+    + 注文方法ID <<PK>>
+    ---
+    注文方法
+  }
+
+  note left of order_method::注文方法
+    「電話」「店舗」
+    などの値が入る
+  end note
+
+  entity "注文カテゴリ" as order_category <<R, RESOURCE_MARK_COLOR>> {
+    + 注文カテゴリID <<PK>>
+    ---
+    注文カテゴリ名
+    税ID <<FK>>
+  }
+
+  note left of order_category
+    店内飲食や持ち帰りなど
+    を区別するためのテーブル
+  end note
+
+  entity "税" as tax <<R, RESOURCE_MARK_COLOR>> {
+    + 税ID <<PK>>
+    ---
+    税率
+  }
+}
+
+package "商品" as productpkg {
+  entity "単品商品" as product <<R, RESOURCE_MARK_COLOR>> {
+    + 単品商品ID <<PK>>
+    ---
+    商品名
+    単品商品カテゴリID <<FK>>
+  }
+
+  entity "セット商品" as set_product <<R, RESOURCE_MARK_COLOR>> {
+    + セット商品ID <<PK>>
+    ---
+    商品名
+    単価
+    セット商品カテゴリID <<FK>>
+  }
+
+  entity "付帯セット商品" as accessorial_set_product <<R, RESOURCE_MARK_COLOR>> {
+    + 付帯セット商品ID <<PK>>
+    ---
+    商品名
+    単価
+    セット商品ID <<FK>>
+  }
+
+  entity "セット商品カテゴリ" as set_product_class <<R, RESOURCE_MARK_COLOR>> {
+    + セット商品カテゴリID <<PK>>
+    ---
+    セット商品カテゴリ名
+  }
+
+  entity "単品商品カテゴリ" as product_class <<R, RESOURCE_MARK_COLOR>> {
+    + 単品商品カテゴリID <<PK>>
+    ---
+    単品商品カテゴリ名
+    単価
+  }
+
+  entity "シャリサイズ" as sharisize <<R, RESOURCE_MARK_COLOR>> {
+    + シャリサイズID <<PK>>
+    ---
+    シャリサイズ名
+  }
+}
+
+package "顧客" as customerpkg {
+  entity "顧客" as customer <<R, RESOURCE_MARK_COLOR>> {
+    + 顧客ID <<PK>>
+    ---
+    顧客名
+    電話番号
+  }
+}
+
+entity "店舗" as 
+
+order ||-l-|| order_method
+order ||-d-o| order_detail
+order ||-d-o{ set_order_detail
+order ||-d-o| set_accessorial_order_detail
+order ||-l-|| order_category
+set_order_detail ||-d-|| set_product
+set_order_detail ||--|| sharisize
+order_detail ||--|| product
+order_detail ||--|| sharisize
+set_accessorial_order_detail ||--|| accessorial_set_product
+set_accessorial_order_detail ||--|| sharisize
+set_product ||-d-|| set_product_class
+set_product ||-r-o{ accessorial_set_product
+product ||--|| product_class
+order ||-l-|| customer
+order_category ||--|| tax
+
+@enduml

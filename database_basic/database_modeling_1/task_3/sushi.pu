@@ -1,0 +1,167 @@
+@startuml
+
+title "お持ち帰りメニューご注文表のER図（課題3）"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "注文" as orderpkg {
+  entity "注文" as order <<E, EVENT_MARK_COLOR>> {
+    + 注文ID <<PK>>
+    ---
+    支払い済みか否か
+    注文日時
+    注文方法ID <<FK>>
+    顧客ID <<FK>>
+    電話番号
+    税ID <<FK>>
+    税抜価格
+  }
+
+  entity "注文詳細" as orderDetail <<E, EVENT_MARK_COLOR>> {
+    + 注文明細ID <<PK>>
+    ---
+    商品ID <<FK>>
+    注文個数
+    さびありなし
+    シャリサイズID
+    注文ID <<FK>>
+  }
+
+  entity "注文方法" as order_method <<R, RESOURCE_MARK_COLOR>> {
+    + 注文方法ID <<PK>>
+    ---
+    注文方法
+  }
+
+  note left of order_method::注文方法
+    「電話」「店舗」
+    などの値が入る
+  end note
+
+  entity "税" as tax <<R, RESOURCE_MARK_COLOR>> {
+    + 税ID <<PK>>
+    ---
+    税率
+    適用開始日
+    適用終了日
+  }
+}
+
+package "商品" as productpkg {
+  entity "商品" as productwithset <<R, RESOURCE_MARK_COLOR>> {
+    + 商品ID <<PK>>
+    ---
+    商品名
+    単価
+    セットフラグ
+  }
+
+  entity "セット商品構成" as setProduct <<R, RESOURCE_MARK_COLOR>> {
+    + セット商品構成ID <<PK>>
+    ---
+    セット商品ID <<FK>>
+    単品商品ID <<FK>>
+    商品数量
+  }
+
+  entity "付帯セット商品構成" as accessorial_set_product_structure <<R, RESOURCE_MARK_COLOR>> {
+    + 付帯セット商品構成ID <<PK>>
+    ---
+    + セット商品ID <<FK>>
+    + 付帯セット商品ID <<FK>>
+  }
+
+  entity "商品カテゴリ" as product_class <<R, RESOURCE_MARK_COLOR>> {
+    + 商品カテゴリID <<PK>>
+    ---
+    商品カテゴリ名
+  }
+
+  entity "シャリサイズ" as sharisize <<R, RESOURCE_MARK_COLOR>> {
+    + シャリサイズID <<PK>>
+    ---
+    シャリサイズ名
+  }
+
+  entity "エリア別商品" as area_product <<R, RESOURCE_MARK_COLOR>> {
+    + エリア別商品ID <<PK>>
+    ---
+    エリアID <<FK>>
+    商品ID <<FK>>
+  }
+
+  note right
+    エリア独自の商品のみ
+    レコードとして保持する
+  end note
+}
+
+package "顧客" as customerpkg {
+  entity "顧客" as customer <<R, RESOURCE_MARK_COLOR>> {
+    + 顧客ID <<PK>>
+    ---
+    顧客名
+    電話番号
+  }
+}
+
+package "店舗" as shoppkg {
+  entity "店舗" as shop <<R, RESOURCE_MARK_COLOR>> {
+    + 店舗ID <<PK>>
+    ---
+    店舗名
+    店舗住所ID
+  }
+
+  entity "店舗住所" as shop_address <<R, RESOURCE_MARK_COLOR>> {
+    + 店舗住所ID <<PK>>
+    ---
+    郵便番号
+    県ID <<FK>>
+    住所1
+    住所2
+    住所3
+  }
+}
+
+package "共通" as commonpdk {
+  entity "県" as prefecture <<R, RESOURCE_MARK_COLOR>> {
+    + 県ID <<PK>>
+    ---
+    県名
+    エリアID <<FK>>
+  }
+
+  entity "エリア" as area <<R, RESOURCE_MARK_COLOR>> {
+    + エリアID <<PK>>
+    ---
+    エリア名
+  }
+}
+
+order ||-l-|| order_method
+order ||-d-o{ orderDetail
+orderDetail ||--|| sharisize
+orderDetail ||--|| productwithset
+productwithset ||--o{ setProduct
+productwithset ||--o{ setProduct
+productwithset ||-r-o| product_class
+productwithset ||-l-o{ accessorial_set_product_structure
+productwithset ||-l-o{ accessorial_set_product_structure
+productwithset ||--o{ area_product
+order ||-l-|| customer
+order ||-l-|| tax
+shop ||--|| shop_address
+shop_address ||-r-|| prefecture
+area ||--|{ prefecture
+area_product }|--|| area
+
+@enduml
