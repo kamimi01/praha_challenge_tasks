@@ -1,0 +1,69 @@
+@startuml
+
+title "SlackのようなチャットサービスのER図"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "メッセージ" as messagepkg {
+  entity "メッセージ" as message <<E, EVENT_MARK_COLOR>> {
+    + メッセージID <<PK>>
+    ---
+    親メッセージID <<FK>>
+    ユーザーID <<FK>>
+    チャンネルID <<FK>>
+    投稿日時
+    メッセージ内容
+  }
+
+  note left of message::親メッセージID
+    自分が親メッセージである場合は、
+    メッセージIDと同じ値が入る
+  end note
+}
+
+package "投稿スペース" as postspacepkg {
+  entity "ワークスペース" as workspace <<R, RESOURCE_MARK_COLOR>> {
+    + ワークスペースID <<PK>>
+    ---
+    ワークスペース名
+  }
+
+  entity "チャンネル" as channel <<R, RESOURCE_MARK_COLOR>> {
+    + チャンネルID <<PK>>
+    ---
+    ワークスペースID <<FK>>
+    チャンネル名
+  }
+}
+
+package "ユーザー" as userpkg {
+  entity "ユーザー所属" as user_beloging <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザー所属ID <<PK>>
+    ---
+    ユーザーID <<FK>>
+    チャンネルID <<FK>>
+  }
+
+  entity "ユーザー" as user <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザーID <<PK>>
+    ---
+    ユーザー名
+  }
+}
+
+message }o-l-|| user
+message }o--|| channel
+message ||-l-o{ message
+channel }|--|| workspace
+channel ||--o{ user_beloging
+user ||--|{ user_beloging
+
+@enduml
