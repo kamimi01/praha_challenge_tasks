@@ -1,0 +1,28 @@
+@startuml
+
+entity Student {
+  + student_id: varchar <<PK>>
+  ---
+  name: varchar
+}
+
+entity StudentStatus {
+  + student_id: varchar <<PK>> <<FK>>
+  + status_id: varchar <<PK>> <<FK>>
+}
+
+entity Status {
+  + status_id: varchar <<PK>>
+  ---
+  status: varchar 
+  description: varchar
+}
+
+note right of Status::status
+  "studying", "graduated", "suspended"のいずれかの値が入る
+end note
+
+Student ||..|{ StudentStatus
+StudentStatus ||..|| Status
+
+@enduml
