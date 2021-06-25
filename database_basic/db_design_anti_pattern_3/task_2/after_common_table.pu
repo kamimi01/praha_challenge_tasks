@@ -1,0 +1,35 @@
+@startuml
+skinparam linetype ortho
+
+' 基底テーブル
+entity Book {
+  book_id: varchar
+  ---
+  name: varchar
+}
+
+' 漫画
+entity Manga {
+  book_id: varchar <<FK>>
+  ---
+}
+
+' 小説
+entity Novel {
+  book_id: varchar <<FK>>
+  ---
+}
+
+' コメント
+entity Comment {
+  comment_id: varchar
+  ---
+  book_id: varchar <<FK>>
+  text: varchar
+}
+
+Book ||..o| Manga
+Book ||..o| Novel
+Book ||..o{ Comment
+
+@enduml
