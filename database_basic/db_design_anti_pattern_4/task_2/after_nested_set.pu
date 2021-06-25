@@ -1,0 +1,11 @@
+@startuml
+
+entity Message {
+  message_id: varchar
+  ---
+  nsleft: varchar
+  nsright: varchar
+  text: varchar
+}
+
+@enduml

@@ -1,0 +1,103 @@
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-04-10T02:17:54.673874Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.015637  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1618021074;
+set global slow_query_log = 1;
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-04-10T02:17:57.902833Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.007560  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1618021077;
+flush logs;
+# Time: 2021-04-10T02:18:17.219017Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.065915  Lock_time: 0.000141 Rows_sent: 1  Rows_examined: 300024
+SET timestamp=1618021097;
+SELECT
+  first_name,
+  last_name
+FROM
+  employees
+WHERE
+  first_name = 'Zsolt'
+  AND last_name = 'Facello';
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-04-10T02:29:28.489474Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.007952  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1618021768;
+set global slow_query_log = 1;
+# Time: 2021-04-10T02:29:43.623738Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.152673  Lock_time: 0.000132 Rows_sent: 52751  Rows_examined: 300024
+SET timestamp=1618021783;
+SELECT
+  *
+FROM
+  employees
+WHERE
+  birth_date >= '1960-01-01'
+  AND hire_date >= '1990-01-01';
+mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2021-04-10T03:09:38.943837Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.012490  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+use employees;
+SET timestamp=1618024178;
+set global slow_query_log = 1;
+# Time: 2021-04-10T03:09:46.034554Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.154019  Lock_time: 0.000242 Rows_sent: 52751  Rows_examined: 300024
+SET timestamp=1618024186;
+SELECT
+  *
+FROM
+  employees
+WHERE
+  birth_date >= '1960-01-01'
+  AND hire_date >= '1990-01-01';
+# Time: 2021-04-10T03:09:57.021781Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 5.297250  Lock_time: 0.000143 Rows_sent: 1655887  Rows_examined: 4499934
+SET timestamp=1618024197;
+SELECT
+  *
+FROM
+  salaries
+WHERE
+  from_date >= '1990-01-01'
+  AND to_date <= '1999-12-31'
+ORDER BY
+  salary DESC;
+# Time: 2021-04-10T03:12:03.855737Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.000238  Lock_time: 0.000102 Rows_sent: 1  Rows_examined: 1
+SET timestamp=1618024323;
+show index from employees;
+# Time: 2021-04-10T03:12:09.230730Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.000350  Lock_time: 0.000155 Rows_sent: 2  Rows_examined: 2
+SET timestamp=1618024329;
+show index from salaries;
+# Time: 2021-04-10T03:14:48.145137Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.000244  Lock_time: 0.000113 Rows_sent: 5  Rows_examined: 5
+SET timestamp=1618024488;
+show index from employees;
+# Time: 2021-04-10T03:15:02.144461Z
+# User@Host: root[root] @ localhost []  Id:    23
+# Query_time: 0.000313  Lock_time: 0.000126 Rows_sent: 4  Rows_examined: 4
+SET timestamp=1618024502;
+show index from salaries;

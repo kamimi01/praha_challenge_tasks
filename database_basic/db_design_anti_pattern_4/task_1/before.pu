@@ -1,0 +1,10 @@
+@startuml
+
+entity Message {
+  id: varchar
+  ---
+  parent_message_id: varchar <<FK>>
+  text: varchar
+}
+
+@enduml

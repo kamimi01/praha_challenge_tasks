@@ -1,0 +1,18 @@
+@startuml
+
+entity Message {
+  comment_id: varchar
+  ---
+  text: varchar
+}
+
+entity TreePaths {
+  ancestor: varchar <<FK>>
+  descendant: varchar <<FK>>
+  ---
+  path_length: varchar
+}
+
+Message ||..|{ TreePaths
+
+@enduml

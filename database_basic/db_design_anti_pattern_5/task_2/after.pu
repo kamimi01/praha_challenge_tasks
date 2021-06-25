@@ -1,0 +1,33 @@
+@startuml
+skinparam linetype ortho
+
+entity CustomerStatus {
+  + customer_status_id: varchar <<PK>> <<FK>>
+  ---
+  status: varchar
+  description: varchar
+}
+
+note left of CustomerStatus::status
+  telephone、metOnceなどが入る
+end note
+
+entity CustomerStatusManager {
+  + customer_id: varchar <<PK>> <<FK>>
+  + status_id: varchar <<PK>> <<FK>>
+  ---
+  status_created_date: date
+}
+
+' ステータスの作成日の良い名前が思いつかない
+
+entity Customer {
+  + customer_id: varchar <<PK>> <<FK>>
+  ---
+}
+
+Customer ||..o{ CustomerStatusManager
+
+CustomerStatusManager ||..|| CustomerStatus
+
+@enduml

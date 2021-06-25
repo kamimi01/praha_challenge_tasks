@@ -1,0 +1,30 @@
+@startuml
+skinparam linetype ortho
+
+' 漫画
+entity Manga {
+  id: varchar
+  ---
+  name: varchar
+}
+
+' 小説
+entity Novel {
+  id: varchar
+  ---
+  name: varchar
+}
+
+' コメント
+entity Comment {
+  id: varchar
+  ---
+  text: varchar
+  belongs_to_id: varchar 
+  ' (ここにはManga.Id、あるいはNovel.Idが入る)
+}
+
+Manga ||..o{ Comment
+Novel ||..o{ Comment
+
+@enduml

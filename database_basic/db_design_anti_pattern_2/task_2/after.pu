@@ -1,0 +1,26 @@
+@startuml
+skinparam linetype ortho
+
+entity Post {
+  post_id: varchar
+  ---
+  content: varchar
+}
+
+entity Tagging {
+  tagging_id: varchar
+  ---
+  post_id: varchar <<FK>> <<UNIQUE>>
+  tag_id: varchar <<FK>> <<UNIQUE>>
+}
+
+entity Tag {
+  tag_id: varchar
+  ---
+  content: varchar
+}
+
+Post ||..o{ Tagging
+Tag ||..o{ Tagging
+
+@enduml

@@ -13,6 +13,9 @@
 - [4. クッキーを理解する](#4-%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BC%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
 - [5. サードパーティクッキーを理解する](#5-%E3%82%B5%E3%83%BC%E3%83%89%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%AF%E3%83%83%E3%82%AD%E3%83%BC%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
 - [6. CORSについて理解する](#6-cors%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
+- [7. キャッシュについて理解する](#7-%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
+- [8. WEBサービスの代表的な脆弱性を理解する](#8-web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E4%BB%A3%E8%A1%A8%E7%9A%84%E3%81%AA%E8%84%86%E5%BC%B1%E6%80%A7%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
+- [9. XMLHttpRequestを理解する](#9-xmlhttprequest%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -28,3 +31,9 @@
 ## [5. サードパーティクッキーを理解する](understand_third_party_cookie)
 
 ## [6. CORSについて理解する](understand_cors)
+
+## [7. キャッシュについて理解する](understand_cache)
+
+## [8. WEBサービスの代表的な脆弱性を理解する](web_vulnerability)
+
+## [9. XMLHttpRequestを理解する](understand_xmlhttprequest)

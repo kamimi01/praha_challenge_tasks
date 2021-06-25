@@ -1,0 +1,30 @@
+@startuml Likes
+
+hide circle
+
+skinparam linetype ortho
+
+entity "users" as users {
+  * id: varchar [PK]
+  ---
+  name: varchar
+}
+
+entity "tweet" as tweet {
+  * id: varchar [PK]
+  ---
+  contents: varchar
+}
+
+entity "likes" as likes {
+  * id: varchar [PK]
+  ---
+  tweet_id: varchar [FK]
+  user_id: varchar [FK]
+}
+
+users ||--o{ tweet
+tweet ||--o{ likes
+users ||--o{ likes
+
+@enduml 

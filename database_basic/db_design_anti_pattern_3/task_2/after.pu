@@ -1,0 +1,46 @@
+@startuml
+skinparam linetype ortho
+
+' 漫画
+entity Manga {
+  manga_id: varchar
+  ---
+  name: varchar
+}
+
+' 小説
+entity Novel {
+  novel_id: varchar
+  ---
+  name: varchar
+}
+
+' コメント
+entity Comment {
+  comment_id: varchar
+  ---
+  text: varchar
+}
+
+' 漫画のコメント
+entity MangaComment {
+  manga_comment_id: varchar
+  ---
+  comment_id: varchar <<FK>> <<UNIQUE>>
+  manga_id: varchar <<FK>>
+}
+
+' 小説のコメント
+entity NovelComment {
+  novel_comment_id: varchar
+  ---
+  comment_id: varchar <<FK>> <<UNIQUE>>
+  novel_id: varchar <<FK>>
+}
+
+Manga ||..o{ MangaComment
+Novel ||..o{ NovelComment
+Comment ||..o{ MangaComment
+Comment ||..o{ NovelComment
+
+@enduml
