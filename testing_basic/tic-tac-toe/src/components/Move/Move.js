@@ -6,7 +6,7 @@ export const Move = (props) => {
     const desc = move ? "Go to move #" + move : "Go to game start";
     return (
       <li key={move}>
-        <button onClick={() => props.jumpTo(move)}>{desc}</button>
+        <button onClick={() => props.jumpTo(move)}　data-e2e="move">{desc}</button>
       </li>
     );
   });

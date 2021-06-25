@@ -3,6 +3,7 @@
 exports[`Snapshot Testing Tic-Tac-Toe/Square Circle 1`] = `
 <button
   className="square"
+  data-e2e="square"
 >
   半
 </button>
@@ -11,6 +12,7 @@ exports[`Snapshot Testing Tic-Tac-Toe/Square Circle 1`] = `
 exports[`Snapshot Testing Tic-Tac-Toe/Square Cross 1`] = `
 <button
   className="square"
+  data-e2e="square"
 >
   丁
 </button>
@@ -19,30 +21,7 @@ exports[`Snapshot Testing Tic-Tac-Toe/Square Cross 1`] = `
 exports[`Snapshot Testing Tic-Tac-Toe/Square Triangle 1`] = `
 <button
   className="square"
->
-  △
-</button>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Square Circle 1`] = `
-<button
-  className="square"
->
-  半
-</button>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Square Cross 1`] = `
-<button
-  className="square"
->
-  丁
-</button>
-`;
-
-exports[`スナップショットテスト Tic-Tac-Toe/Square Triangle 1`] = `
-<button
-  className="square"
+  data-e2e="square"
 >
   △
 </button>

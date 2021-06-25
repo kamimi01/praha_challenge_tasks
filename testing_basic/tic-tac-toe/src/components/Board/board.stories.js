@@ -28,3 +28,8 @@ export const Mix = Template.bind({});
 Mix.args = {
   squares: ["丁", "半", "△", "丁", "半", "△", "丁", "半", "△"],
 };
+
+export const Draw = Template.bind({});
+Draw.args = {
+  squares: ["半", "丁", "半", "半", "丁", "丁", "丁", "半", "丁"],
+};
