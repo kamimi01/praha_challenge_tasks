@@ -361,7 +361,7 @@ ostrichBird.fly()  // I don't fly rather I run
 - このように、クライアントが使用しないメソッドへの依存を強制すべきではない
 
 ```ts
-interface Bird {
+interface IBird {
   fly()
   run()
 }
