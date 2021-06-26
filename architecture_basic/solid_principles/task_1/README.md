@@ -465,6 +465,7 @@ class FBLogin implements ISocialLogin {
 - [よくわかるSOLID原則1: S（単一責任の原則）](https://note.com/erukiti/n/n67b323d1f7c5#3PKsH)
 - [SOLID-Principles-Examples-using-Typescript](https://github.com/devbootstrap/SOLID-Principles-Examples-using-Typescript)→SOLID原則に沿ったリファクタリングの練習用
 - [S.O.L.I.D in TypeScript](https://medium.com/@erashu212/s-o-l-i-d-in-typescript-c0e4fe6c345a)→今回これをやってみることにしました。
+- [clean-code-typescript](https://github.com/labs42io/clean-code-typescript#solid)
 - [SOLID Principles: The Software Developer's Framework to Robust & Maintainable Code [with Examples]](https://khalilstemmler.com/articles/solid-principles/solid-typescript/)
 - [Implementing SOLID and the onion architecture in Node.js with TypeScript and InversifyJS](https://dev.to/remojansen/implementing-the-onion-architecture-in-nodejs-with-typescript-and-inversifyjs-10ad)
 - [Uncle Bob SOLID principles](https://www.youtube.com/watch?v=zHiWqnTWsn4)→いつか聞いてみたい。
