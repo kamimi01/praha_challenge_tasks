@@ -1,0 +1,110 @@
+@startuml
+
+title "Penpen"
+
+skinparam Linetype ortho
+
+/' 
+  イベント系テーブル：E
+  リソース系テーブル：R
+'/
+
+!define EVENT_MARK_COLOR AAFFAA
+!define RESOURCE_MARK_COLOR FFAA00
+
+package "リマインド" as remindpkg {
+  entity "リマインド" as remind <<E, EVENT_MARK_COLOR>> {
+    + リマインドID <<PK>>
+    ---
+    ユーザID <<FK>>
+    文面
+  }
+
+  entity "送信頻度タイプ" as send_frequency <<R, RESOURCE_MARK_COLOR>> {
+    + 送信頻度タイプID <<PK>>
+    ---
+    送信頻度タイプ
+  }
+
+  entity "送信頻度曜日管理" as send_frequency_day_of_the_week_management <<E, EVENT_MARK_COLOR>> {
+    + 送信頻度曜日管理ID <<PK>>
+    ---
+    リマインドID <<FK>>
+    送信頻度曜日ID <<FK>>
+  }
+
+  entity "送信頻度管理" as send_frequency_management <<E, EVENT_MARK_COLOR>> {
+    + 送信頻度管理ID <<PK>>
+    ---
+    リマインドID <<FK>>
+    送信頻度タイプID <<FK>>
+    送信頻度変数
+  }
+
+  entity "送信頻度曜日" as send_frequency_day_of_the_week <<R, RESOURCE_MARK_COLOR>> {
+    + 送信頻度曜日ID <<PK>>
+    ---
+    曜日
+  }
+
+  note left of send_frequency_management::送信頻度タイプID
+    * 毎日の場合
+      送信頻度タイプは「x日おき」
+      送信頻度変数は「0」
+    * x日おきの場合
+      送信頻度タイプは「x日おき」
+      送信頻度変数は「x」
+    * 毎週x曜日の場合
+      このテーブルでは管理せず、
+      送信頻度曜日管理テーブルと
+      送信頻度曜日テーブルで管理する
+    * 毎月x日の場合
+      送信頻度タイプは「毎月x日」
+      送信頻度変数は「x」
+    * x週間に1度の場合
+      送信頻度タイプは「x週間に1度」
+      送信頻度変数は「x」
+  end note
+
+  note left of send_frequency_management::送信頻度変数
+    「1」や「2」といった数値のみを保持する
+    
+    数値以外の頻度の設定を行いたいという要望があった場合は、
+    送信頻度曜日管理テーブルのように別の管理用テーブルを作成して、
+    その管理用テーブルとリマインドテーブルを紐付ける
+  end note
+
+  entity "リマインド設定" as remind_setting <<E, EVENT_MARK_COLOR>> {
+    + リマインド設定ID <<PK>>
+    ---
+    ユーザID <<FK>>
+    リマインドID <<FK>>
+    次回通知日時
+  }
+
+  note right of remind_setting
+    タスクが完了した場合は、レコードを削除する
+    ---
+    バッチが起動する度に、次回通知日時 < バッチ起動日時の条件に
+    当てはまるリマインド設定のリマインドを行う
+    リマインドを完了したら、次回通知日時を更新する
+  end note
+}
+
+package "ユーザ" as userpkg {
+  entity "ユーザ" as user <<R, RESOURCE_MARK_COLOR>> {
+    + ユーザID <<PK>>
+    ---
+    ユーザ名
+  }
+}
+
+remind ||-r-|{ remind_setting
+remind }o--|| user
+remind_setting }o--|| user
+remind ||--o| send_frequency_day_of_the_week_management
+remind ||--o| send_frequency_management
+send_frequency_day_of_the_week_management }o--|| send_frequency_day_of_the_week
+send_frequency_management }o--|| send_frequency
+
+@enduml
