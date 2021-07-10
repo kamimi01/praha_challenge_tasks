@@ -273,11 +273,14 @@ public interface TaskQueryService {
   - 静的型付け言語が向いている
   - 動的型付け言語でも、タイプヒントと静的解析の組み合わせで補完することができる
 
-
 ## 参考
 
+- （書籍）ドメイン駆動設計 モデリング/実装ガイド
+- [little-hands/ddd-q-and-a](https://github.com/little-hands/ddd-q-and-a)
+- [DDD基礎解説：Entity、ValueObjectってなんなんだ](https://little-hands.hatenablog.com/entry/2018/12/09/entity-value-object)
 - [sergdort/CleanArchitectureRxSwift](https://github.com/sergdort/CleanArchitectureRxSwift)
 - [クリーンアーキテクチャ完全に理解した](https://gist.github.com/mpppk/609d592f25cab9312654b39f1b357c60)
 - [Swift/iosで開発するドメイン駆動~DDD(風)なモダンなアーキテクチャ](https://qiita.com/ko2ic/items/6ac7321189e8c3ac1665)
 - [お前らがModelと呼ぶアレをなんと呼ぶべきか。近辺の用語(EntityとかVOとかDTOとか)について整理しつつ考える](https://qiita.com/takasek/items/70ab5a61756ee620aee6)
 - [『実践ドメイン駆動設計』に基づいてTypeScriptで設計した話](https://qiita.com/Umibows/items/4146b4147e2340686744)
+- [Clean Authentication with Typescript+Inversify+DDD](https://www.youtube.com/watch?v=CB9ejEsmTZY)
