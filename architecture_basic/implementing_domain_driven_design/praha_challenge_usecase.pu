@@ -11,11 +11,11 @@ rectangle プラハチャレンジ {
   usecase "退会する" as UC4
   usecase "チームを移動する" as UC5
     note right of UC5
-      他の参加者の休会、復会、復帰によって発生する
+      他の参加者の休会、退会、復帰によって発生する
     end note
   usecase "ペアを移動する" as UC6
     note right of UC6
-      他の参加者の休会、復会、復帰によって発生する
+      他の参加者の休会、退会、復帰によって発生する
     end note
 }
 
