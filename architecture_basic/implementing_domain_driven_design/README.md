@@ -86,3 +86,8 @@
 ![](../../assets/在籍ステータス状態遷移図.png)
 
 ![](../../assets/進捗ステータス状態遷移図.png)
+
+# 課題2
+
+- 実装は以下のリポジトリ
+  - [kamimi01/implementing-ddd](https://github.com/kamimi01/implementing-ddd)
