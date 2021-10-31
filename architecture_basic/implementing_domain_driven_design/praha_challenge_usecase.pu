@@ -1,0 +1,30 @@
+@startuml
+
+title "ユースケース図"
+
+left to right direction
+actor "参加者" as actor
+rectangle プラハチャレンジ {
+  usecase "課題の進捗を変更する\n(未着手、着手中、レビュー待ち、完了)" as UC1
+  usecase "休会する" as UC2
+  usecase "復帰する\n（休会中の参加者のみ可能）" as UC3
+  usecase "退会する" as UC4
+  usecase "チームを移動する" as UC5
+    note right of UC5
+      他の参加者の休会、退会、復帰によって発生する
+    end note
+  usecase "ペアを移動する" as UC6
+    note right of UC6
+      他の参加者の休会、退会、復帰によって発生する
+    end note
+}
+
+actor --> UC1
+actor --> UC2
+actor --> UC3
+actor --> UC4
+actor --> UC5
+actor --> UC6
+@enduml
+
+@enduml

@@ -1,0 +1,76 @@
+@startuml
+
+title "ドメインモデル図"
+
+skinparam PackageStyle rectangle
+skinparam Linetype ortho
+
+package "参加者集約" as participant_boundary {
+  object 参加者 {
+    参加者ID
+    名前
+    メールアドレス
+    在籍ステータス
+  }
+
+  note right of 参加者
+    * 在籍ステータスに関するルール
+      ・以下の3種類のステータスが存在
+        ・在籍中
+        ・休会中
+        ・退会済み
+  end note
+
+  object チーム {
+    チーム名
+    ペアID
+  }
+
+  note top of チーム
+    * チーム名に関するルール
+      ・1以上999以下の整数であること
+      ・3文字以下であること
+    * 参加者数に関するルール
+      ・3人以上であること
+      ・上限人数はなし
+  end note
+
+  object ペア {
+    ペア名
+    参加者ID
+  }
+
+  note right of ペア
+    * ペア名に関するルール
+      ・英数字であること
+    * 参加者数に関するルール
+      ・2人以上3人以下であること
+  end note
+}
+
+package 課題集約 as issue_boundary {
+  object 課題 {
+    課題名
+    進捗ステータス
+  }
+
+  note right of 課題
+    * 進捗ステータスに関するルール
+      ・以下の4種類が存在
+        ・未着手
+        ・着手中
+        ・レビュー待ち
+        ・完了
+      ・ステータス変更の流れは上から下であること
+      ・ステータス変更の流れに逆らうことはできない
+        ・例えば、着手中→未着手に戻すことはできない
+      ・ステータスを変更できるのは、所有参加者のみ
+      ・ステータスはいつでも変更可能
+  end note
+}
+
+参加者 "1..n" -down-* "1" ペア
+ペア "1..n" -left-* "1" チーム
+課題 "1..n" -left-> "0..n" 参加者
+
+@enduml
