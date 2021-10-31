@@ -31,3 +31,4 @@
 - [Create a Next.js App](https://nextjs.org/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website)
 - [Next.jsを使うべき5つの理由 + 実装Tips](https://qiita.com/Yuki_Oshima/items/5c0dfd8f7af8fb76af8f)
 - [Create Next App](https://nextjs.org/docs/api-reference/create-next-app)
+- [今さら聞けないNext.jsをTypeScript化する方法【2021年4月版】](https://zenn.dev/yukito0616/articles/fa41ea2d0cb308)
