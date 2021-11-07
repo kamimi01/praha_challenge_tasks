@@ -6,9 +6,10 @@
 <details>
 <summary>Details</summary>
 
-- [Next.jsとは](#nextjs%E3%81%A8%E3%81%AF)
-- [環境構築](#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
-- [参考](#%E5%8F%82%E8%80%83)
+  - [Next.jsとは](#nextjs%E3%81%A8%E3%81%AF)
+- [クライアントサイドナビゲーション](#%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%83%8A%E3%83%93%E3%82%B2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
+  - [環境構築](#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
+  - [参考](#%E5%8F%82%E8%80%83)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
