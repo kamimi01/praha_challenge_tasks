@@ -57,7 +57,8 @@
   - スコープを決める必要がある
     - 今回は課題に記載されていることのみが与えられたドメインに関する知識と想定し、そこに記載されている内容は全てスコープ内とする
 
-![](../../assets/praha_challenge_usecase.png)
+<!-- ![](../../assets/praha_challenge_usecase.png) -->
+![](./usecase.drawio.svg)
 
 - モデル図
   - 簡易化したクラス図のようなもの
