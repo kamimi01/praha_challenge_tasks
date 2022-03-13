@@ -98,6 +98,10 @@
 
 ![](../../assets/進捗ステータス状態遷移図.png)
 
+- ER図
+
+![](entity_relation.drawio.svg)
+
 # 課題2
 
 - 実装は以下のリポジトリ
