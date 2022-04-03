@@ -282,3 +282,4 @@
 - [【AWS Black Belt Online Seminar】AWS Identity and Access Management (AWS IAM) Part1](https://www.youtube.com/watch?v=K7F5yTThynw)
 - [【AWS Black Belt Online Seminar】AWS Identity and Access Management (AWS IAM) Part2](https://www.youtube.com/watch?v=qrZKKF6V6Dc)
 - [AWSのIAMロールとポリシーの違い](https://qiita.com/montama/items/90bb8a3973d101be4690)
+- [ターゲットグループのヘルスチェック](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/target-group-health-checks.html)
