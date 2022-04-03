@@ -1,8 +1,22 @@
 # 課題1
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [それぞれのAZのプラベートサブネットにEC2インスタンスを構築](#%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AEaz%E3%81%AE%E3%83%97%E3%83%A9%E3%83%99%E3%83%BC%E3%83%88%E3%82%B5%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%ABec2%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E6%A7%8B%E7%AF%89)
+- [それぞれのEC2にNginxを導入](#%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AEec2%E3%81%ABnginx%E3%82%92%E5%B0%8E%E5%85%A5)
+- [それぞれのEC2インスタンスから別々のHTMLページを返すように](#%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AEec2%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%8B%E3%82%89%E5%88%A5%E3%80%85%E3%81%AEhtml%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E8%BF%94%E3%81%99%E3%82%88%E3%81%86%E3%81%AB)
+- [いずれかのパブリックサブネットにALB（アプリケーションロードバランサー）を設置して、ALB経由でブラウザからnginxで設定したページにアクセスできるように](#%E3%81%84%E3%81%9A%E3%82%8C%E3%81%8B%E3%81%AE%E3%83%91%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B5%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%ABalb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E3%83%90%E3%83%A9%E3%83%B3%E3%82%B5%E3%83%BC%E3%82%92%E8%A8%AD%E7%BD%AE%E3%81%97%E3%81%A6alb%E7%B5%8C%E7%94%B1%E3%81%A7%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89nginx%E3%81%A7%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%9F%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB)
+- [その他の整理](#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E6%95%B4%E7%90%86)
+  - [Nginx（エンジンエックス）とは](#nginx%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%82%A8%E3%83%83%E3%82%AF%E3%82%B9%E3%81%A8%E3%81%AF)
+  - [ALB（Application Load Balancing）とは](#albapplication-load-balancing%E3%81%A8%E3%81%AF)
+- [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## それぞれのAZのプラベートサブネットにEC2インスタンスを構築
 
