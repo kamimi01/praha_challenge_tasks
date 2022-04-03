@@ -114,8 +114,11 @@ sudo vi index.html
 
 - > Elastic Load Balancing は、受信したトラフィックを複数のアベイラビリティーゾーンの複数のターゲット (EC2 インスタンス、コンテナ、IP アドレスなど) に自動的に分散させます。登録されているターゲットの状態をモニタリングし、正常なターゲットにのみトラフィックをルーティングします。Elastic Load Balancing は、受信トラフィックの時間的な変化に応じて、ロードバランサーをスケーリングします。また、大半のワークロードに合わせて自動的にスケーリングできます。
 
+![](../../../assets/aws_redundant_web_app_alb.png)
+
 ## 参考
 
 - [プライベートサブネット内のWebサーバにブラウザでアクセスする方法](https://zenn.dev/tmasuyama1114/articles/25aec930b9cd66)
 - [SSHを制してインフラを制する。ローカルポートフォワードを使いこなす](https://blog.mosuke.tech/entry/2014/12/31/170545/)
 - [Application Load Balancer とは?](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html)
+- [[AWS Black Belt Online Seminar] Elastic Load Balancing (ELB)](https://d1.awsstatic.com/webinars/jp/pdf/services/20191029_AWS-Blackbelt_ELB.pdf)
