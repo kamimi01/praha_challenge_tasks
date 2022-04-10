@@ -106,7 +106,7 @@ sudo vi index.html
 
 1. ALBを作成する
 
-
+- ターゲットグループには、パブリックサブネットに配置されたEC2インスタンスではなく、プライベートサブネットに配置されたEC2インスタンスを登録する（パブリックのEC2を登録しても、HTMLが表示されない...）
 
 ## その他の整理
 
@@ -136,3 +136,4 @@ sudo vi index.html
 - [SSHを制してインフラを制する。ローカルポートフォワードを使いこなす](https://blog.mosuke.tech/entry/2014/12/31/170545/)
 - [Application Load Balancer とは?](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html)
 - [[AWS Black Belt Online Seminar] Elastic Load Balancing (ELB)](https://d1.awsstatic.com/webinars/jp/pdf/services/20191029_AWS-Blackbelt_ELB.pdf)
+- [AWS EC2にALBを導入し、Webサーバーのロードバランシングを実現する手順](https://nishinatoshiharu.com/ec2-with-alb-setting/)
