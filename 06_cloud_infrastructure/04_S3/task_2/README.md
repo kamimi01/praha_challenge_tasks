@@ -3,9 +3,15 @@
 ## Table of Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
 
+  - [S3における「バージョニング」と「レプリケーション」の違い](#s3%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8%E3%83%AC%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%95%E3%81%84)
+  - [レプリケーション](#%E3%83%AC%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)
+  - [バージョニング](#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0)
+- [参考](#%E5%8F%82%E8%80%83)
 
-
+</details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### S3における「バージョニング」と「レプリケーション」の違い
