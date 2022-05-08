@@ -18,7 +18,8 @@
 itation_to_name`
   - 想定通り、エラーが発生する
 
-```shell$  npx prisma migrate dev --name add_not_null_lim
+```shell
+$  npx prisma migrate dev --name add_not_null_lim
 itation_to_name 
 Prisma schema loaded from prisma/schema.prisma
 Datasource "db": SQLite database "dev.db" at "file:./dev.db"
@@ -35,12 +36,17 @@ Then run prisma migrate dev to apply it and verify it works.
 
 ## マイグレーションの作業手順書
 ### マイグレーション手順書
-#### この手順書で説明すること
 
-- `User`テーブルの`name`カラムに、`NOT NULL`制約を追加する方法
+#### 作業環境
+
+- 作業者名：xxx
+- 作業目的：`User`テーブルの`name`カラムに、`NOT NULL`制約を追加する
+- 作業日時：yyyy/MM/dd hh:mm - hh:mm
+- 対象システム：xxx
 
 #### 作業前の注意事項
 
+- 各手順を実行前、実行後にSlackで報告すること
 - コマンドやクエリを実行した際は、スクリーンショットまたはテキストをコピーして保存しておくこと
 
 #### 作業手順
@@ -81,6 +87,15 @@ Then run prisma migrate dev to apply it and verify it works.
 
 `実行するクエリ`
 
+#### 発生しうる問題
+
+- 問題：7のコマンド実行時に、以下のエラーが発生
+  - 対策：`name`カラムに`NULL`値が存在しているため、6の実行結果を確認する。実行していない場合は実行する。
+
+```shell
+Step 0 Made the column `name` on table `User` required, but there are 1 existing NULL values
+```
+
 ### マイグレーションの実施
 
 - マイグレーションを実行する
@@ -109,3 +124,16 @@ Your database is now in sync with your schema.
 - `name`カラムに`NOT NULL`制約がかかったため、`NULL`が設定できなくなった
 
 ![](../../../assets/service_ope_migratioin_prisma_error.png)
+
+### 上記以外に、どのような情報を手順書に残しておくと良いか?
+
+- 作業環境
+- 関連する構成図
+- エスカレーション先
+- フォールバック手順
+  
+## 参考
+
+- [【システム運用】本番作業の心得](https://teruyalog.com/production-work-knowledge/)
+- [本番作業の作業手順書の書き方](https://note.com/rhayahi/n/nf3d98e0fd1fe)
+- [【社内資料公開】運用手順書を作る時のポイントについて書いてみた](https://dev.classmethod.jp/articles/cm-operation-manual-howto/)
