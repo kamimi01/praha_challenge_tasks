@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [A Practical Introduction to Prisma](#a-practical-introduction-to-prisma)
+  - [Setup](#setup)
+    - [1. Clone this repository](#1-clone-this-repository)
+    - [2. Install dependencies](#2-install-dependencies)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # A Practical Introduction to Prisma
 
 This repository contains the starter project for the **Database Workflows & API Development with Prisma** workshop by [Nikolas Burk](https://twitter.com/nikolasburk).
