@@ -19,7 +19,7 @@
   - [NewRelic](https://newrelic.com/jp)
 
 - データベースのスロークエリを可視化して、レスポンスに5秒以上かかるクエリがある場合は開発者にSlackで知らせる
-  - [Data](https://www.datadoghq.com/ja/)
+  - [Datadog](https://www.datadoghq.com/ja/)
 
 ## WEBアプリケーションを安定稼働させるため、上記の他に監視しておいた方が良いメトリクス
 
