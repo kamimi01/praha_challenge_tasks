@@ -1,8 +1,19 @@
 # 課題1
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [チーム開発でlintを使うべき理由](#%E3%83%81%E3%83%BC%E3%83%A0%E9%96%8B%E7%99%BA%E3%81%A7lint%E3%82%92%E4%BD%BF%E3%81%86%E3%81%B9%E3%81%8D%E7%90%86%E7%94%B1)
+- [ESLintについて](#eslint%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+  - [ESLintが定義するルールの中から、最重要だと感じるルールを5つ](#eslint%E3%81%8C%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AE%E4%B8%AD%E3%81%8B%E3%82%89%E6%9C%80%E9%87%8D%E8%A6%81%E3%81%A0%E3%81%A8%E6%84%9F%E3%81%98%E3%82%8B%E3%83%AB%E3%83%BC%E3%83%AB%E3%82%925%E3%81%A4)
+  - [ESLintのルールに規定のconfigを読み込んでみる](#eslint%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%AB%E8%A6%8F%E5%AE%9A%E3%81%AEconfig%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A7%E3%81%BF%E3%82%8B)
+- [参考](#%E5%8F%82%E8%80%83)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## チーム開発でlintを使うべき理由
 
