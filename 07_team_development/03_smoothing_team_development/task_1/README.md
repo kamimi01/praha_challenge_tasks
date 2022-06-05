@@ -1,8 +1,17 @@
 # 課題1
 
 ## Table of Contents
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Details</summary>
+
+- [PR（プルリクエスト）は小さく提出することが良しとされる現場が多い傾向にあります。何故でしょうか？](#pr%E3%83%97%E3%83%AB%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AF%E5%B0%8F%E3%81%95%E3%81%8F%E6%8F%90%E5%87%BA%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E8%89%AF%E3%81%97%E3%81%A8%E3%81%95%E3%82%8C%E3%82%8B%E7%8F%BE%E5%A0%B4%E3%81%8C%E5%A4%9A%E3%81%84%E5%82%BE%E5%90%91%E3%81%AB%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99%E4%BD%95%E6%95%85%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B)
+- [コードのコメントに書くべきこと、 書くべきではないこと](#%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E6%9B%B8%E3%81%8F%E3%81%B9%E3%81%8D%E3%81%93%E3%81%A8-%E6%9B%B8%E3%81%8F%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8)
+- [Gitなどのコミットコメントに書くべきこと、書くべきではないこと](#git%E3%81%AA%E3%81%A9%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%83%E3%83%88%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E6%9B%B8%E3%81%8F%E3%81%B9%E3%81%8D%E3%81%93%E3%81%A8%E6%9B%B8%E3%81%8F%E3%81%B9%E3%81%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## PR（プルリクエスト）は小さく提出することが良しとされる現場が多い傾向にあります。何故でしょうか？
 
