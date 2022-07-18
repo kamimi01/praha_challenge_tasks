@@ -38,6 +38,16 @@ export default function App() {
 - `class component`とは
   - `React.Component`を拡張したクラスを作成し、レンダリング対象のJSXはrenderメソッド内で返される
 
+```js
+import React from "react";
+
+class ClassComponent extends React.Component {
+ render() {
+   return <h1>Hello world</h1>;
+ }
+}
+```
+
 ## 整理
 
 ### コンポーネントベース開発
